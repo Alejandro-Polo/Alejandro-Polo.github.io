@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- añadimos el documento js externo-->
+    <script src="relacion1-3.js"></script>
+    <title>Ejercicio2</title>
+</head>
+<body>
+    <script>
+        // definimos y pedimos al usuario 3 variables que usaremos en nuestra función
+        let currentage=parseInt(prompt("Introduce tu edad actual: "))
+        let maxage = parseInt(prompt("¿Hasta cuantos años piensas vivir?"))
+        let snackperday = parseInt(prompt("¿Qué cantidad de tu comida favorita comerías al día?"))
+        let snacksnecesarios= supplyCalculator(currentage,maxage,snackperday)
+        // mostramos cuanta comida necesita para poder comer lo que ponga hasta el día de su muerte
+        alert("Necesitarás "+snacksnecesarios+" de tu comida favorita para que te dure hasta la vejez de "+maxage);
+
+    </script>
+</body>
+</html>

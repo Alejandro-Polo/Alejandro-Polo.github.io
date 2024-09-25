@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- añadimos el documento js externo-->
+    <script src="relacion1-3.js"></script>
+    <title>Ejercicio3</title>
+</head>
+<body>
+    <script>
+        // definimos variables que usaremos en el ejercicio
+        let radio= parseInt(prompt("Introduce el radio de la circunferencia para hacer el área y el perímetro:"))
+        let arearesultado= area(radio);
+        let perimetroresultado=circunference(radio);
+        // redondeo a dos decimales ambos resultados
+        areaResultado = areaResultado.toFixed(2);
+        perimetroResultado = perimetroResultado.toFixed(2);
+        // mostramos al usuario
+        alert("El área es " + arearesultado + " y el perímetro es "+ perimetroresultado)
+    </script>
+</body>
+</html>

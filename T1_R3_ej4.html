@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- añadimos el documento js externo-->
+    <script src="relacion1-3.js"></script>
+    <title>Ejercicio4</title>
+</head>
+
+<body>
+    <script>
+        // el usuario introduce los grados celcius para pasarlos a fahrengeit
+        let C_entrada = parseFloat(prompt("Introduce los grados celsius para pasarlos a fahrengeit:"));
+        let F_resultado = celsiparafah(C_entrada);
+        alert(C_entrada + " °C son " + F_resultado + " °F.");
+
+        // el usuario 
+        let F_entrada = parseFloat(prompt("Introduce la temperatura en Fahrenheit:")); // Almacena la temperatura en Fahrenheit
+        let C_resultado = fahparacelsi(F_entrada);
+        // se redondean los grados celsius antes de mostrarlos ya que pueden tener muchos decimales
+        alert(F_entrada + " °F son " + C_resultado.toFixed(2) + " °C.");
+
+    </script>
+</body>
+
+</html>
