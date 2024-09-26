@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejercicio3</title>
+</head>
+
+<body>
+    <script>
+        var horainicial = 9;
+        var minutos = 0;
+        var minutosymedia = 30; // creo estas dos variables porque al mostrar los minutos 
+        var minutosenpunto = "00"; // los minutos en punto salian con un solo cero
+        var booleanomediahora = false; // Variable booleana que usare para poner los minutos a y media o en punto
+        for (horainicial; horainicial <= 21; horainicial++) {
+            for (var n = 0; n < 2; n++) {
+                if (booleanomediahora) {
+                    minutos = minutosymedia; // cuando sea true
+                } else {
+                    minutos = minutosenpunto; // cuando sea false
+                }
+                document.write(horainicial + ":" + minutos + "<br>"); // muestro por pantalla la hora final
+                booleanomediahora= !booleanomediahora; // cambio el valor de la variable booleana
+            }
+        }
+        
+    </script>
+</body>
+
+</html>

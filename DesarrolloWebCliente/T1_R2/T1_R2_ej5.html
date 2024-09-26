@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta name="Alejandro Polo Barranco">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio5</title>
+</head>
+
+<body>
+    <script>
+        // recojo el numero a adivinar 
+        var numerosecreto = parseInt(prompt("Jugador 1: Introduce el número a adivinar (manténlo en secreto)."));
+        var intentos;
+
+        // entraremos en un bucle hasta que el jugador 2 adivine el numero
+        do {
+            intentos = parseInt(prompt("Jugador 2: Adivina el número"));
+
+            if (intentos < numerosecreto) { // comprobando si el numero es menor o mayor se daran pistas
+                alert("El número es mayor. Intenta de nuevo.");
+            } else if (intentos > numerosecreto) {
+                alert("El número es menor. Intenta de nuevo.");
+            } else {
+                alert("¡Felicidades! Has adivinado el número.");
+            }
+
+        } while (intentos !== numerosecreto);  /* cuando el jugador 2 adivine el numero se cumplera la 
+            condicion y se terminara el bucle */
+    </script>
+</body>
+
+</html>

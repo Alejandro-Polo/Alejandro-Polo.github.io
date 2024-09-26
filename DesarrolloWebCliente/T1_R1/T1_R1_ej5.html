@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejercicio5</title>
+</head>
+
+<body>
+    <script>
+        var countdown = prompt("Introduce un número para iniciar la cuenta atrás");
+        while (countdown > 0) {
+            alert(countdown + "... ");
+            //countdown--;
+            countdown++;
+        }
+        /* cuando cambiamos countdown-- por countdown++ estamos entrando en un bucle infinito ya que la condición del while nunca 
+            se va a cumplir, teniendo en cuenta esto para solucionar el problema podríamos pedir un número como maximo y terminar 
+            cuando nuestro contador llegue hasta ese número.
+        */
+    </script>
+</body>
+
+</html>

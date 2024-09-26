@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio4</title>
+</head>
+<body>
+    <script>
+        // declaramos las variables y las declaramos a enteros
+        var numcolumnas = parseInt(prompt("Escribe las columnas que quieres en tu tabla."));
+        var alto = parseInt(prompt("Escribe el alto que tendrán tus celdas."));
+        var ancho = parseInt(prompt("Escribe el ancho que tendrán tus celdas."));
+
+        document.write("<table border=0 cellspacing=2 bgcolor=black width=200>");
+        document.write("<tr height=" + alto + ">");
+        // con la ayuda de una nueva variable nos ayudamos para crear la condicion del while
+        var c = 0;
+        while (c < numcolumnas) {
+            document.write("<td width=" + ancho + " bgcolor=white></td>");
+            c++; // incrementamos la variable c para que el bucle tenga fin
+        }
+
+        document.write("</tr>");
+        document.write("</table>");
+    </script>
+</body>
+</html>

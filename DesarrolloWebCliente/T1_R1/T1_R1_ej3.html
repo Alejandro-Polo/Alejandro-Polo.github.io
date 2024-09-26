@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio3</title>
+</head>
+
+<body>
+    <script>
+        let anosusu = parseInt(prompt("Introduce tu edad:"));
+        // Con ifs anidados comprobamos las posibles edades que puede tener el usuario
+        if (anosusu > 18) {
+            alert("Eres absoluto");
+        } else if (anosusu >= 16 && anosusu <= 18) {
+            alert("Eres juvenil");
+        } else if (anosusu >= 14 && anosusu <= 15) {
+            alert("Eres cadete");
+        } else if (anosusu >= 12 && anosusu <= 13) {
+            alert("Eres infantil");
+        } else if (anosusu >= 10 && anosusu <= 11) {
+            alert("Eres alevín");
+        } else if (anosusu >= 8 && anosusu <= 9) {
+            alert("Eres benjamín");
+        } else {
+            alert("Eres demasiado pequeño cuando tengas al menos 8 años podras entrar.");
+        }
+    </script>
+</body>
+
+</html>

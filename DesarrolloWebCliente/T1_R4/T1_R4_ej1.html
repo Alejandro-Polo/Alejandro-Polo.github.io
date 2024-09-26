@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- añadimos el documento js externo-->
+    <script src="relacion1-4.js"></script>
+    <title>Ejercicio1</title>
+</head>
+<body>
+    <script>
+        /* defino una variable para usarla en un bucle y un array 
+           para guardar todos los números dados por el usuario
+        */
+        let num;
+        let arraynums = [];
+        // con un bucle me aseguro de estar pidiendo números hasta que el usuario quiera
+        while(num!== "x"){
+            numdeargumentos=parseInt(prompt("Introduce números (introduce x para terminar de pedir:)"))
+            // añado los numeros introducidos por el usuario
+            arraynums.push(parseInt(num));
+        }
+        let resultado = sum(numdeargumentos);
+        alert("La suma de todos estos números da "+ resultado);
+
+    </script>
+</body>
+</html>

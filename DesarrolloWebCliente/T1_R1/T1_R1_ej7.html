@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejercicio7</title>
+</head>
+
+<body>
+    <script>
+        // creamos dos variables una para guardar la respuesta correcta y otra para guardar lo que nos de el usuario
+        var respuestacorrecta = "Suárez";
+        var respuestausuario = "";
+        // creamos un bucle while ya que se tendra que repetir hasta que el usuario responda correctamente
+        while (respuestausuario !== respuestacorrecta) {
+            respuestausuario = prompt("¿Cuál es el apellido del primer presidente de la democracia española:");
+            if (respuestausuario !== respuestacorrecta) {
+                alert("Respuesta incorrecta. Inténtalo de nuevo.");
+            }
+        }
+        // si el usuario acierta mostraremos que la respuesta es correcta
+        alert("Respuesta correcta!!!");
+    </script>
+</body>
+
+</html>

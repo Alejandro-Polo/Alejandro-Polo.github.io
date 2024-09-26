@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio8</title>
+</head>
+<body>
+    <script>
+        // defino y solicito al usuario el alto y el ancho de cada celda
+        var ancho = parseInt(prompt("Introduce el ancho (y alto) de cada celda en pixeles:"));
+
+        document.write("<table border='1'>");
+            // usamos dos bucles anidados para poder generar las columnas y las filas
+        for (let i = 0; i < 8; i++) {
+            document.write("<tr>"); 
+            for (let j = 0; j < 8; j++) {
+                // alteramos entre blanco y negro para que de ese toque de ajedrez
+                var color = (i + j) % 2 === 0 ? 'white' : 'black'; // blanco par ,negro impar
+                document.write("<td height='" + ancho + "px' width='" + ancho + "px' bgcolor='" + color + "'></td>"); // Crear una celda
+            }
+            document.write("</tr>"); 
+        }
+        document.write("</table>"); 
+    </script>
+</body>
+</html>

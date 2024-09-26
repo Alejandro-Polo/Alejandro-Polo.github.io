@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejercicio8</title>
+</head>
+
+<body>
+    <script>
+        // declaro tres variables para las variables con las respuestas correctas y la respuesta del usuario
+        var nombrecorrecto = "Adolfo";
+        var apellidocorrecto = "Suárez";
+        var respuestausuario = "";
+
+        while (true) {
+            respuestausuario = prompt("¿Cuál fue el primer presidente de la democracia española?");
+
+            // convertimos la respuesta a minúsculas para comparar sin importar mayusculas/minusculas
+            var respuestaminus = respuestausuario.toLowerCase();
+
+            // comprobar si incluye el nombre correcto y el apellido correcto
+            if (respuestaminus.includes(nombrecorrecto.toLowerCase()) && respuestaminus.includes(apellidocorrecto.toLowerCase())) {
+                alert("Respuesta correcta!");
+                break;  // cuando la respuesta sea correcta salimos del bucle
+            } else if (respuestaminus.includes(nombrecorrecto.toLowerCase())) {
+                alert("Te falta el apellido. ¿Cuál fue el primer presidente de la democracia española?");
+            } else if (respuestaminus.includes(apellidocorrecto.toLowerCase())) {
+                alert("Te falta el nombre. ¿Cuál fue el primer presidente de la democracia española?");
+            } else { // mostramos un error en caso de que no sea ninguna de las anteriores
+                alert("ERROR. Inténtelo de nuevo. ¿Cuál fue el primer presidente de la democracia española?");
+            }
+        }
+    </script>
+</body>
+
+</html>

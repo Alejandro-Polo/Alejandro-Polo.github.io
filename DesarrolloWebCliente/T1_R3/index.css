@@ -1,0 +1,55 @@
+/* centro el contenido del body de mi pagina index 
+    alineo verticalmente con flex-direction
+*/
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* centro el titulo en la parte superior y le doy un color más oscuro */
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* uso flexbox para centrar por las columnas y que tengan alineacion horizontal */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* margen de 10 pixeles encima y debajo de los li*/
+li {
+    margin: 10px 0;
+}
+
+/*  se añade color tanto a la letra como al fondo de los enlaces
+    , se redondean los bordes y se añade una transicion suave 
+    cuando el usuario active el  :hover
+*/
+a {
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+/* cambia el color del fondo anteriormente puesto con una transicion 
+    suave
+*/
+a:hover {
+    background-color: #0056b3;
+}

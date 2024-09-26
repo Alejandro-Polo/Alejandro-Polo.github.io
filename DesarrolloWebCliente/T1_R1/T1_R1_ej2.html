@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio2</title>
+</head>
+
+<body>
+    <script>
+        /* Pedimos al usuario su edad con un prompt y con el operador condicional terniario guardamos
+            en la variable anousuario referenciando al año pero como la ñ es un caracter no valido la
+            sustituimos por la n si es menor la edad sustituida guarda la primera expresion y sino 
+            guarda la segunda, luego con alert o window.alert mostramos el resultado */
+        let anousuario = prompt("Introduce tu edad:") < 18 ? "Eres menor de edad" : "Eres mayor de edad";
+        alert(anousuario);
+    </script>
+</body>
+
+</html>
