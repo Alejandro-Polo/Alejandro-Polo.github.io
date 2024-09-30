@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- añadimos el documento js externo-->
+        <script src="relacion1_T2.js"></script>
+    <title>Ejercicio1</title>
+</head>
+<body>
+    <script>
+        const hoy = new Date();
+        let timehoy = hoy.getTime();
+        let vacaciones = new Date("2024,12,19");
+        let timevacaciones = vacaciones.getTime();
+        let diferencia = timevacaciones - timehoy;
+        // se puede pasar de milisegundos a horas dividiendo entre 3600000
+        let horas= diferencia/3600000;
+        // se pasan las horas a dias
+        let dias=horas/24;
+        alert("Quedan "+dias+" hasta navidad")
+
+    </script>
+</body>
+
+</html>
