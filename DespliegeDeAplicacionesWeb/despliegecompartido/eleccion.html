@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read the Docs - Herramienta de Documentación</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Read the Docs</h1>
+        <!-- Menu desplegable -->
+        <nav id="menu-desplegable">
+            <button id="boton-menu">Menú</button>
+            <ul id="lista-opciones">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="opinion.html">Opinión Personal</a></li>
+                <li><a href="eleccion.html">Elección</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contenedor">
+        <section class="herramienta">
+            <h2>¿Qué es Read the Docs?</h2>
+            <p><b>Read the Docs</b> es una plataforma de código abierto que permite generar y alojar documentación de
+                forma automática a partir del código. Se conecta fácilmente con repositorios como GitHub, GitLab o
+                Bitbucket, lo que facilita la creación de documentación a medida que el código se actualiza.</p>
+            <p>Utiliza el motor <b>Sphinx</b> para generar la documentación, que puede estar escrita en lenguajes como
+                Markdown o reStructuredText. La documentación generada puede ser visualizada en varios formatos,
+                incluyendo HTML y PDF.</p>
+        </section>
+
+        <section class="herramienta">
+            <h2>Características Principales</h2>
+            <ul>
+                <li><b>Automatización desde el código:</b> Cada vez que se actualiza el repositorio de código, la
+                    documentación también se actualiza automáticamente.</li>
+                <li><b>Soporte para múltiples lenguajes:</b> Aunque inicialmente fue diseñado para Python, Read the Docs
+                    también puede ser usado para proyectos en PHP, JavaScript y otros lenguajes.</li>
+                <li><b>Control de versiones:</b> Es posible mantener distintas versiones de la documentación para que
+                    los usuarios puedan acceder a la versión correcta según el estado del proyecto.</li>
+                <li><b>Hosting gratuito:</b> Read the Docs ofrece alojamiento gratuito para proyectos públicos,
+                    permitiendo que cualquiera acceda fácilmente a la documentación.</li>
+                <li><b>Sphinx como motor:</b> Utiliza Sphinx, una potente herramienta de documentación para generar
+                    estructuras de documentación ricas con tablas, referencias cruzadas y más.</li>
+            </ul>
+        </section>
+
+        <section class="herramienta">
+            <h2>Ventajas de Usar Read the Docs en Clase</h2>
+            <ul>
+                <li><b>Gratuito:</b> El alojamiento gratuito es ideal para estudiantes y proyectos colaborativos.</li>
+                <li><b>Automatización fácil:</b> Configurarlo una vez permite que la documentación se mantenga
+                    actualizada con el código sin esfuerzo adicional.</li>
+                <li><b>Control de versiones:</b> Puedes tener múltiples versiones de la documentación, lo que es útil
+                    para mantener un registro de los cambios a lo largo del tiempo.</li>
+                <li><b>Accesibilidad:</b> Toda la clase puede acceder a la documentación desde cualquier lugar y en
+                    cualquier momento.</li>
+                <li><b>Buenas prácticas:</b> Fomenta una cultura de documentación desde el principio, lo cual es
+                    fundamental en el desarrollo de software.</li>
+            </ul>
+        </section>
+
+        <section class="herramienta">
+            <h2>Desafíos y Limitaciones</h2>
+            <ul>
+                <li><b>Lenguajes específicos de documentación:</b> Para generar la documentación, se utilizan lenguajes
+                    como reStructuredText o Markdown, que deben ser configurados correctamente.</li>
+                <li><b>Menos opciones de personalización:</b> En comparación con otras herramientas pagas, Read the Docs
+                    tiene menos flexibilidad para personalizar el diseño visual de la documentación.</li>
+                <li><b>Dependencia de repositorios públicos:</b> Para proyectos privados, será necesario utilizar planes
+                    de pago si el repositorio o la documentación también es privada.</li>
+            </ul>
+        </section>
+    </main>
+
+    <script src="menu.js"></script>
+</body>
+
+</html>

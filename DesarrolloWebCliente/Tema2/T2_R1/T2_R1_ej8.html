@@ -7,10 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- añadimos el documento js externo-->
     <script src="relacion1_T2.js"></script>
-    <title>Ejercicio1</title>
+    <title>Ejercicio8</title>
 </head>
 
 <body>
+    <script>
+        const frase=prompt("Introduce una frase para mostrar cuantas veces se repite la letra 'a'")
+        let contador=0;
+        for (let i = 0; i < frase.length; i++) {
+            if (frase[i]="a") {
+                contador++;
+            }
+        }
+        alert("En la frase se han encontrado "+contador+" veces la letra a")
+    </script>
 </body>
 
 </html>

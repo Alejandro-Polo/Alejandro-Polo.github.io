@@ -7,10 +7,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- añadimos el documento js externo-->
     <script src="relacion1_T2.js"></script>
-    <title>Ejercicio1</title>
+    <title>Ejercicio5</title>
 </head>
 
 <body>
+    <script>
+        let opcion = prompt("Introduce una opción:\n1.Potencia\n2.raiz\n3.Redondeo\n4.Trigonometría");
+        switch (opcion) {
+            case "1":
+                let base = prompt("Introduce el numero que quieres elevar:")
+                let elevado = prompt("Introduce a que numero quieres elevar tu digito:")
+                // math.pow nos permite realizar la potencia del primer numero elevado al segundo
+                alert("La potencia de "+ base +" elevado a "+ elevado +" es "+Math.pow(base, elevado));
+                break;
+            case "2":
+                let numraiz = prompt("Introduce el numero al que le quieres hacer la raiz(no puede ser numero negativo):")
+                if (numraiz<0) {
+                    alert("El número introducido es negativo saliendo del programa....")
+                    break;
+                }
+                // math.sqrt calcula la raiz cuadrada del numero en su interior.
+                alert("La raiz de "+numraiz+" es "+Math.sqrt(numraiz))
+                break;
+            case "3":
+                let numredon = prompt("Introduce un numero para redondear:")
+                // math.ceil nos redondea a la alza y el .floor a la baj
+                alert("El redondeo a la alza es "+Math.ceil(numredon)+"\nY el redondeo a la baja es "+Math.floor(numredon));
+                break;
+            case "4":
+                let angulo = prompt("Introduce un numero para realizar su seno,coseno y tangente:")
+                // math.sin math.cos y math.tan nos permite calcular el seno coseno y tangente del numero en el interior.
+                alert("El seno es "+Math.sin(angulo)+"\nEl coseno es"+Math.cos(angulo)+"\nLa tangente es "+Math.tan(angulo));
+                break;
+            default:
+                alert("No has introducido ningún número valido")
+                break;
+        }
+    </script>
 </body>
 
 </html>

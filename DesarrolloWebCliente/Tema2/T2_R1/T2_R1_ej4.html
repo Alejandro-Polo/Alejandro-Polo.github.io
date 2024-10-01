@@ -7,11 +7,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- añadimos el documento js externo-->
         <script src="relacion1_T2.js"></script>
-        <title>Ejercicio1</title>
+        <title>Ejercicio4</title>
 </head>
 
 <body>
-    <script></script>
+    <script>
+        // recojo la fecha inicial y la paso a milisegundos desde noseque dia de 1970
+        const fechaini = new Date();
+        let tiempoini = fechaini.getTime();
+        // pido el nombre y apellido del usuario
+        let nombre =prompt("Introduce tu nombre de usuario: ");
+        let apellido =prompt("Introduce tu apellido: ");
+        // despues recojemos justo despues de terminar los promp la fecha y la pasamos a milisegundos
+        const fechafin = new Date();
+        let tiempofin = fechafin.getTime();
+        /* restamos la diferencia que seria lo que el usuario ha tardado en introducirlo,
+         pasamos a segundos y redondeamos
+        */
+        let segundostardados = Math.round((tiempofin-tiempoini)/1000);
+        alert("En escribir "+nombre+" "+apellido+" has tardado "+ segundostardados +" segundos.");
+
+        
+    </script>
 </body>
 
 </html>
