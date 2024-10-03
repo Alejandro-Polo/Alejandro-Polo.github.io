@@ -7,10 +7,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- añadimos el documento js externo-->
     <script src="relacion1_T2.js"></script>
-    <title>Ejercicio1</title>
+    <title>Ejercicio10</title>
 </head>
 
 <body>
+    <script>
+        // creo un array para la frase y 5 variables para contar una por una cada vocal
+        const frase = prompt("Introduce una frase para contar cuántas veces aparece cada vocal");
+        let a = 0, e = 0, i = 0, o = 0, u = 0;
+        // con un bucle recorremos el array (pasamos antes todo el array a minuscula)
+        for (let letra of frase.toLowerCase()) {
+            if (letra === 'a') a++;
+            else if (letra === 'e') e++;
+            else if (letra === 'i') i++;
+            else if (letra === 'o') o++;
+            else if (letra === 'u') u++;
+            // sumamos en caso de que se encuentre
+        }
+
+        alert("Vocales encontradas:\nA:"+ a+"\nE: "+e+"\nI: "+i+"\nO: "+o+"\nU: "+u);
+    </script>
 </body>
 
 </html>

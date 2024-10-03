@@ -7,12 +7,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- añadimos el documento js externo-->
     <script src="relacion1_T2.js"></script>
-    <title>Ejercicio1</title>
+    <title>Ejercicio2</title>
 </head>
 <body>
     <script>
+        // se pide al usuario la fecha con formato YYYY-MM-DD
+        let cumpleaños = prompt("Introduzca su fecha de cumpleaños en el formato YYYY-MM-DD:");
 
-        
+        // pasamos a una fecha lo que nos introduzca el usuario
+        let cumpleañosDate = new Date(cumpleaños);
+
+        // se saca el dia y mes del cumpleaños
+        let mesCumpleaños = cumpleañosDate.getMonth(); // 0-11 cuidado!!!
+        let diaCumpleaños = cumpleañosDate.getDate(); // Día del mes del cumpleaños
+
+        // empezamos con un bucle for hasta 2100
+        for (let año = new Date().getFullYear(); año <= 2100; año++) {
+            // se crea una nueva variable que guarde 
+            let fecha = new Date(año, mesCumpleaños, diaCumpleaños);
+
+            // con un if 
+            if (fecha.getDay() === 0) {
+                console.log(`Tu cumpleaños cae en domingo en el año ${año}`);
+            }
+        }
     </script>
 </body>
 

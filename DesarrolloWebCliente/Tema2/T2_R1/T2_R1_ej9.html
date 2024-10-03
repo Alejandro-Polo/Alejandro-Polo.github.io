@@ -7,10 +7,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- añadimos el documento js externo-->
     <script src="relacion1_T2.js"></script>
-    <title>Ejercicio1</title>
+    <title>Ejercicio9</title>
 </head>
 
 <body>
+    <script>
+        // creamos dos arrays uno para guardar la frase y otro para guardar las vocales minuscula y mayuscula
+        const frase = prompt("Introduce una frase para contar cuántas vocales tiene");
+        const vocales = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
+        let contador = 0;
+
+        // con un bucle for 
+        for (let i = 0; i < frase.length; i++) {
+            if (vocales.includes(frase[i])) {
+                contador++;
+            }
+        }
+
+        alert("La frase contiene " + contador + " vocales.");
+    </script>
+</body>
 </body>
 
 </html>

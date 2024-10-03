@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio2</title>
+</head>
+<body>
+    <h1 id="reloj">00:00:00</h1> <!-- mostraremos la hora y la cambiaremos con el id -->
+
+    <script>
+        const actualizarReloj = () => {
+            const ahora = new Date(); // se obtienen la hora y fecha actual cada vez que entremos a la function flecha
+            const horas = ahora.getHours().toString().padStart(2, "0"); // se obtienen las horas
+            const minutos = ahora.getMinutes().toString().padStart(2, "0"); // se obtienen los minutos
+            const segundos = ahora.getSeconds().toString().padStart(2, "0"); // se obtienen los segundos
+
+            const elemento = document.getElementById("reloj"); // selecciono el elemento por la id
+            elemento.textContent = `${horas}:${minutos}:${segundos}`; // se actualiza el contenido del elemento
+
+            setTimeout(actualizarReloj, 1000); // realizamos esto cada segundo
+        };
+
+        actualizarReloj(); 
+    </script>
+</body>
+</html>
