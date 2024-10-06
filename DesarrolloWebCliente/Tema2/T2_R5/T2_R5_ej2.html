@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="relacion5_T2.js"></script>
+    <title>Ejercicio 2</title><!-- ejercicio 13 en el pdf-->
+</head>
+<body>
+    <button onclick="abrirventanasecundaria()">Abrir nueva ventana secundaria</button>
+    <button onclick="cerrarventanasecundaria()">Cerrar ventana secundaria</button>
+    <script>
+        function abrirventanasecundaria(){
+            ventanasecundaria = window.open("","VentanaSecundaria","width=200,heigth=300")
+            ventanasecundaria.document.write('<button onclick="window.close()">Cerrar ventana secundaria</button>')        
+        }
+            function cerrarventanasecundaria(){
+            ventanasecundaria.close();
+        }
+    </script>
+</body>
+</html>

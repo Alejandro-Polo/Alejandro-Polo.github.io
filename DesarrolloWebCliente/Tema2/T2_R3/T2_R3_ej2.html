@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+</head>
+
+<body>
+    <h1>Cálculo de Seno, Coseno y Tangente</h1>
+    <h3>Seno</h3>
+    <p id="seno"></p>
+    <h3>Coseno</h3>
+    <p id="coseno"></p>
+    <h3>Tangente</h3>
+    <p id="tangente"></p>
+
+    <script>
+        // el usuario introduce un angulo para calcular el seno coseno y tangente
+        let angulousuario = parseFloat(prompt("Introduce un ángulo en grados:"));
+
+        // con Math. calculamos el seno el coseno y la tangente
+        let seno = Math.sin(angulousuario);
+        let coseno = Math.cos(angulousuario);
+        let tangente = Math.tan(angulousuario);
+
+        // se cambian los contenidos con la id de los parrafos
+        document.getElementById("seno").textContent = seno;
+        document.getElementById("coseno").textContent = coseno;
+        document.getElementById("tangente").textContent = tangente;
+    </script>
+</body>
+
+</html>

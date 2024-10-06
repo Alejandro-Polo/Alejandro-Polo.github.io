@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="relacion5_T2.js"></script>
+    <title>Ejercicio 1</title><!-- ejercicio 12 en el pdf-->
+    <!-- Escribe un programa en el que se solicite al usuario que escriba un título para una
+página. A continuación se abrirá una nueva ventana de 400 píxeles de alto por 500
+píxeles de ancho, en la que se podrá leer el título ingresado por el usuario.
+ La nueva ventana ha de visualizarse arriba y a la derecha de la pantalla del
+usuario.
+ La ventana principal ha de contener un botón cerrar ventana, que permita
+cerrar la ventana secundaria.-->
+</head>
+
+<body>
+    <!--    cada boton llamara a su funcion correspondiente en la que crea la nueva ventana
+            llevara el texto introducido por el usuario para mostrarlo en su interior-->
+    <button onclick="nuevaventanaderecha(tituloventana)">Nueva ventana Derecha</button>
+    <button onclick="cerrarventana()">Cerrar ventana Emergente</button>
+    <script>
+        let tituloventana = prompt("Introduce un texto a mostrar en la nueva ventana");
+        // funcion para crear una nueva ventana a la derecha
+        function nuevaventanaderecha(textousuario) {
+            // la ventana aparece a la derecha gracias a left y tiene una anchura y altura predefinida dada por el ejercicio
+            ventanaderecha = window.open("", "VentanaDerecha", "width=400,height=500,left=1150",);
+            // mostramos el texto introducido por el usuario como un titulo
+            ventanaderecha.document.write("<h1>" + textousuario + "</h1>");
+        }
+
+        // funcion que cierra la ventana
+        function cerrarventana() {
+            ventanaderecha.close();
+        }
+    </script>
+</body>
+
+</html>

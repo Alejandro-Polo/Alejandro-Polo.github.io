@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio8</title>
+</head>
+<body>
+    <img id="imagenAleatoria" src="" alt="Imagen Aleatoria" style="max-width: 100%; height: auto;">
+
+    <script>
+        // se crea un array con las src necesarias para la img que tenemos a disposicion
+        const imagenes = [
+            'plato-ensalada-fresca-vista-superior-verduras-mixtas-sobre-fondo-blanco_951562-4531.jpg',
+            './images.jpg',
+            './css3.png'
+        ];
+
+        // se genera un numero aleatorio teniendo en cuenta la longitud del array
+        const indiceAleatorio = Math.floor(Math.random() * imagenes.length);
+
+        // se asigna la ruta al src de la img del numero de la posicion del array
+        document.getElementById('imagenAleatoria').src = imagenes[indiceAleatorio];
+    </script>
+</body>
+</html>

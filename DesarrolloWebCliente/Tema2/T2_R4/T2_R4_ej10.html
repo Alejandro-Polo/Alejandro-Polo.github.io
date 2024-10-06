@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Alejandro Polo Barranco">
+    <script src="relacion4_T2.js"></script>
+    <title>Ejercicio 10</title>
+</head>
+<body>
+    <script>
+        // se pide el numero al usaurio si quiere poner guiones puede
+        const cardNumber = prompt("Introduce el número de la tarjeta de crédito (puedes incluir guiones):");
+        // lo mismo que el ej9 dependiendo si true o false aparece una cosa u otra
+        document.write(`<p>Validación de la tarjeta: ${validatarCreditCard2(cardNumber) ? "Válida" : "Inválida"}</p>`);
+    </script>
+</body>
+</html>

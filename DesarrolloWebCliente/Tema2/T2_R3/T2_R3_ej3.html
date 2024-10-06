@@ -1,0 +1,31 @@
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio3</title>
+</head>
+
+<body>
+    <h1>Cálculo de la Hipotenusa de un Triángulo Rectángulo</h1>
+    <h3>El resultado de la hipotenusa es:</h3>
+    <p id="resultado"></p>
+
+    <script>
+        // el usuario nos da los catetos
+        let cateto1 = parseFloat(prompt("Introduce el tamaño del primer cateto:"));
+        let cateto2 = parseFloat(prompt("Introduce el tamaño del segundo cateto:"));
+
+        // seguimos el teorema de pitagoras h = √(cateto1^2 + cateto2^2) 
+        // math.sqrt divide el contenido y con math.pow elevamos los catetos alcuadrado
+        let hipotenusa = Math.sqrt(Math.pow(cateto1, 2) + Math.pow(cateto2, 2));
+        // redondeamos para que tenga solo dos decimales
+        let redondear = hipotenusa.toFixed(2);
+
+        // cambiamos el contenido de el parrafo con la id
+        document.getElementById("resultado").textContent = redondear;
+    </script>
+</body>
+
+</html>

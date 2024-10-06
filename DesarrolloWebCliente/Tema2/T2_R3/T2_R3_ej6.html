@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio6</title>
+</head>
+<body>
+    <script>
+        // el usuario introduce la base de la potencia
+        const base = parseFloat(prompt("Introduce la base:"));
+
+        // tambien introduce el exponente de la misma
+        const exponente = parseFloat(prompt("Introduce el exponente:"));
+
+        // usando Math.pow podemos calcular la potencia del primer parametro elevado al segundo
+        const resultado = Math.pow(base, exponente);
+
+        // se muestra el resultado
+        alert("El resultado de "+ base +" elevado a la "+ exponente +" es: "+resultado);
+    </script>
+</body>
+</html>

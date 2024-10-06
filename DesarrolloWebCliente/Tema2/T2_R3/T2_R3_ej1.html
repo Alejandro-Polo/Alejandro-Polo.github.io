@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+</head>
+
+<body>
+    <h1>Números Aleatorios</h1>
+     <h3>Número entre 0 y 1</h3>
+    <p id="aleatorio0a1"></p>
+    <h3>Número entre 100 y 200</h3>
+    <p id="aleatorio100a200"></p>
+    <h3>Número dado por el usaurio</h3>
+    <p id="aleatorioUsuario"></p>
+
+    <script>
+        // con math.random generamos un numero aleatorio entre 0 y 1
+        const aleatorio0a1 = Math.random();
+        
+        // se usa math.random multiplicando para que de un numero entre el 0 y el 100 
+        // luego le sumo 100 para que este en el rango
+        const aleatorio100a200 = Math.floor(Math.random() * (200 - 100 + 1)) + 100;
+
+        // pedimos dos valores al usuario
+        const num1 = parseInt(prompt("Introduce el primer valor:"));
+        const num2 = parseInt(prompt("Introduce el segundo valor:"));
+
+        // usamos igual que en el aleatorio de 100 a 200 pero esta vez con los numeros dados por el usaurio
+        const aleatorioUsuario = Math.floor(Math.random() * (num2 - num1 + 1)) + num1;
+
+        // actualizamos el contenido de los parrafos en html por su id
+        document.getElementById("aleatorio0a1").textContent = aleatorio0a1;
+        document.getElementById("aleatorio100a200").textContent = aleatorio100a200;
+        document.getElementById("aleatorioUsuario").textContent = aleatorioUsuario;
+    </script>
+</body>
+
+</html>

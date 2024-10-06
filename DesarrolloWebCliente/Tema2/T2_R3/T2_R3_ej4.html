@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejercicio4</title>
+</head>
+
+<body>
+    <script>
+        // con una variable como booleano iniciaremos el bucle 
+        let continuar = true;
+        // el bucle while nos permite que si o si pasara una vez por todo el proceso
+        while (continuar) {
+            // el usuario nos da los catetos
+            let cateto1 = parseFloat(prompt("Introduce el tamaño del primer cateto:"));
+            let cateto2 = parseFloat(prompt("Introduce el tamaño del segundo cateto:"));
+
+            // seguimos el teorema de pitagoras h = √(cateto1^2 + cateto2^2) 
+            // math.sqrt divide el contenido y con math.pow elevamos los catetos alcuadrado
+            let hipotenusa = Math.sqrt(Math.pow(cateto1, 2) + Math.pow(cateto2, 2));
+            // redondeamos para que tenga solo dos decimales
+            let redondear = hipotenusa.toFixed(2);
+
+            // mostramos la hipotenusa como una alerta
+            alert("La hipotenusa de " + cateto1 + " y " + cateto2 + " es " + redondear);
+
+            // comfirm devuelve true o false dependiendo si el usuario acepta o cancela
+            continuar = confirm("¿Quieres calcular la hipotenusa de otro triángulo?");
+        }
+        
+    </script>
+</body>
+
+</html>

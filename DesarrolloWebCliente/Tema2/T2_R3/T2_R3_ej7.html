@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio7</title>
+</head>
+<body>
+    <script>
+        // el usuario introduce el numero hasta el que se le generara la tabla
+        const limite = parseInt(prompt("¿Hasta qué número deseas generar la tabla de seno?"));
+
+        // iniciamos la tabla con los encabezados
+        let tabla = '<table><tr><th>Número</th><th>Seno</th></tr>'; 
+
+        // con un bucle for se puede ir calculando el seno del numero correspondiente y creando la tabla
+        for (let i = 0; i <= limite; i++) {
+            // calculo del seno del numero actual de i
+            const seno = Math.sin(i); 
+            // ingresamos una nueva linea a la tabla
+            tabla += "<tr><td>"+i+"</td><td>"+seno.toFixed(2)+"</td></tr>"; 
+        }
+        // terminamos cerrando la tabla
+        tabla += '</table>'; 
+
+        // añadimos nuestra tabla al body
+        document.body.innerHTML += tabla;
+    </script>
+</body>
+</html>

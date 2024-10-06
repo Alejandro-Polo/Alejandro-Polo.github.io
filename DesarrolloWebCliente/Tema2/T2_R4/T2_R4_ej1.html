@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="relacion4_T2.js"></script>
+    <title>Ejercicio 1</title>
+</head>
+
+<body>
+    <!-- este div nos permite mostrar los resultados -->
+    <div id="resultado"></div>
+    <script>
+        // se pide al usuario una cadena para el ejercicio
+        const cadena = prompt("Introduce una cadena de texto:");
+
+        // llamamos a las funciones y las almacenamos
+        const invertida = invierteCadena(cadena); // 1.a)
+        const invertidasPalabras = inviertePalabras(cadena); // 1.b)
+        const palabraMasLarga = encuentraPalabraMasLarga(cadena); // 1.c)
+        const palabrasLargas = fltraPalabrasMasLargas(cadena, 4); // 1.d) (contara las)
+        const cadenaFormateada = cadenaBienFormada(cadena); // 1.e)
+
+        // mostramos lor resultados en el elemento div anteriormente
+        document.getElementById("resultado").innerHTML = `
+            <h2>Resultados:</h2>
+            <p><b>Cadena original:</b> ${cadena}</p>
+            <p><b>1.a) Cadena invertida:</b> ${invertida}</p>
+            <p><b>1.b) Palabras invertidas:</b> ${invertidasPalabras}</p>
+            <p><b>1.c) Longitud de la palabra más larga:</b> ${palabraMasLarga}</p>
+            <p><b>1.d) (Prueba)Número de palabras más largas que 4 caracteres:</b> ${palabrasLargas}</p>
+            <p><b>1.e) Cadena bien formada:</b> ${cadenaFormateada}</p>
+        `;
+    
+</script>
+</body>
+
+</html>
