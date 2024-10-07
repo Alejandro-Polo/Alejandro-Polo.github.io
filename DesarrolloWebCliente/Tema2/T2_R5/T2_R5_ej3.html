@@ -2,16 +2,30 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="author" content="Alejandro Polo Barranco">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="relacion5_T2.js"></script>
-    <title>Ejercicio 3</title><!-- ejercicio 14 en el pdf-->
+        <meta charset="UTF-8">
+        <meta name="author" content="Alejandro Polo Barranco">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="relacion5_T2.js"></script>
+        <title>Ejercicio 3</title><!-- ejercicio 14 en el pdf-->
 </head>
+
 <body>
+        <h3><a href="#" onclick="abrirVentanas()">Haz clic aquí</a></h3>
+
         <script>
-                ventana = window.open("", "Ventana", "width=400,height=500",);
-                
+                function abrirVentanas() {
+                        // un bucle que se repita cinco veces
+                        for (let i = 1; i <= 5; i++) {
+                                // creamos una nueva ventana emergente
+                                const ventana = window.open("", `Ventana${i}`, "width=350,height=350");
+
+                                // Escribe el contenido en la nueva ventana
+                                ventana.document.write(`
+                                <p>Ventana ${i}<p>
+                                <button onclick="window.close()">Cerrar ventana secundaria</button>`);
+                        }
+                }
         </script>
 </body>
+
 </html>

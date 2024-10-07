@@ -6,11 +6,40 @@
     <meta name="author" content="Alejandro Polo Barranco">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="relacion5_T2.js"></script>
-    <title>Ejercicio 1</title><!-- ejercicio 13 en el pdf-->
+    <title>Ejercicio 1</title><!-- ejercicio 15 en el pdf-->
 </head>
 
 <body>
 
+    <body>
+
+        <h3>Hemos cambiado de ubicación esta página.</h3>
+        <p>En breves momentos será redireccionado...</p>
+        <!-- Uso un contenedor en linea para solo cambiar el numero del parrafo-->
+        <p>Redireccionando en <span class="contador" id="contador">5</span> segundos.</p>
+
+        <script>
+            let segundos = 5; // Inicializamos los segundos restantes
+    
+            const contador = () => { // se usa una funcion flecha
+                const elemento = document.getElementById("contador"); // Se selecciona el elemento por id
+                
+                if (segundos > 0) {
+                    elemento.textContent = segundos; // se actualiza el contennido del numero en el parrafo
+                    segundos--; // restamos uno a los segundos restantes
+                    setTimeout(contador, 1000); // cada segundo se vuelve a llamar a la funcion
+                } else {
+                    // cuando los segundos sean 0 redirigira a pccomponentes
+                    window.location.href = "http://www.pccomponentes.com";
+                }
+            };
+            // se inicia la cuenta atras
+            contador();
+        </script>
+
+    </body>
+
+</html>
 </body>
 
 </html>

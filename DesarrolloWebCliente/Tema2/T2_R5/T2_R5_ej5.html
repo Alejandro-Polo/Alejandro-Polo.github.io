@@ -6,11 +6,46 @@
     <meta name="author" content="Alejandro Polo Barranco">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="relacion5_T2.js"></script>
-    <title>Ejercicio 1</title><!-- ejercicio 13 en el pdf-->
+    <title>Ejercicio 5</title><!-- ejercicio 16 en el pdf-->
 </head>
 
 <body>
+   
+    <!-- boton que abre la nueva ventana -->
+    <button onclick="abrirVentanaSecundaria()">Abrir ventana secundaria</button>
 
+    <!-- boton que cierra la ventana principal -->
+    <button onclick="cerrarVentana()">Cerrar ventana</button>
+
+    <!-- envia un texto a la ventana secundaria -->
+    <button onclick="enviarMensaje()">Enviar mensaje a la ventana secundaria</button>
+
+    <script>
+        // variable que almacena la referencia de la nueva ventana
+        let ventanaSecundaria; // Variable para almacenar la referencia a la ventana secundaria
+
+        // funcion que abrira la nueva ventana
+        function abrirVentanaSecundaria() {
+            // abrimos la nueva ventana y se le introduce un parrafo con un id y un boton para cerrarse
+            ventanaSecundaria = window.open("", "VentanaSecundaria", "width=400,height=300");
+                ventanaSecundaria.document.write(`
+                    
+                            <p id="parrafo">Esperando mensaje...</p>
+                            <button onclick="window.close()">Cerrar ventana secundaria</button>
+                `);
+        }
+
+        // funcion para cerrar la ventana
+        function cerrarVentana() {
+                window.close();
+        }
+
+        // funcion que envia el mensaje a la ventana
+        function enviarMensaje() {
+                // cambiamos el contenido de la nueva ventana por su id
+                ventanaSecundaria.document.getElementById("parrafo").innerHTML = "Mensaje desde la ventana principal";
+        }
+    </script>
 </body>
 
 </html>
