@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio2</title>
+</head>
+<body>
+    <!-- creo un div al que le introducire la tabla creada desde js-->
+<div id="latabla"></div>
+<script>
+    // se crea la tabla mostrando cierta información de la pantalla
+let tabla = '<table border=1px;">'+
+    '<caption>Información de la Pantalla Cliente</caption>' +
+    '<tr><td>Altura de la pantalla disponible</td><td>Anchura de la pantalla disponible</td><td>Profundidad de color en pantalla</td><td>Altura total de la pantalla</td><td>Resolución de color</td><td>Anchura total de la pantalla</td></tr>' +
+    '<tr><td>' + screen.availHeight + ' px</td><td>'+ screen.availWidth +' px</td><td>'+ screen.colorDepth +' px</td><td>' + screen.height + '</td><td>'+ screen.pixelDepth +'</td><td>'+ screen.width +'</td></tr>'
+    ' </table>';
+    // se muestra si las cookies estan 
+document.getElementById("latabla").innerHTML = tabla;
+</script>
+</body>
+</html>

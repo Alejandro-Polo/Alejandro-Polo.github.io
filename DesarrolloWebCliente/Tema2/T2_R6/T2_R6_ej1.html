@@ -7,33 +7,20 @@
     <title>Ejercicio1</title>
 </head>
 <body>
-    <table style="border: 1px black solid; text-align: center;">
-        <caption>Información de la Ventana del Navegador</caption>
-        <tr>
-            <td>
-                Altura
-            </td>
-            <td>
-                Ancho
-            </td>
-            <td>
-                Color
-            </td>
-            <td>
-                Altura total
-            </td>
-            <td>
-                Pixeles
-            </td>
-            <td>
-                Anchura total
-            </td>
-        </tr>
-        <script>
-            
-        </script>
-
-
-    </table>
+    <!-- creo un div al que le introducire la tabla creada desde js-->
+<div id="latabla"></div>
+<script>
+    // empezamos a crear la tabla en una variable para luego meterla en el div
+let tabla = '<table border=1px;">'+
+    '<caption>Información del navegador Cliente</caption>' +
+    '<tr><td>Cookies</td><td>Lenguaje</td><td>Online</td><td>Plataforma</td><td>Encabezado</td></tr>' +
+    '<tr><td>' + navigator.cookieEnabled + '</td><td>'+ navigator.language +'</td><td>'+ navigator.onLine +'</td><td>' + navigator.platform + '</td><td>'+ navigator.userAgent +'</td></tr>'+
+    ' </table>';
+    // con navigator muestro si las cookies estan aceptadas , que lenguaje tiene el navegador , si esta online , que plataforma esta y el encabezado del navegador
+    // appCodeName esta anticuado y muestra siempre Mozilla appName tambien esta anticuado y muestra siempre Netscape , y por ultimo 
+    // appVersion tambien esta anticuado 
+document.getElementById("latabla").innerHTML = tabla;
+    // introducimos la tabla creadad en js al div
+</script>
 </body>
 </html>
