@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <meta  name="author" content="Alejandro Polo Barranco">
+    <meta name="author" content="Alejandro Polo Barranco">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio1</title>
     <script src="tema3relacion1.js"></script>
 </head>
+
 <body>
-    
+    <script>
+        var num1 = parseFloat(prompt("Introduce el primer número:"));
+        var num2 = parseFloat(prompt("Introduce el segundo número:"));
+        var num3 = parseFloat(prompt("Introduce el tercer número:"));
+        var num4 = parseFloat(prompt("Introduce el cuarto número:"));
+
+        var num = maximo(num1,num2,num3,num4);
+        document.write("El número más alto es " + num);
+    </script>
 </body>
+
 </html>
