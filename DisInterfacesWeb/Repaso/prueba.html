@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herramientas de Documentación de Software</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+        .container {
+            width: 90%;
+            margin: 20px auto;
+            max-width: 1200px;
+        }
+        .tool {
+            background-color: white;
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 1em;
+            line-height: 1.6em;
+            color: #555;
+        }
+        .free {
+            color: green;
+        }
+        .paid {
+            color: red;
+        }
+        .pros-cons {
+            display: flex;
+            justify-content: space-between;
+        }
+        .pros, .cons {
+            width: 48%;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Comparación de Herramientas de Documentación de Software</h1>
+    </header>
+
+    <div class="container">
+
+        <div class="tool">
+            <h2>1. GitBook</h2>
+            <p><strong>Tipo: </strong><span class="paid">De pago (con versión gratuita limitada)</span></p>
+            <p><strong>Descripción:</strong> GitBook es una plataforma de documentación moderna que permite la colaboración y el versionado. Ideal para documentar productos, APIs y crear bases de conocimientos internas.</p>
+            <div class="pros-cons">
+                <div class="pros">
+                    <h3>Ventajas:</h3>
+                    <ul>
+                        <li>Interfaz intuitiva y fácil de usar.</li>
+                        <li>Permite la colaboración en tiempo real.</li>
+                        <li>Integración con GitHub y control de versiones.</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h3>Inconvenientes:</h3>
+                    <ul>
+                        <li>La versión gratuita es muy limitada en cuanto a características.</li>
+                        <li>El costo de la versión completa puede ser alto para equipos pequeños.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="tool">
+            <h2>2. Confluence</h2>
+            <p><strong>Tipo: </strong><span class="paid">De pago (con versión gratuita para equipos pequeños)</span></p>
+            <p><strong>Descripción:</strong> Confluence es una herramienta poderosa que ofrece un espacio de trabajo colaborativo para crear, compartir y discutir tu trabajo, ideal para documentación técnica y planificación de proyectos.</p>
+            <div class="pros-cons">
+                <div class="pros">
+                    <h3>Ventajas:</h3>
+                    <ul>
+                        <li>Integración perfecta con otras herramientas de Atlassian como Jira.</li>
+                        <li>Amplias opciones de personalización.</li>
+                        <li>Ideal para equipos grandes y distribuidos.</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h3>Inconvenientes:</h3>
+                    <ul>
+                        <li>El costo puede aumentar con el tamaño del equipo y el número de usuarios.</li>
+                        <li>Requiere cierto tiempo de aprendizaje para aprovechar al máximo todas sus características.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="tool">
+            <h2>3. Read the Docs</h2>
+            <p><strong>Tipo: </strong><span class="free">Gratuito</span></p>
+            <p><strong>Descripción:</strong> Read the Docs es una plataforma de código abierto que permite crear, alojar y mantener documentación automáticamente a partir del código. Es muy popular entre los desarrolladores de software de código abierto.</p>
+            <div class="pros-cons">
+                <div class="pros">
+                    <h3>Ventajas:</h3>
+                    <ul>
+                        <li>Completamente gratuito.</li>
+                        <li>Automatiza la generación de documentación desde el código.</li>
+                        <li>Control de versiones integrado.</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h3>Inconvenientes:</h3>
+                    <ul>
+                        <li>Requiere que la documentación se escriba en lenguajes específicos como reStructuredText o Markdown.</li>
+                        <li>Menos opciones de personalización comparado con las herramientas de pago.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="tool">
+            <h2>4. Document360</h2>
+            <p><strong>Tipo: </strong><span class="paid">De pago (con prueba gratuita)</span></p>
+            <p><strong>Descripción:</strong> Document360 es una plataforma robusta diseñada para crear bases de conocimientos, con opciones para documentación pública y privada. Tiene integraciones con herramientas como Slack y Microsoft Teams.</p>
+            <div class="pros-cons">
+                <div class="pros">
+                    <h3>Ventajas:</h3>
+                    <ul>
+                        <li>Interfaz personalizable para adaptarse a la marca.</li>
+                        <li>Integraciones útiles para colaboración en tiempo real.</li>
+                        <li>Análisis detallados sobre el uso de la documentación.</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h3>Inconvenientes:</h3>
+                    <ul>
+                        <li>El precio es elevado en comparación con otras herramientas.</li>
+                        <li>No tiene una opción completamente gratuita, solo versión de prueba.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="tool">
+            <h2>5. Doxygen</h2>
+            <p><strong>Tipo: </strong><span class="free">Gratuito</span></p>
+            <p><strong>Descripción:</strong> Doxygen es una herramienta gratuita y multiplataforma que genera documentación a partir del código fuente. Es ideal para desarrolladores que desean documentar lenguajes como C++.</p>
+            <div class="pros-cons">
+                <div class="pros">
+                    <h3>Ventajas:</h3>
+                    <ul>
+                        <li>Gratuito y de código abierto.</li>
+                        <li>Compatible con múltiples lenguajes de programación.</li>
+                        <li>Generación automática de documentación.</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h3>Inconvenientes:</h3>
+                    <ul>
+                        <li>Interfaz menos amigable que otras herramientas modernas.</li>
+                        <li>Requiere conocimientos técnicos avanzados para configurarlo.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

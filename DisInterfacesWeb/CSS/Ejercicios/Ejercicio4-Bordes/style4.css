@@ -1,0 +1,91 @@
+/* Primer ejercicio*/
+section article:first-of-type p:nth-of-type(1){
+    border-color: blue;
+    border-style: solid;
+    border-width: 4px;
+}
+section article:first-of-type p:nth-of-type(2){
+    border-color: green;
+    border-style:dotted;
+}
+section article:first-of-type p:nth-of-type(3){
+    border-color: darkviolet;
+    border-style:dashed;
+}
+section article:first-of-type p:last-of-type{
+    border-color: yellow red red;
+    border-style: double;
+}
+/*Segundo ejercicio */
+section article:nth-of-type(2) div:nth-of-type(1){
+    width: 80px;
+    height: 80px;
+    background-color: blue;
+    border-radius: 20% 20% 0% 0%;
+
+}
+section article:nth-of-type(2) div:nth-last-of-type(2){
+    width: 80px;
+    height: 80px;
+    background-color: green;
+    border-radius: 0% 0% 20% 20%;
+}
+section article:nth-of-type(2) div:nth-of-type(3){
+    width: 80px;
+    height: 80px;
+    background-color: purple;
+    border-radius: 100%;
+}
+/*Tercer ejercicio*/
+section article:nth-of-type(3) div:nth-of-type(1){
+    background-color: grey;
+    width: 160px;
+    height: 80px;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block; 
+}
+section article:nth-of-type(3) div:nth-of-type(2){
+    background-color: grey;
+    width: 160px;
+    height: 80px;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    border-radius: 0% 0% 40% 0%;
+}
+section article:nth-of-type(3) div:nth-of-type(3){
+    background-color: grey;
+    width: 160px;
+    height: 80px;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;    
+    border-radius: 0% 0% 60% 0%;
+}
+section article:nth-of-type(3) div:nth-of-type(4){
+    background-color: grey;
+    width: 160px;
+    height: 80px;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+
+}
+section article:nth-of-type(3) div:nth-of-type(5){
+    background-color: grey;
+    width: 160px;
+    height: 80px;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+}
+section article:nth-of-type(3) div:nth-of-type(6){
+    background-color: grey;
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    border-radius: 100%;
+}

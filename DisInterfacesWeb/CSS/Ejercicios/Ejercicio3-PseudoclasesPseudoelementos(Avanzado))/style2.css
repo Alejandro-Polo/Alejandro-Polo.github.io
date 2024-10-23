@@ -1,0 +1,14 @@
+a:visited{
+    color: greenyellow;
+}
+a:hover{
+    color: orange;
+}
+h2:target::before {
+    content: '► ';
+    color: darkgreen;
+}
+h2:target {
+    color: darkgreen;
+}
+

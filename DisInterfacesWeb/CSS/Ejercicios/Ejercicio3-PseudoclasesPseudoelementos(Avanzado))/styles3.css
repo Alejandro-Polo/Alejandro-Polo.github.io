@@ -1,0 +1,14 @@
+body{
+    counter-reset: parte;
+}
+h2{
+    counter-reset: sub_parte;
+}
+h2::before{
+    counter-increment: parte;
+    content: "Parte " counter(parte) " - ";
+}
+h3::before{
+    counter-increment: sub_parte;
+    content: counter(parte)"."counter(sub_parte)") ";
+}

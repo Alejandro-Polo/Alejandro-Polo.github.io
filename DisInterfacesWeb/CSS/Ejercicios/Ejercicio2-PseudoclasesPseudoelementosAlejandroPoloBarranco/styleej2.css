@@ -1,0 +1,46 @@
+h1{
+    color: white;
+    text-align: center;
+}
+header{
+    background-color: #333333;
+}
+nav ul{
+list-style: none;
+padding: 0;
+margin: 0;
+}
+nav ul li {
+    display: inline-block;
+  }
+nav ul li a{
+    text-decoration: none;
+    color: black;
+    padding: 10px 5px;
+}
+a:hover{
+    color: red;
+}
+h2::first-letter{
+    color: blue;
+}
+p::first-line{
+    color: greenyellow;
+}
+p::before{
+    content: "*.👌 ";
+}
+p::after{
+    content: "-Aloja more don 👌";
+    color: red;
+}
+section::before{
+    content: "Título del artículo:";
+    font-weight: bold;
+}
+section::after{
+    content: "-Fin del artículo";
+}
+p::selection{/* Selection modifica las partes seleccionadas de un texto  */
+background-color: yellow;
+}

@@ -1,0 +1,55 @@
+/* Ejercicio 1 */
+article:nth-of-type(1) ol li:first-child {
+    color: green;
+}
+
+article:nth-of-type(1) ol li:last-child {
+    color: red;
+}
+/* Ejercicio 2*/
+article:nth-of-type(2) p:first-child {
+    border-top: 1px solid black;
+}
+
+article:nth-of-type(2) p:last-child {
+    border-bottom: 1px solid black;
+}
+/*Ejercicio 3*/
+article:nth-of-type(3) ol:first-of-type li:nth-child(odd) {
+    text-decoration: line-through;
+}
+
+article:nth-of-type(3) ol:first-of-type li:nth-child(even) {
+    text-decoration: underline;
+}
+
+article:nth-of-type(3) ol:last-of-type li:nth-child(4n) {
+    color: green;
+}
+/*Ejercicio 4 no hay */
+/*Ejercicio 5*/
+/* Ejercicio 5: Subrayar títulos impares */
+article:nth-of-type(4) h2:nth-child(odd) {
+    text-decoration: underline;
+}
+/*Ejercicio 6*/
+article:nth-of-type(5) p strong:first-of-type {
+    color: orange;
+}
+/*Ejercicio 7 */
+article:nth-of-type(6) ol li::first-letter {
+    text-decoration: underline;
+}
+/*Ejercicio 8  (es un estilo para el parrafo del ej6)*/
+article:nth-of-type(5) strong::before {
+    content: "¡";
+}
+
+article:nth-of-type(5) strong::after {
+    content: "!";
+}
+/*Ejericio 9*/
+article:nth-of-type(7) p::before {
+    content: "- ";
+    color: red;
+}

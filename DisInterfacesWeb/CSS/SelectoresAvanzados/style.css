@@ -1,0 +1,16 @@
+.hijos-directos > li{
+    color: red;
+}
+.hijos-descendientes b{
+    background-color: thistle;
+}
+li{
+    color: blue;
+}
+
+.hermanos-generales ~ li{
+    background-color: thistle;
+} 
+.hermanos-adyacentes + li{
+    color: greenyellow;
+}

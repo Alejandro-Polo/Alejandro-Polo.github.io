@@ -1,0 +1,16 @@
+body{
+    counter-reset: capitulo;
+}
+h2{
+    counter-reset: subseccion;
+}
+h2::before{
+    counter-increment: capitulo;
+    content: "Capítulo " counter(capitulo) ": ";
+    color: blue;
+}
+h3::after{
+    counter-increment: subseccion;
+    content: " - Subsección " counter(capitulo)"."counter(subseccion);
+    color: green;
+}

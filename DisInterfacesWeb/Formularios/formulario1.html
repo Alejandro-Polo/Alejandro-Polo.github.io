@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta " content=" Alejandro Polo Barranco">
+    <meta rt" content="width=device-width, initial-scale=1.0">
+    <title>Formularios1</title>
+</head>
+
+<body>
+    <form action="">
+        <h1>Formularios en HTML5</h1>
+        <p>Profesora: Ana Fuentes</p>
+        <div>
+            <label for="nombre">Tu nombre:(*)</label><br>
+            <input type="text" id="nombre" " size=" 50" required>
+        </div>
+        <div>
+            <br>
+            <label for="correo">Correo electrónico:(*)</label><br>
+            <input type="email" id="correo" size="50" required placeholder="usuario@dominio.com">
+        </div>
+        <div>
+            <br>
+            <label for="password">Contraseña:(*)</label><br>
+            <input type="password" id="password" size="10" max="10" min="4">
+        </div>
+        <div>
+            <br>
+            <label for="fechanac">Fecha de nacimiento:</label><br>
+            <input type="date" id="fechanac">
+        </div>
+        <div>
+            <br>
+            <label for="hora">¿Qué hora es?</label>
+            <input type="time" id="hora">
+        </div>
+        <div>
+            <br>
+            <label for="mes">¿En qué mes estamos?</label>
+            <input type="month" id="mes">
+        </div>
+        <div>
+            <br>
+            <label for="botones">Selecciona un personaje predefinido:</label><br>
+            <input type="radio" id="Flash" name="botonesradio" value="1">
+            <label for="Flash">Flash Gordon</label><br>
+            <input type="radio" id="mingeldespieadado" name="botonesradio" value="2">
+            <label for="mingeldespieadado">Ming, el despiadado</label><br>
+            <input type="radio" id="princesaaura" name="botonesradio" value="3">
+            <label for="princesaaura">La Princesa Aura</label><br>
+            <input type="radio" id="principevultan" name="botonesradio" value="4">
+            <label for="principevultan">Príncipe Vultan</label><br>
+            <input type="radio" id="dalearden" name="botonesradio" value="5">
+            <label for="dalearden">Dale Arden</label>
+        </div>
+        <div>
+            <br>
+            <label for="personajefav">Choose a car:</label>
+            <select id="personajefav" name="personajefav">
+                <option value="1">Flash Gordon</option>
+                <option value="2">Ming, el despiadado</option>
+                <option value="3">La Princesa Aura</option>
+                <option value="4">Príncipe Vultan</option>
+                <option value="5">Dale Arden</option>
+            </select>
+        </div>
+        <div>
+            <br>
+            <label for="cantidadleidos">¿Cuántos comics lees de Flash Gordon al día?</label><br>
+            <input type="range" id="cantidadleidos" min="0" max="50">
+        </div>
+        <div>
+            <br>
+            <label for="mayascolor"> ¿Color ideal de las mayas de Flash Gordon?</label><br>
+            <input type="color" id="mayascolor">
+        </div>
+        <div>
+            <br>
+            <label for="numeros">¿Cuántas páginas de Flash Gordon te lees cada día?</label><br>
+            <input type="number" id="numeros">
+        </div>
+        <div>
+            <br>
+            <label>Descuentos:</label><br>
+            <input type="checkbox" id="Faminlianum" value="1">
+            <label for="Faminlianum">Familia Numerosa</label><br>
+            <input type="checkbox" id="Pensionista" value="2">
+            <label for="Pensionista">Pensionista</label><br>
+            <input type="checkbox" id="NecesidadesEsp" value="3">
+            <label for="NecesidadesEsp">Necesidades Especiales</label>
+        </div>
+        <div>
+            <br>
+            <label for="archivo">Elija el archivo</label>
+            <input type="file" id="archivo">
+        </div>
+        <div>
+            <br>
+            <progress id="file" max="100" value="70">70%</progress>
+        </div>
+        <br>
+        <input type="submit" value="Enviar los datos">
+        <input type="reset" value="Resetear">
+    </form>
+</body>
+
+</html>

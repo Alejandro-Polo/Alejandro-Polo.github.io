@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Identificación</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        fieldset {
+            background-color: #f0f0f0;
+            display: inline-block;
+            padding: 20px;
+            width: 400px;
+            border: 1px solid black;
+        }
+        legend {
+            font-weight: bold;
+            padding: 5px 10px;
+        }
+        label {
+            margin-bottom: 10px;
+            display: block;
+        }
+        input[type="text"] {
+            margin-bottom: 15px;
+            width: 100%;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>Formulario de Identificación</legend>
+
+            <label for="codigo">Código de Identificación (formato XXX-9999):</label>
+            <input type="text" id="codigo" name="codigo" pattern="[A-Za-z]{3}-[0-9]{4}" >
+
+            <label for="grupo">Grupo del Curso (A, B, AA, BB, ABA):</label>
+            <input type="text" id="grupo" name="grupo" pattern="A|B|AA|BB|ABA" >
+
+            <label for="idioma">Idioma Certificado:</label>
+            <select id="idioma">
+                <option value="ingles">Inglés</option>
+                <option value="frances">Francés</option>
+                <option value="aleman">Alemán</option>
+                <option value="portugues">Portugués</option>
+                <option value="italiano">Italiano</option>
+                <option value="japones">Japonés</option>
+            </select>
+
+            <label for="certificado">Certificado de Idioma (A1, A2, B1, B2, C1, C2):</label>
+            <input type="text" id="certificado" pattern="A1|A2|B1|B2|C1|C2">
+
+            <button type="submit">Enviar</button>
+        </fieldset>
+    </form>
+</body>
+</html>

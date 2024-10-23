@@ -1,0 +1,20 @@
+input:enabled{
+    background-color: greenyellow;
+}
+input:disabled{
+    background-color: tomato;
+}
+input:hover{
+    background-color: skyblue;
+}
+input:focus{
+    background-color: yellow;
+} 
+input[type="radio"]:checked+label{
+
+    font-style:italic;
+}
+input[type="checkbox"]:checked+label{
+    background-color: yellow;
+    font-weight: bold;
+}
