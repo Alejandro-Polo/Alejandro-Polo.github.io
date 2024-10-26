@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destructuring y objetos literales</title>
+</head>
+<body>
+    
+
+    <script>
+        const arraynumeros = [1,2,3,4,5];
+        /* let primer=arraynumeros[0]
+        let segundo=arraynumeros[1] */
+        
+        const articulo={codigo:5,nombre:'Teclado',precio:9.5}
+
+/*         const{precio}=articulo
+ */
+        const pvp = (producto) => producto.precio*1.21
+
+        const pvp2 = ({precio}) => precio*1.21
+
+
+        const [primero,,tercero,...resto]=arraynumeros
+        console.log(arraynumeros)
+        console.log(primero)
+        console.log(tercero)
+        console.log(resto)
+        /* console.log(codigo)
+        console.log(precio) */
+        console.log(pvp(articulo))
+        console.log(pvp2(articulo))
+    </script>
+</body>
+</html>

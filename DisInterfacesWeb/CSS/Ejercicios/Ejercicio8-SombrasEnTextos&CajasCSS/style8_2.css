@@ -1,0 +1,57 @@
+article div{
+    width: 20%;
+    height: 100px;
+    line-height: 70px;
+    text-align: center;
+    border: 2px solid black;
+}
+article div:nth-of-type(1) p{
+    color: purple;
+    text-shadow: 2px 2px 5px ;
+}
+article div:nth-of-type(2){
+    background-color: skyblue;
+}
+article div:nth-of-type(2) p{
+    color: white;
+    text-shadow: 2px 2px 5px black;
+}
+article div:nth-of-type(3){
+    background-color: grey;
+}
+article div:nth-of-type(3) p{
+    color: grey;
+    text-shadow: 1px 1px 0px white , -1px -1px 0px darkgrey;
+}
+article div:nth-of-type(4){
+    background-color: skyblue;
+}
+article div:nth-of-type(4) p{
+    color: skyblue;
+    text-shadow: 1px 1px 2px black , -1px -1px 2px black;
+}
+article div:nth-of-type(5){
+    background-color: grey;
+}
+article div:nth-of-type(5) p{
+    color: darkgray;
+    text-shadow: 1px 1px 0px darkgrey , -1px -1px 0px white;
+}
+article div:nth-of-type(6) p{
+    color: black;
+    text-shadow: 0px 0px 5px tomato, -0px -0px 5px tomato ;
+}
+article div:nth-of-type(7) p{
+    color: black;
+    text-shadow: 0px 0px 5px purple, -0px -0px 5px purple ;
+}
+article div:nth-of-type(8) p{
+    color: darkgrey;
+    text-shadow: 0px 0px grey, 1px 0px skyblue, 1px 1px grey, 2px 1px skyblue;
+}
+article div:nth-of-type(9) p{
+    color: grey;
+    text-shadow: 0px -1px 1px lightyellow,0px -2px 2px yellow,0px -4px 2px orange,0px -5px 3px orangered,0px -6px 5px red ,0px -8px 7px darkred,0px -10px 6px darkgrey,0px -10px 7px grey;
+}
+
+
