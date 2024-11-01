@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta charset="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio6</title>
+</head>
+
+<body>
+    <h1>Se muestra todo en consola</h1>
+
+    <script>
+        // Array que se usara para almacenar los vendedores
+        const vendedores = [];
+
+        // Función que agregara los vendedores por el nombre
+        function agregarVendedor(nombre) {
+            // Se agregara el nombre que nos de y se creara las ventas vacias es decir 0 a la espera de que se introduzcan
+            vendedores.push({ nombre: nombre, ventas: 0 });
+            //  Muestro para comprobar que se recorre bien la funcion
+            console.log("Agregando... " + nombre);
+        }
+
+        // Función para registrar las ventas de un vendedor
+        function registrarVentas(nombre, ventas) {
+            // con un foreach recorro el array en busca del vendedor al que se le quiere poner las ventas
+            vendedores.forEach(elemento => {
+                if (elemento.nombre === nombre) {
+                    vendedor = elemento; // guardamos el nombre del vendedor 
+                }
+            });
+
+            vendedor.ventas = ventas; // Guardamos las ventas que nos da el usuario
+            //Muestro por consola para comprobar que esta bien guardada
+            console.log("Agregando... ventas de " + ventas + " registradas para " + nombre);
+
+
+        }
+
+        // Función para calcular el sueldo de un vendedor
+        function calcularSueldo(nombre) {
+            vendedores.forEach(elemento => {
+                if (elemento.nombre === nombre) {
+                    vendedor = elemento; // Se guarda el nombre del vendedor en una variable
+                }
+            });
+            // Calculamos lo necesario según el ejercicio para comprobar el sueldofinal
+            const sueldoBase = 200;
+            const comision = vendedor.ventas * 0.09;
+            const suplementos = sueldoBase + comision;
+            const sueldoFinal = vendedor.ventas + suplementos;
+            console.log("El sueldo final de " + nombre + " es: " + sueldoFinal + " € ganando " + comision + " € de comisiones.");
+
+        }
+
+        // Se llaman a las funciones
+        agregarVendedor("Pepe");
+        registrarVentas("Pepe", 5000);
+        calcularSueldo("Pepe");
+
+        agregarVendedor("Maria");
+        registrarVentas("Maria", 3000);
+        calcularSueldo("Maria");
+
+        //Muestro el array para comprobar que esta bien formado
+        console.log(vendedores)
+
+    </script>
+</body>
+
+</html>

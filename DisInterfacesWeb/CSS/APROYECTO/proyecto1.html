@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/img/logo.png">
+    <title>Proyecto 1 CSS</title>
+</head>
+
+<body>
+    <!-- Inicio de la cabezera -->
+    <header id="header">
+        <div class="logotipo">
+            <img src="assets/img/logo.png" alt="Logotipo de la web">
+        </div>
+
+        <h1>
+            <a href="proyecto1.html">Máster en CSS con Ana</a>
+        </h1>
+    </header>
+    <!-- Fin de la cabezera -->
+
+    <!-- Menu de navegación -->
+    <nav id="nav">
+        <ul>
+            <li><a href="proyecto1.html">Inicio</a></li>
+            <li><a href="proyecto1.html">Contenido</a></li>
+            <li><a href="proyecto1.html">Requerimientos</a></li>
+            <li><a href="proyecto1.html">Lenguaje</a>
+                <ul>
+                    <li><a href="proyecto1.html">HTML</a></li>
+                    <li><a href="proyecto1.html">CSS</a></li>
+                </ul>
+            </li>
+            <li><a href="proyecto1.html">Frameworks</a>
+                <ul>
+                    <li><a href="proyecto1.html">LESS</a></li>
+                    <li><a href="proyecto1.html">SASS</a></li>
+                    <li><a href="proyecto1.html">BOOTSTRAP</a></li>
+                </ul>
+            </li>
+            <li><a href="proyecto1.html">Proyectos</a></li>
+            <li><a href="proyecto1.html">El instructor</a></li>
+            <li><a href="proyecto1.html">Reseñas</a></li>
+            <li><a href="proyecto1.html">Blog</a></li>
+            <li><a href="proyecto1.html">Contactos</a></li>
+        </ul>
+    </nav>
+    <!-- Fin del menú de navegación -->
+
+    <!-- Inicio del contenido central -->
+    <main id="contenc">
+        <!-- Inicio de la barra lateral -->
+        <aside id="aside">
+            <div class="widget login">
+                <h3>Entrar a la web</h3>
+                <form>
+                    <label for="usuario">Usuario:</label>
+                    <input type="text" id="usuario" name="usuario">
+
+                    <label for="contraseña">Contraseña:</label>
+                    <input type="password" id="contraseña" name="contraseña">
+
+                    <input type="submit" value="Entrar">
+                </form>
+
+                <a href="#">Zona de alumnos</a>
+                <a href="#">Zona del profesor</a>
+                <a href="#">Zona de calificaciones</a>
+            </div>
+            <div class="widget login">
+                <h3 class="red">Aula Virtual 1</h3>
+                <form>
+                    <label for="n_usuario">Usuario:</label>
+                    <input type="text" id="n_usuario" name="n_usuario">
+
+                    <label for="n_contraseña">Contraseña:</label>
+                    <input type="password" id="n_contraseña" name="n_contraseña">
+
+                    <input type="submit" value="Entrar">
+                </form>
+            </div>
+            <div class="widget login">
+                <h3 class="blue">Aula Virtual 2</h3>
+                <form>
+                    <label for="m_usuario">Usuario:</label>
+                    <input type="text" id="m_usuario" name="m_usuario">
+
+                    <label for="m_contraseña">Contraseña:</label>
+                    <input type="password" id="m_contraseña" name="m_contraseña">
+
+                    <input type="submit" value="Entrar">
+                </form>
+            </div>
+            <div class="widget">
+                <h3>Enlaces de interés</h3>
+                <ul>
+                    <li><a href="https://www.aulaclic.es/index.htm">Master en JS</a></li>
+                    <li><a href="https://www.aulaclic.es/index.htm">Master en PHP</a></li>
+                    <li><a href="https://www.aulaclic.es/index.htm">Master en Full-stack</a></li>
+                    <li><a href="https://www.aulaclic.es/index.htm">Master en Framework</a></li>
+                    <li><a href="https://www.aulaclic.es/index.htm">Curso de Git y comandos de Linux</a></li>
+                    <li><a href="https://www.aulaclic.es/index.htm">AlejandroPoloWeb.es</a></li>
+                </ul>
+            </div>
+        </aside>
+        <!-- Fin de barra lateral -->
+
+        <!-- Inicio de Secciones -->
+        <div id="sections">
+            <section class="frontend">
+            <span class="stickers">
+                <img src="assets/img/scotch.png" alt="Pegatina Izquierda" class="stickerOne">
+                <img src="assets/img/scotch.png" alt="Pegatina derecha" class="stickerTwo">
+            </span>
+            <h2 class="titulo">Noticias de front-end</h2>
+            <article class="article">
+                <span class="icon">a</span>
+                <p><a href="#">Título de la entrada</a></p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo sint earum quam animi nesciunt numquam,
+                    fugiat aperiam sit. Temporibus fugiat deleniti debitis iure dolore voluptatibus voluptas voluptate
+                    nihil, nisi repudiandae?
+                </p>
+                <span class="date">[31-10-2024] Alejandro Polo Barranco Web</span>
+            </article>
+            <article class="article">
+                <span class="icon">a</span>
+                <p><a href="#">Título de la entrada</a></p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo sint earum quam animi nesciunt numquam,
+                    fugiat aperiam sit. Temporibus fugiat deleniti debitis iure dolore voluptatibus voluptas voluptate
+                    nihil, nisi repudiandae?
+                </p>
+                <span class="date">[31-10-2024] Alejandro Polo Barranco Web</span>
+            </article>
+            <article class="article">
+                <span class="icon">a</span>
+                <p><a href="#">Título de la entrada</a></p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo sint earum quam animi nesciunt numquam,
+                    fugiat aperiam sit. Temporibus fugiat deleniti debitis iure dolore voluptatibus voluptas voluptate
+                    nihil, nisi repudiandae?
+                </p>
+                <span class="date">[31-10-2024] Alejandro Polo Barranco Web</span>
+            </article>
+            <article class="article">
+                <span class="icon">a</span>
+                <p><a href="#">Título de la entrada</a></p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo sint earum quam animi nesciunt numquam,
+                    fugiat aperiam sit. Temporibus fugiat deleniti debitis iure dolore voluptatibus voluptas voluptate
+                    nihil, nisi repudiandae?
+                </p>
+                <span class="date">[31-10-2024] Alejandro Polo Barranco Web</span>
+            </article>
+            </section>
+        </div>
+        <div id="sections">
+            <section class="frontend">
+            <span class="stickers">
+                <img src="assets/img/scotch.png" alt="Pegatina Izquierda" class="stickerOne">
+                <img src="assets/img/scotch.png" alt="Pegatina derecha" class="stickerTwo">
+            </span>
+            <h2 class="titulo red">Noticias de front-end</h2>
+            <article class="article">
+                <span class="icon">a</span>
+                <p><a href="#">Título de la entrada</a></p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo sint earum quam animi nesciunt numquam,
+                    fugiat aperiam sit. Temporibus fugiat deleniti debitis iure dolore voluptatibus voluptas voluptate
+                    nihil, nisi repudiandae?
+                </p>
+                <span class="date">[31-10-2024] Alejandro Polo Barranco Web</span>
+            </article>
+            <article class="article">
+                <span class="icon">a</span>
+                <p><a href="#">Título de la entrada</a></p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo sint earum quam animi nesciunt numquam,
+                    fugiat aperiam sit. Temporibus fugiat deleniti debitis iure dolore voluptatibus voluptas voluptate
+                    nihil, nisi repudiandae?
+                </p>
+                <span class="date">[31-10-2024] Alejandro Polo Barranco Web</span>
+            </article>
+            <article class="article">
+                <span class="icon">a</span>
+                <p><a href="#">Título de la entrada</a></p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo sint earum quam animi nesciunt numquam,
+                    fugiat aperiam sit. Temporibus fugiat deleniti debitis iure dolore voluptatibus voluptas voluptate
+                    nihil, nisi repudiandae?
+                </p>
+                <span class="date">[31-10-2024] Alejandro Polo Barranco Web</span>
+            </article>
+            <article class="article">
+                <span class="icon">a</span>
+                <p><a href="#">Título de la entrada</a></p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo sint earum quam animi nesciunt numquam,
+                    fugiat aperiam sit. Temporibus fugiat deleniti debitis iure dolore voluptatibus voluptas voluptate
+                    nihil, nisi repudiandae?
+                </p>
+                <span class="date">[31-10-2024] Alejandro Polo Barranco Web</span>
+            </article>
+        </section>
+        </div>
+        <div id="sections">
+            <section class="frontend">
+            <span class="stickers">
+                <img src="assets/img/scotch.png" alt="Pegatina Izquierda" class="stickerOne">
+                <img src="assets/img/scotch.png" alt="Pegatina derecha" class="stickerTwo">
+            </span>
+            <h2 class="titulo blue">Noticias de front-end</h2>
+            <article class="article">
+                <span class="icon">a</span>
+                <p><a href="#">Título de la entrada</a></p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo sint earum quam animi nesciunt numquam,
+                    fugiat aperiam sit. Temporibus fugiat deleniti debitis iure dolore voluptatibus voluptas voluptate
+                    nihil, nisi repudiandae?
+                </p>
+                <span class="date">[31-10-2024] Alejandro Polo Barranco Web</span>
+            </article>
+            <article class="article">
+                <span class="icon">a</span>
+                <p><a href="#">Título de la entrada</a></p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo sint earum quam animi nesciunt numquam,
+                    fugiat aperiam sit. Temporibus fugiat deleniti debitis iure dolore voluptatibus voluptas voluptate
+                    nihil, nisi repudiandae?
+                </p>
+                <span class="date">[31-10-2024] Alejandro Polo Barranco Web</span>
+            </article>
+            <article class="article">
+                <span class="icon">a</span>
+                <p><a href="#">Título de la entrada</a></p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo sint earum quam animi nesciunt numquam,
+                    fugiat aperiam sit. Temporibus fugiat deleniti debitis iure dolore voluptatibus voluptas voluptate
+                    nihil, nisi repudiandae?
+                </p>
+                <span class="date">[31-10-2024] Alejandro Polo Barranco Web</span>
+            </article>
+            <article class="article">
+                <span class="icon">a</span>
+                <p><a href="#">Título de la entrada</a></p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo sint earum quam animi nesciunt numquam,
+                    fugiat aperiam sit. Temporibus fugiat deleniti debitis iure dolore voluptatibus voluptas voluptate
+                    nihil, nisi repudiandae?
+                </p>
+                <span class="date">[31-10-2024] Alejandro Polo Barranco Web</span>
+            </article>
+            </section>
+        </div>
+        <div id="sections">
+            <section class="frontend">
+            <span class="stickers">
+                <img src="assets/img/scotch.png" alt="Pegatina Izquierda" class="stickerOne">
+                <img src="assets/img/scotch.png" alt="Pegatina derecha" class="stickerTwo">
+            </span>
+            <h2 class="titulo">Noticias de front-end</h2>
+            <article class="article">
+                <span class="icon">a</span>
+                <p><a href="#">Título de la entrada</a></p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo sint earum quam animi nesciunt numquam,
+                    fugiat aperiam sit. Temporibus fugiat deleniti debitis iure dolore voluptatibus voluptas voluptate
+                    nihil, nisi repudiandae?
+                </p>
+                <span class="date">[31-10-2024] Alejandro Polo Barranco Web</span>
+            </article>
+            <article class="article">
+                <span class="icon">a</span>
+                <p><a href="#">Título de la entrada</a></p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo sint earum quam animi nesciunt numquam,
+                    fugiat aperiam sit. Temporibus fugiat deleniti debitis iure dolore voluptatibus voluptas voluptate
+                    nihil, nisi repudiandae?
+                </p>
+                <span class="date">[31-10-2024] Alejandro Polo Barranco Web</span>
+            </article>
+            <article class="article">
+                <span class="icon">a</span>
+                <p><a href="#">Título de la entrada</a></p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo sint earum quam animi nesciunt numquam,
+                    fugiat aperiam sit. Temporibus fugiat deleniti debitis iure dolore voluptatibus voluptas voluptate
+                    nihil, nisi repudiandae?
+                </p>
+                <span class="date">[31-10-2024] Alejandro Polo Barranco Web</span>
+            </article>
+            <article class="article">
+                <span class="icon">a</span>
+                <p><a href="#">Título de la entrada</a></p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo sint earum quam animi nesciunt numquam,
+                    fugiat aperiam sit. Temporibus fugiat deleniti debitis iure dolore voluptatibus voluptas voluptate
+                    nihil, nisi repudiandae?
+                </p>
+                <span class="date">[31-10-2024] Alejandro Polo Barranco Web</span>
+            </article>
+            </section>
+        </div>
+        <aside id="frase">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis facere molestias, accusamus velit
+            ducimus eaque iure consectetur totam assumenda quidem quia placeat corporis? Temporibus recusandae,
+            necessitatibus molestiae explicabo voluptatibus deserunt!
+            <a href="#">leer más frases</a>
+        </aside>
+        <div class="clearfix"></div>
+        <div class="history">
+            <a href="#">[Ver historico de noticias]</a>
+        </div>
+        <!-- Fin de Secciones -->
+    </main>
+    <div class="clearfix"></div>
+    <footer>
+        <p>&copy; Desarrollado por Alejandro Polo Web</p>
+        <p>Más contenido y formación de desarollo web en <a href="https://google.com">aquí</a></p>
+
+
+    </footer>
+    <!-- Fin del contenido central -->
+
+</body>
+
+</html>

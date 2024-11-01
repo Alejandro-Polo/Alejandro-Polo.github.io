@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta charset="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio7</title>
+</head>
+
+<body>
+    <h1>Se muestra todo por consola</h1>
+    <script>
+        // Creación de un array de 10 elementos , los 10 elementos vacios
+        let array = Array(10).fill(); // Si a la creacion del array no le coloco el fill() este se crea vacio y no deja asignarle valores
+
+        // Función que inicializa todos los elementos a cero
+        function inicializarArrayCero(ArrayVacio) {
+            // Esto con un for lo veo más facil pero al decir que apartir de ahora usaramos foreach 
+            ArrayVacio.forEach((_, pos) => { // Con el _, lo que hacemos es que el foreach nos de la posicion en vez del elemento
+                ArrayVacio[pos] = 0; // Asigna cero a cada posición
+            });
+            console.log("Array inicializado a cero: " + ArrayVacio); //Muestro el resultado por consola
+        }
+
+        // Función para incrementar en uno cada elemento del array
+        function incrementarArray(ArrayIncr) {
+            ArrayIncr.forEach((_, pos) => { // Lo mismo que arriba :Con el _, lo que hacemos es que el foreach nos de la posicion en vez del elemento
+                ArrayIncr[pos] += 1; // Se suma 1 en cada posición
+            });
+            console.log("Array después de incrementar en 1: " + ArrayIncr); //Muestro el resultado por consola
+        }
+
+        // Función para mostrar los valores del array separados por espacios (" ")
+        function mostrarArray(ArraySeparar) {
+            let resultado = ""; // Usare una variable para almacenar la cadena que dara como resultado
+
+            ArraySeparar.forEach((elemento) => {
+                resultado += elemento + " "; // Se añade a la variable primero el elemento y luego un espacio
+            });
+
+            console.log("Valores del array: " + resultado); //Muestro el resultado por consola
+        }
+
+        // Comprobación del ejercicio
+        // El array se crea con 10 elementos vacions
+        console.log(array);
+        // Añado 0 a los elementos
+        inicializarArrayCero(array);
+        // Incremento los elementos
+        incrementarArray(array);
+        // Muestro el resultado
+        mostrarArray(array);
+        // Otras comprobaciones
+        // Cambio el array a que inicie otra vez por 0
+        inicializarArrayCero(array);
+        // Muestro para comprobar que esta en 0
+        mostrarArray(array);
+        // Incremento dos veces seguidas para ver si suben a dos
+        incrementarArray(array);
+        incrementarArray(array);
+        // Muestro el resultado que sería un array con todos sus elementos en 2
+        mostrarArray(array);
+    </script>
+</body>
+
+</html>

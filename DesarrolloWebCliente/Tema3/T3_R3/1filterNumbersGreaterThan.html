@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta charset="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>filterNumbersGreaterThan</title>
+</head>
+
+<body>
+    <h2>Filtrar Números Menores a un Número</h2>
+    <p id="parrafo"></p>
+    <p>El array que he creado como ejemplo lo puedes ver en la consola</p>
+    <script src="modAuxiliar.js"></script>
+    <script>
+        // creo un array para probar la función y la muestro en el parrafo
+        const ArrayNums = [3, 8, 12, 1, 7, 4, 2, 15, 0]
+        console.log(ArrayNums)
+        const resultado = filterNumbersGreaterThan(ArrayNums, 8)
+        document.getElementById('parrafo').textContent = "Resultado: " + resultado
+    </script>
+</body>
+
+</html>

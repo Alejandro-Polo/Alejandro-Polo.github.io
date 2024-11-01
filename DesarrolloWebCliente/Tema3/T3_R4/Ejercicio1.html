@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio1</title>
+</head>
+
+<body>
+
+    <body>
+        <h1>Se muestra todo por consola</h1>
+
+        <script>
+            // Función para encontrar el número más grande
+            // Utilizo Math.max() con .apply para obtener el número más grande del array.
+            function numeromaslargo(array) {
+                // math.max devuelve el num más grande, pero eso se aplica a cadenas de numeros .
+                // .apply nos permite pasar el array por math.max ya que coje listas
+                return Math.max.apply(null ,array);
+            }
+
+            // Función para encontrar la cadena más larga
+            // Utiliza reduce para recorrer lacadena, comparando su longitud con la más larga y devolviendo la más larga encontrada.
+            function cadenamaslarga(array) {
+                return array.reduce(function (a, b) {
+                    return a.length >= b.length ? a : b;
+                });
+            }
+
+            // Función para encontrar números pares
+            // Filter devuelve un nuevo array que cumple con que su division entre 2 es igual a 0
+            function numerospares(array) {
+                return array.filter(function (num) {
+                    return num % 2 === 0;
+                });
+            }
+
+            // Función para encontrar números impares
+            // Filter devuelve un nuevo array que cumple con que su division entre 2 es diferente a 0
+            function numerosimpares(array) {
+                return array.filter(function (num) {
+                    return num % 2 !== 0;
+                });
+            }
+
+            // Función para encontrar palabras que contengan 'es' el ejercicio pone que es is pero como esto es españa ...
+            // Filter nos devuelve un nuevo array que cumpla esa condición
+            function palabrasquecontengan(array) {
+                return array.filter(function (palabra) {
+                    return palabra.includes("es");
+                });
+            }
+
+            // Función para asegurar que todos los números sean divisibles por tres
+            // Con every nos aseguramos que todos los elementos del array tienen que ser divisibles por 3
+            function todosdivisiblesentretres(array) {
+                return array.every(function (num) {
+                    return num % 3 === 0;
+                });
+            }
+
+            // Función para combinar unir dos arrays
+            // map crea pares de elementos es decir que los dos arrays se juntan y array1[1] comparte espacio con array2[1] en un mismo array
+            function unirArrays(array1, array2) {
+                return array1.map(function (value, index) {
+                    return [value, array2[index]];
+                });
+            }
+
+            // Función para ordenar el array combinado de menor a mayor
+            // sort nos ordena los elementos segun una función , en este caso la función ordena de menor a mayor
+            function Arraymenormayor(array) {
+                return array.sort(function (a, b) {
+                    return a - b;
+                });
+            }
+
+            // Función para eliminar la primera palabra del array
+            // Con slice elimino el primer elemento del array
+            function quitarprimerapalabra(array) {
+                return array.slice(1);
+            }
+
+            // Función para colocar una nueva palabra al inicio del array
+            // concat crea un nuevo array colocando palabranuevo al principio seguido de su contenido
+            function anadirpalbrainicio(array, palabranueva) {
+                return [palabranueva].concat(array);
+            }
+
+            // Función para reemplazar algunos elementos
+            function remplazarelementos(array, posicion, nuevovalores) {
+                var copiaarray = array.slice(); // Se trabajara en una copia del array
+                // con splite reemplazamos en el array los elementos que esten en la posicion por los nuevos elementos
+                copiaarray.splice.apply(copiaarray, [posicion, nuevovalores.length].concat(nuevovalores)); 
+                return copiaarray; // Se devuelve la copia con los elementos remplazados
+            }
+
+            // Comprobando todas las funciones 
+            console.log("1-Número más grande:" + numeromaslargo([1, 20, 300, 45, 5]))
+            console.log("2-Cadena más larga:" + cadenamaslarga(["uno", "tres", "cinco", "veinte", "cuarenta y uno"]))
+            console.log("3-Números pares:" + numerospares([8, 4, 6, 8, 5, 3, 1]))
+            console.log("4-Números impares:" + numerosimpares([8, 4, 6, 8, 5, 3, 1]))
+            console.log("5-Palabras que contienen 'is':" + palabrasquecontengan(["Donde", "esta", "seto", "estereotipo", "podrido"]))
+            console.log("6-¿Todos son divisibles por tres?", todosdivisiblesentretres([9, 6, 30, 21]))
+            console.log("7-Array combinado:", unirArrays([1, 2, 3], ["a", "b", "c"]))
+            console.log("8-Array combinado ordenado:", Arraymenormayor([9, 6, 7, 3, 2, 1]))
+            console.log("9-Array sin la primera palabra:", quitarprimerapalabra(["primero", "segundo", "tercero"]))
+            console.log("10-Array con nueva palabra al inicio:", anadirpalbrainicio(["segundo", "tercero"], "nuevapalabra"))
+            console.log("11-Array con elementos reemplazados:", remplazarelementos(["a", "b", "c", "d"], 1, ["3", "4"]))
+
+        </script>
+    </body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5 - Puntos de Silla</title>
+</head>
+
+<body>
+    <h1>Búsqueda de Puntos de Silla en una Matriz</h1>
+
+    <script>
+        /**
+         * Función para encontrar puntos de silla en una matriz.
+         * Un punto de silla es un valor que es mayor o igual que todos los
+         * valores de su fila y menor o igual que todos los valores de su columna.
+         *
+         * @param {Array} matriz - Un array 2D que representa la matriz de enteros.
+         */
+        function encontrarPuntosDeSilla(matriz) {
+            let puntosDeSilla = [];
+
+            // Recorremos cada celda de la matriz
+            for (let fila = 0; fila < matriz.length; fila++) {
+                for (let columna = 0; columna < matriz[fila].length; columna++) {
+                    let valorActual = matriz[fila][columna];
+
+                    // Verificar si el valorActual es mayor o igual que todos los elementos de su fila
+                    let esMayorFila = matriz[fila].every((valor) => valor <= valorActual);
+
+                    // Verificar si el valorActual es menor o igual que todos los elementos de su columna
+                    let esMenorColumna = matriz.every((fila) => fila[columna] >= valorActual);
+
+                    // Si cumple ambas condiciones, es un punto de silla
+                    if (esMayorFila && esMenorColumna) {
+                        puntosDeSilla.push({ fila: fila + 1, columna: columna + 1 });
+                    }
+                }
+            }
+
+            // Mostrar los resultados
+            if (puntosDeSilla.length > 0) {
+                console.log("Puntos de silla encontrados:");
+                puntosDeSilla.forEach((punto) => {
+                    console.log(`Fila: ${punto.fila}, Columna: ${punto.columna}`);
+                });
+            } else {
+                console.log("No hay puntos de silla.");
+            }
+        }
+
+        // Definición de una matriz sin puntos de silla
+        const matriz = [
+            [10, 15, 20, 30, 25],  
+            [20, 25, 30, 40, 30],  
+            [25, 20, 10, 20, 40],  // Fila 2 (Punto de silla: 10 en [3, 3])
+            [15, 20, 30, 10, 50],  // Fila 3
+            [20, 25, 35, 15, 5]    // Fila 4 (Punto de silla: 15 en [4, 4])
+        ];
+
+        // Llamar a la función para encontrar los puntos de silla en la matriz de ejemplo
+        encontrarPuntosDeSilla(matriz);
+        console.log("El mapa es:", matriz)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,152 @@
+* { /* Esto sera necesario en todos los css que necesiten posicionamiento */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* css para el primer título h1 */
+header{
+    background-color: lightgrey;
+    color: orange;
+    text-align: center;
+    border-bottom: 3px solid lightgreen;
+    padding-top: 1px;
+}
+/* ESTILOS DEL MENÚ DESPLEGABLE */
+nav {
+    background-color: #2196f3;
+    width: 60%;
+    position: sticky;
+    top: 0%;
+    z-index: 6;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    padding: 10px 0;
+}
+
+nav li {
+    position: relative;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+}
+nav a:hover {
+    color: #006196;
+    text-decoration:underline;
+}
+nav ul li:nth-of-type(2):hover{
+    background-color: black;
+}
+/* Estilos para el submenú */
+nav ul li ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    background-color: black;
+    list-style: none;
+    width: 150px;
+    text-align: left;
+    z-index: 10;
+}
+
+nav ul li:hover ul {
+    display: block;
+}
+
+nav ul li ul li a {
+    color: white;
+    padding: 10px;
+    display: block;
+}
+
+nav ul li ul li a:hover {
+    background-color: orangered;
+}
+
+/* ESTILOS DEL MAIN */
+main ul {
+    list-style: none;
+    width: 150px;
+}
+/* fondo del menú laterales*/
+main ul li {
+    background-color: lightcyan;
+    padding: 5px;
+    border: 1px solid orange;
+    position: relative;
+    text-align: center;
+    z-index: 5;
+}
+main ul li:hover{
+    background-color: lightblue;
+}
+
+main ul li::before {
+    content: url(img/pointer-right_icon-icons.com.png); /*No encontraba un icono mejor */
+}
+/* Título del main */
+main h2{
+    background-color: lightgrey;
+    color: orange;
+    text-align: center;
+    border-bottom: 3px solid lightgreen;
+    padding: 30px;
+}
+/* Posicionamiento de la sección y hover de las imágenes */
+img:hover{
+    background-color: lightblue;
+}
+img{
+    padding: 5px;
+
+}
+section{
+    height: 30%;
+    width: 30%;
+    position: relative;
+    left: 35%;
+}
+/* ESTILOS DEL FOOTER */
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 15px ;
+    overflow: hidden; /* overflow permite que dentro del footer se puedan poner elementos flotantes */
+}
+
+footer h2 {
+    color: #00b0ff;
+    font-size: 1em;
+    margin: 0;
+}
+
+footer h2:first-of-type {
+    float: left;
+    padding: 15px;
+}
+
+footer h2:last-of-type {
+    float: right;
+    padding: 15px;
+}
+
+footer h2:first-of-type::before {
+    content: "« ";
+}
+
+footer h2:last-of-type::after {
+    content: " »";
+}
+
+footer h2:hover {
+    text-decoration: underline;
+    color: #006196;
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta charset="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flatArray</title>
+</head>
+
+<body>
+    <h2>Aplanar Array 2D</h2>
+    <p id="resultadoarray"></p>
+    <p>En la consola se muestra el array inicial</p>
+    <script src="modAuxiliar.js"></script>
+    <script>
+        const array = [[1, 5, 4], [3, 10], [2, 5]]
+        console.log(array)
+        const resultado = flatArray(array)
+        document.getElementById('resultadoarray').textContent = "Resultado: " + resultado
+    </script>
+</body>
+
+</html>

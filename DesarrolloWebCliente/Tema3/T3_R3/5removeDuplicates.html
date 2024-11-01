@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>removeDuplicates</title>
+</head>
+<body>
+    <h1>Eliminar Duplicados de un Array</h1>
+    <p id="removerduplicados"></p>
+    <p>En la consola muestro el arrayConDuplicados</p>
+    <script src="modAuxiliar.js"></script>
+    <script>
+        // creo un array que tiene duplicados para probar
+      const arrayConDuplicados = [4,5,10,4,10,2,6,3,3]
+      console.log(arrayConDuplicados)
+      const resultado = removeDuplicates(arrayConDuplicados)
+      document.getElementById('removerduplicados').textContent = "Resultado: "+resultado
+    </script>
+</body>
+</html>

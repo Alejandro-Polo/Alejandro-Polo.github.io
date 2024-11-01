@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta charset="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio8</title>
+</head>
+
+<body>
+    <h1>Se muestra todo por consola</h1>
+    <script>
+        // Array para almacenar cuantas veces sale cada número
+        const conteoSumas = Array(13).fill(0); // Usare las posisicones del 2 al 12
+
+        // Función que usare para lanzar un dado(reciclada de otro ejercicio)
+        function lanzarDado() {
+            return Math.floor(Math.random() * 6) + 1;
+        }
+
+        // Simulación de 36000 lanzamientos usando un for
+        for (let i = 0; i < 36000; i++) {
+            const dado1 = lanzarDado();
+            const dado2 = lanzarDado();
+            const suma = dado1 + dado2;
+
+            conteoSumas[suma]++; // Según que suma de se incrementa en uno la posicion del array
+        }
+
+        /* Mostraremos las posiciones del 2 al 12, mostrara la posicion que concuerda con el resultado de las sumas
+         y despues el elemento que es el número de veces que se ha repetido */
+        conteoSumas.forEach((elemento, posicion) => {
+            if (posicion >= 2) { // Solo mostramos índices del 2 al 12
+                console.log("Suma " + posicion + ": " + elemento + " veces");
+            }
+        });
+        console.log(conteoSumas)
+    </script>
+</body>
+
+</html>

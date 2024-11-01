@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4 - Mapa Aleatorio</title>
+</head>
+<body>
+    <h2>Se muestra por consola</h2>
+
+    <script>
+        
+         /* 
+         Como las mismas reglas de creacion que el mapa del ej3
+         Se genera un mapa aleatorio para la búsqueda del tesoro.
+         Cada celda contiene un número entre 11 y 55, siguiendo la regla de las pistas. 
+         */
+        // La función requiere de un tamaño para crearse ya que el ejercicio pide que almenos sea 5x5
+        function generarMapaAleatorio(tamaño) {
+            var mapa = [];
+            var tesoroEncontrado = false;
+            // bucle que genera el mapa
+            for (var i = 0; i < tamaño; i++) {
+                mapa[i] = [];
+                for (var j = 0; j < tamaño; j++) {
+                    var contenido;
+
+                     // Generar un contenido aleatorio entre 11 y 55
+                     do {
+                        contenido = Math.floor(Math.random() * 45) + 11; // entre 11 y 55
+                    } while (mapa[Math.floor(contenido / 10) - 1] === undefined || mapa[Math.floor(contenido / 10) - 1][contenido % 10 - 1] !== undefined);
+
+                    mapa[i][j] = contenido;
+
+                    // Verificar si hay un tesoro en las coordenadas
+                    if (!tesoroEncontrado && contenido === (i + 1) * 10 + (j + 1)) {
+                        tesoroEncontrado = true; // Marcar que se encontró un tesoro
+                    }
+                }
+            }
+                    return mapa
+                }
+        
+        // Generar un mapa de 5x5
+        var mapaAleatorio = generarMapaAleatorio(5);
+        console.log("Mapa generado:", mapaAleatorio);
+    </script>
+</body>
+</html>

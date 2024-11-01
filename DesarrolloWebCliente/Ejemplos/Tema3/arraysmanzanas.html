@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let frutas= ['Peras', 'Manzanas', 'Kiwis', 'Plátanos' ,'Mandarinas']
+        /*function MuestraArray(arg){
+            console.log("Mostrando array")
+            for(i=0;i<arg.length;i++)
+            console.log(arg[i])
+        }*/
+        frutas.splice(1,2)
+        frutas.splice(4,0,'Naranjas','Mandarinas')
+        frutas.splice(2,1)
+        frutas.splice(1,0,'Cerezas','Nísperos')
+
+        //MuestraArray(frutas)
+        frutas.forEach(el => console.log(el))
+    </script>
+</body>
+</html>

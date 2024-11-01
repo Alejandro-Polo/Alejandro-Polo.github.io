@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta charset="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio</title>
+</head>
+
+<body>
+    <div>
+        <h2>Frecuencia de cada suma</h2>
+        <p>Muestra el ejercicio anterior pero esta vez en el documento en vez de en consola</p>
+        <ul id="suma-lista"></ul>
+    </div>
+
+    <div>
+        <h2>Tabla de combinaciones de lanzamientos (dado1/dado2)</h2>
+        <p>Muestra cuantas veces se han dado esas conbinaciones</p>
+        <table id="combinaciones-tabla"></table>
+    </div>
+
+    <script>
+        // Array para almacenar cuántas veces sale cada combinación de lanzamientos
+        const combinacionesLanzamientos = Array.from(Array(6), () => Array(6).fill(0));
+        // Array para almacenar el conteo de cada suma (de 2 a 12)
+        const conteoSumas = Array(13).fill(0); // Índices 0 y 1 no se usan, solo de 2 a 12
+
+        // Función que usare para lanzar un dado(reciclada de otro ejercicio)
+        function lanzarDado() {
+            return Math.floor(Math.random() * 6) + 1;
+        }
+
+        // Simulación de 36000 lanzamientos usando un for
+        for (let i = 0; i < 36000; i++) {
+            const dado1 = lanzarDado();
+            const dado2 = lanzarDado();
+            const suma = dado1 + dado2;
+
+            conteoSumas[suma]++; // Según que suma de se incrementa en uno la posicion del array
+
+            // Se incrementa en el array bidimensional según el resultado de los dados
+            combinacionesLanzamientos[dado1 - 1][dado2 - 1]++;
+        }
+
+        /* Mostraremos las posiciones del 2 al 12, mostrara la posicion que concuerda con el resultado de las sumas
+         y despues el elemento que es el número de veces que se ha repetido */
+         // Esta vez se muestra en una lista desordenada
+        const sumaList = document.getElementById("suma-lista");
+        conteoSumas.forEach((elemento, posicion) => {
+            if (posicion >= 2) {
+                const li = document.createElement("li");
+                li.textContent = `Suma ${posicion}: ${elemento} veces`;
+                sumaList.appendChild(li);
+            }
+        });
+
+        // Se modificara la tabla del html con id combinaciones-tabla
+        const combinacionesTable = document.getElementById("combinaciones-tabla");
+
+        // se crea el encabezado de nuestra tabla que seran los posibles números que saldran en los dados
+        let headerRow = '<tr><th>Dado 1 \\ Dado 2</th>';
+        for (let n = 1; n <= 6; n++) {
+            headerRow += "<th>"+n+"</th>";
+        }
+        headerRow += "</tr>";
+        combinacionesTable.innerHTML += headerRow;
+
+        // Usando varios bucles for termino de crear la tabla y meterle el contenido
+        for (let i = 0; i < combinacionesLanzamientos.length; i++) {
+            let row = "<tr><th>"+(i + 1)+"</th>"; // Encabezado de fila
+            for (let m = 0; m < combinacionesLanzamientos[i].length; m++) {
+                row += "<td>"+combinacionesLanzamientos[i][m]+"</td>"; // Celdas de la tabla
+            }
+            row += "</tr>";
+            combinacionesTable.innerHTML += row;
+        }
+    </script>
+</body>
+
+</html>

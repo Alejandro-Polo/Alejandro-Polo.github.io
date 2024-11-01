@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta charset="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio1,2,3,4</title>
+</head>
+
+<body>
+    <h1>Se muestra por consola</h1>
+    <!-- No sabia si mostrar en el html o si mostrar en consola,
+    así que me decante por mostrar en la consola y todo esta lo mejor comentado posible.
+    Pongo varios ejemplos de cada tipo.
+    Este ejercicio lleva el ej1 ej2 ej3 ej4 de arraysII -->
+    <script>
+        // Ejercicio 1, crear un array llamado Clase con cuatro campos
+        const ArrayClase = [{
+
+            nombre: 'Angel',
+            edad: 15,
+            notaprimertrimestre: 3,
+            notasegundotrimestre: 7,
+            notatercertrimestre: 6,
+        }, {
+            nombre: 'Antonio',
+            edad: 18,
+            notaprimertrimestre: 7,
+            notasegundotrimestre: 8,
+            notatercertrimestre: 10,
+        }, {
+            nombre: 'Carlos',
+            edad: 20,
+            notaprimertrimestre: 10,
+            notasegundotrimestre: 6,
+            notatercertrimestre: 5,
+        }
+        ]
+
+        // Ejercicio 2, función que devuelva la nota del estudiante por trimestre sino hay trimestre la media de los tres
+        function obtenerNota(nEstudiante, trimestre) {
+            // Seleccionamos al estudiante dentro del array clase
+            const estudiante = ArrayClase[nEstudiante];
+            // Con un switch se comprueba que trimestre se pide
+            switch (trimestre) {
+                case 1:
+                    return estudiante.notaprimertrimestre;
+                case 2:
+                    return estudiante.notasegundotrimestre;
+                case 3:
+                    return estudiante.notatercertrimestre;
+                default:
+                    // Por defecto si no hay un valor o no se encuentra uno de los cases se devuelve la media de los tres trimestres
+                    let suma = 0;
+                    const notas = [estudiante.notaprimertrimestre, estudiante.notasegundotrimestre, estudiante.notatercertrimestre
+                    ];
+                    // Se recorre el array creado con los tres trimestres con un foreach y se van sumando
+                    notas.forEach(function (nota) {
+                        suma += nota;
+                    });
+                    const media = suma / notas.length;
+                    return media.toFixed(2); // La nota tendra dos decimales
+            }
+        }
+
+        // Ejercicio 3, función que devuelve la edad media de los estudiantes
+        function edadMedia() {
+            // Variable que almacenara la suma de las edades
+            let sumaEdades = 0;
+            /* Ahora se que el array tiene tres chicos pero en un futuro puede haber hasta treinta por lo cual con un
+            foreach recorro el array y voy sumando a sumaedades */
+            ArrayClase.forEach(elemento => {
+                sumaEdades += elemento.edad;
+            });
+            // Al final se calcula la media y se devuelve con ningun decimal ya que es una edad
+            const promedio = sumaEdades / ArrayClase.length;
+            return promedio.toFixed(0);
+        }
+
+        // Función para seleccionar un nombre de estudiante aleatorio
+        function estudianteAleatorio() {
+            /* con math.floor nos aseguramos un numero entero y con math.random * la longitud 
+            de nuestro array solo pueden salir numeros que esten dentro del array */
+            const alumnoAleatorio = Math.floor(Math.random() * ArrayClase.length);
+            return ArrayClase[alumnoAleatorio].nombre;
+        }
+
+        // Pruebas que aparecen por consola para comprobar que todo funciona correctamente
+        console.log("Nota media de Angel :")
+        console.log(obtenerNota(0));
+        console.log("Nota mdel tercer trimestre de Antonio :")
+        console.log(obtenerNota(1,3));
+        console.log("Nota mdel segundo trimestre de Carlos :")
+        console.log(obtenerNota(2,2));
+        console.log("Edad media de la clase :")
+        console.log(edadMedia());
+        console.log("El estudiante al que debes preguntar es a :")
+        console.log(estudianteAleatorio());
+    </script>
+
+    </script>
+</body>
+
+</html>

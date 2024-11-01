@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio2</title>
+</head>
+<body>
+    <h1>Se muestra todo por consola</h1>
+
+    <script>
+        // Función principal que filtra y ordena los nombres, mostrando las iniciales
+        function filtrarYMostrarIniciales(arrayNombres) {
+            // Usamos el método filter para añadir solo los nombres que empiecen por J
+            var nombresFiltrados = arrayNombres.filter(function(nombre) {
+                return nombre[0] === 'J';
+            });
+
+            // Usamos el método map para transformar cada nombre en sus iniciales.
+            var arrayIniciales = nombresFiltrados.map(function(nombre) {
+                // Se divide el nombre en partes (nombre y apellido)
+                var nombrepartes = nombre.split(' ');
+                // terminamos obeniendo la primera letra de cada parte y las unimos como iniciales
+                var iniciales = nombrepartes.map(function(part) {
+                    return part[0];
+                }).join('');
+                return iniciales;
+            });
+
+            // Con sort se ordena el contenido del array por orden alfabético
+            arrayIniciales.sort();
+            return arrayIniciales;
+        }
+
+        // Comprobación
+        var nombres = ["Juan Pérez", "Pedro Gómez", "José Luis", "Julia Ramírez", "Carlos Rivera", "Jorge Fernández"];
+        console.log("El array inicial es: "+nombres)
+        console.log("Las iniciales serían: "+filtrarYMostrarIniciales(nombres));
+        console.log(filtrarYMostrarIniciales(nombres));
+    </script>
+</body>
+</html>

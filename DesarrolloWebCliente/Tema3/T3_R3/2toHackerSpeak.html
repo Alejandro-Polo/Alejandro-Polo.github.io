@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta charset="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>toHackerSpeak</title>
+</head>
+
+<body>
+    <h2>Convertir Texto a Hacker Speak</h2>
+    <p id="parrafo"></p>
+    <p>El texto lo he puesto de prueba intentando que tenga todas las letras</p>
+    <script src="modAuxiliar.js"></script>
+    <script>
+        const texto = "Probando inscriptacion hacker clase S" // las tildes en las letras que compara el programa no cambian
+        const resultado = toHackerSpeak(texto)
+        document.getElementById('parrafo').textContent = "Resultado: " + resultado
+    </script>
+</body>
+
+</html>

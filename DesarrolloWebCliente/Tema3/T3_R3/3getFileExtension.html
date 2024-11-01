@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta charset="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getFileExtension</title>
+</head>
+
+<body>
+    <h2>Obtener Extensión de Archivo</h2>
+    <p id="extensionresultado"></p>
+    <p>Nombre de prueba imagen.PNG</p>
+    <script src="modAuxiliar.js"></script>
+    <script>
+        // creo el nombre de prueba a introducir en la funcion
+        const nombrefichero = "imagen.PNG"
+        const extension = getFileExtension(nombrefichero)
+        document.getElementById('extensionresultado').textContent = "Resultado: " + extension
+    </script>
+</body>
+
+</html>

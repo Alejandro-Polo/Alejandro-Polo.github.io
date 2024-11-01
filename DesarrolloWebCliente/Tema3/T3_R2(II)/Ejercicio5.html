@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio5</title>
+</head>
+<body>
+    <h1>Se muestra todo por consola</h1>
+    <p id="contadores"></p>
+    <script>
+        function paresImpares() {
+            // Creo un array que almacenara en un primer momento todos los numeros
+            const numerosAleatorios = [];
+            for (let i = 0; i < 100; i++) {
+                const numero = Math.floor(Math.random() * 1000) + 1; // Generar un número aleatorio entre 1 y 1000
+                numerosAleatorios.push(numero);
+            }
+
+            // Se inicializan dos arrays uno para guardar los números pares y otro para los impares
+            const pares = [];
+            const impares = [];
+
+            // Con un foreach y un if separo los numeros pares de los impares en el array
+            numerosAleatorios.forEach(numero=> {
+                if (numero % 2 === 0) { // Si el resto de la division entre 2 es 0
+                    pares.push(numero); // Es par
+                } else {
+                    impares.push(numero); // Sino es impar
+                }
+            });
+
+            // Combino los arrays con pares e impares para luego mostrarlos organizados
+            const numerosOrganizados = [...pares, ...impares];
+
+            // Mostrar el contenido reorganizado
+            console.log("Mostrando números aleatorios:")
+            console.log(numerosAleatorios)
+            console.log("Mostrando números organizados (los pares primero):");
+            console.log(numerosOrganizados)
+        }
+
+        paresImpares();
+    </script>
+</html>

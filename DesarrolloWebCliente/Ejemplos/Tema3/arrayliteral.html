@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        const Alumno = {
+            nombre: 'Juan',
+            grupo: '1SMR',
+            notas: [4, 6],
+            showNotas: function () {
+                const notas1 = this.notas
+                notas1.forEach(el => console.log(el))
+            },
+            addnota: function (nota) {
+                this.notas.push(nota)
+            },
+            addNotas: function (arrnotas) {
+                this.notas = this.notas.concat(arrnotas)
+                //this.notas=[...this.notas,...arrnotas]
+            },
+            filtrarNota: function (fTrueFalse) {
+                const nuevoarr = []
+                this.notas.forEach(element => {
+                    if (fTrueFalse(element))
+                        nuevoarr.push(element)
+                });
+                return nuevoarr                
+            }
+        }
+        Alumno.addnota(8)
+        Alumno.addNotas([5, 8, 15])
+        console.log(Alumno.filtrarNota((valor)=> valor>6))
+        Alumno.showNotas()
+        console.log(Alumno.notas.sort((n1, n2) => n1 - n2))
+
+        const arrAlumnos = [{
+
+            nombre: 'Juan',
+            grupo: '1SMR',
+            edad: 25,
+            notas: [10, 6]
+        }, {
+            nombre: 'Antonio',
+            grupo: '1SMR',
+            edad: 15,
+            notas: [10, 8]
+        }
+        ]
+
+
+
+
+        /* const fcompareAlumno=(alumno1,alumno2) =>
+         { return alumno1.nombre.localeCompare(alumno2.nombre)
+ 
+         }*/
+
+        /*console.log(arrAlumnos.sort((alumno1, alumno2) => {
+            return alumno1.nombre.localeCompare(alumno2.nombre)
+
+        }))*/
+
+
+        console.log(arrAlumnos.sort((alumno1, alumno2) => {
+            return alumno1.edad - alumno2.edad
+        }))
+
+        const getSum = (total, num) => total + Math.round(num) / numbers.length;
+
+
+        console.log(arrAlumnos.sort((alumno1, alumno2) => {
+            return (alumno1.nota.reduce(getSum, 0)) - (alumno2.nota.reduce(getSum, 0))
+        }))
+        // map join
+    </script>
+</body>
+
+</html>

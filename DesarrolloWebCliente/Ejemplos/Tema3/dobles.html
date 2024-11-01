@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const numbers = [8, 5, 9]
+        const doble = (arg) => {
+            const numbers2=[]
+            arg.forEach(element => {
+                numbers2.push(element*2)
+            }); 
+            return numbers2;
+        }
+        const incrementa = (arg) => {
+            const numbers2=[]
+            arg.forEach(element => {
+                numbers2.push(element+1)                
+            });
+            return numbers2
+        }
+
+        const modificaArray=(arrValores, fEjecuta)=>{
+            const numbers2=[]
+            arrValores.forEach(element => {
+                numbers2.push(fEjecuta(element))                
+            });
+            return numbers2
+        }
+        arrmodificado=modificaArray([3,4,6],valor=>valor-3)
+        console.log(arrmodificado)
+
+        const filtrarArray=(arrValores,fTrueFalse)=>{
+            const nuevoarr=[]
+            arrValores.forEach(element => {
+                if(fTrueFalse(element))
+                nuevoarr.push(element)
+            });
+            return nuevoarr
+        }
+        arrfiltrado=filtrarArray([5,7,8,9],valor=>valor7)
+        console.log(arrfiltrado)
+
+    </script>
+</body>
+
+</html>

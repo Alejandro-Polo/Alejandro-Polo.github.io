@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+</head>
+<body>
+    <h2>Se muestra todo por consola</h2>
+
+    <script>
+         /* Función para realizar una búsqueda del tesoro en un mapa.
+         Los valores en el array representan pistas donde cada celda 
+         puede contener los número entre 11 y 55. El dígito de las decenas 
+         representa la fila y el dígito de las unidades representa la columna */
+        function buscarTesoro(mapa, fila, columna) {
+           var coordenadas = [fila, columna]; // Almacenar coordenadas actuales
+
+            // con un bucle while repetimos hasta que se encuentre el tesoro
+            while (true) {
+                // Obtener el número que hay en la celda actual
+                var valorActual = mapa[fila - 1][columna - 1]; 
+
+                // Mostramos la celda visitada
+                console.log("Visita la celda: "+fila+","+columna+" con valor "+valorActual);
+
+                // Cuando el valor actual sea igual que la fila y la columna del mapa se encontrara el tesoro
+                if (valorActual === (fila * 10 + columna)) {
+                    console.log("¡Tesoro encontrado en la celda: "+fila+","+columna+"!");
+                    break; // Forzamos salida del bucle
+                }
+
+                // Sino se encuentra el tesoro se cambian las coordenadas
+                fila = Math.floor(valorActual / 10); // Las decenas seran la nueva fila
+                columna = valorActual % 10; // Y las unidades la nueva columna
+                }
+        }
+
+        // Se crea el mapa que usaremos en el ejercicio
+        var mapaTesoro = [
+            [34, 21, 32, 41, 25],
+            [14, 42, 43, 14, 31],
+            [54, 45, 52, 42, 23],
+            [33, 15, 51, 31, 35],
+            [21, 52, 33, 13, 23]
+        ];
+
+        // Se inicia la busqueda del tesoro desde 1,1 y el programa busca donde se puede encontrar el tesoro
+        buscarTesoro(mapaTesoro, 1, 1);
+    </script>
+</body>
+</html>

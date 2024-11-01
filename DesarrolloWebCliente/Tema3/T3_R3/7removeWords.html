@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta charset="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>removeWords</title>
+</head>
+
+<body>
+    <h1>Remover Palabras Específicas</h1>
+    <p id="ResultadoBorrarPalabras"></p>
+    <p>El array que tiene las palabras a eliminar del texto estan en la consola</p>
+    <script src="modAuxiliar.js"></script>
+    <script>
+        // creo dos arrays para probar la función
+        const texto = "En un lugar de la Mancha, de cuyo nombre no quiero acordarme, no ha mucho tiempo que vivía un hidalgo de los de lanza en astillero, adarga antigua, rocín flaco y galgo corredor."
+        const palabras = ["de","hidalgo","no"]
+        console.log(palabras)
+        const resultado = removeWords(texto, palabras);
+        document.getElementById('ResultadoBorrarPalabras').textContent = "Resultado: " + resultado
+    </script>
+</body>
+
+</html>

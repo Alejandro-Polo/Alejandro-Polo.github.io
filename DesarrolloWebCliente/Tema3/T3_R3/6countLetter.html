@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>countLetter</title>
+</head>
+<body>
+    <h1>Contar Letra en Texto</h1>
+    <p id="contadordeletras"></p>
+    <script src="modAuxiliar.js"></script>
+    <script>
+        //pruebo la función con un array que contiene la primera linea del quijote
+      const texto = "En un lugar de la Mancha, de cuyo nombre no quiero acordarme, no ha mucho tiempo que vivía un hidalgo de los de lanza en astillero, adarga antigua, rocín flaco y galgo corredor."
+      const resultado = countLetter("a", texto)
+      document.getElementById('contadordeletras').textContent = "Resultado(a): "+resultado
+    </script>
+</body>
+</html>
