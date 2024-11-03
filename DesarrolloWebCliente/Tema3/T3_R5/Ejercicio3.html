@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio3</title>
+</head>
+<body>
+    <h2>Se muestra por consola</h2>
+    <script>
+        // Función arrow para sumar todos los elementos de un array
+        /*  .reduce junta todo el array en un solo elemento y le estamos 
+        diciendo que sume el primero con el segundo despues el resultado con el tercero , etc... */
+        const sumarArray = array => array.reduce((suma, num) => suma + num);
+
+        // Array con números y se muestra por consola
+        const numeros = [8, 10, 3, 5, 2];  // da 28
+        console.log("La suma del array es: ", sumarArray(numeros));
+    </script>
+</body>
+</html>
