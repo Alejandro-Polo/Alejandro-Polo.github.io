@@ -1,0 +1,6 @@
+mensajeria entre usuarios
+
+
+carpeta de mensajes dentro de cada usuarios
+
+con un recibidos y otro enviados

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function usuario(nombre, dni, edad) {
+            this.nombre = nombre
+            this.dni = dni
+            this.edad = edad
+            this.showMe = function () {
+                console.log([`Dni: ${this.dni} -- Nombre: ${this.nombre}`])
+            }
+        }
+        let objuser1 = new usuario("Juan", "43435827X", 18)
+        console.log(objuser1)
+        let objuser2 = new usuario("Pepe", "2483473593K", 20)
+        objuser1.showMe();
+
+        const arrAlumnos = [
+        new usuario("Pepe", "2483473593K", 18),
+        new usuario("Pedro", "34565677332W", 22)
+        ]
+        console.table(arrAlumnos)
+        const arrAlumnos2 = []
+
+        arrAlumnos2.push(new usuario("Pepe", "2483473593K", 18),
+        new usuario("Pedro", "34565677332W", 22))
+
+        console.table(arrAlumnos2)
+
+
+        class empleado{
+            constructor(codigo,nombre,telefono){
+                this.codigo=codigo
+                this.nombre=nombre
+                this.telefono=telefono
+            }
+            muestraEmpleado(){
+                console.log("Empleado : "+this.codigo+"-"+this.nombre)
+            }
+        }
+
+        const arrEmpleados = [
+            new empleado(0,"Maria",64758374),
+            new empleado(1,"Pepe",23246245)
+        ]
+
+        arrEmpleados[0].muestraEmpleado();
+
+        
+
+    </script>
+</body>
+
+</html>

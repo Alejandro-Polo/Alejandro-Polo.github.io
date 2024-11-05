@@ -1,132 +1,105 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="assets/img/logo.png">
-    <title>Seguros Vida y Salud - Aseguradora XYZ</title>
+    <title>Asegurathor - Seguros de Confianza</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <!-- Inicio de la cabezera -->
-    <header id="header">
-        <div class="logotipo">
-            <img src="assets/img/logo.png" alt="Logotipo de la aseguradora XYZ">
-        </div>
-        <h1>
-            <a href="index.html">Aseguradora XYZ</a>
-        </h1>
+    <header class="header">
+        <h1>Bienvenido a Asegurathor</h1>
+        <nav class="menu">
+            <ul>
+                <li><a href="calcula-seguro-coche.html">Seguro de Coche</a></li>
+                <li><a href="calcula-seguro-moto.html">Seguro de Moto</a></li>
+                <li><a href="calcula-seguro-hogar.html">Seguro de Hogar</a></li>
+                <li><a href="calcula-seguro-salud.html">Seguro de Salud</a></li>
+                <li><a href="calcula-seguro-ocupacion.html">Seguro de Ocupación Ilegal</a></li>
+                <li><a href="calcula-seguro-vehiculos-profesionales.html">Vehículos Profesionales</a></li>
+                <li><a href="calcula-seguro-movilidad.html">Movilidad Personal</a></li>
+            </ul>
+        </nav>
     </header>
-    <!-- Fin de la cabezera -->
 
-    <!-- Menu de navegación -->
-    <nav id="nav">
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="index.html">Sobre Nosotros</a></li>
-            <li><a href="index.html">Servicios</a></li>
-            <li><a href="index.html">Planes de Seguro</a>
-                <ul>
-                    <li><a href="index.html">Seguro de Vida</a></li>
-                    <li><a href="index.html">Seguro de Salud</a></li>
-                    <li><a href="index.html">Seguro de Hogar</a></li>
-                </ul>
-            </li>
-            <li><a href="index.html">Reclamos</a></li>
-            <li><a href="index.html">Testimonios</a></li>
-            <li><a href="index.html">Blog</a></li>
-            <li><a href="index.html">Contacto</a></li>
-        </ul>
-    </nav>
-    <!-- Fin del menú de navegación -->
+    <main class="main-content">
+        <section class="intro">
+            <h2>Seguros de confianza al alcance de todos</h2>
+            <p>En Asegurathor, estamos comprometidos en ofrecerte los mejores seguros con cobertura amplia, flexibilidad y un precio justo. Protege lo que más te importa con nosotros.</p>
+        </section>
 
-    <!-- Inicio del contenido central -->
-    <main id="content">
-        <!-- Inicio de la barra lateral -->
-        <aside id="aside">
-            <div class="widget login">
-                <h3>Acceso a Clientes</h3>
-                <form>
-                    <label for="usuario">Correo Electrónico:</label>
-                    <input type="email" id="usuario" name="usuario" required>
-
-                    <label for="contraseña">Contraseña:</label>
-                    <input type="password" id="contraseña" name="contraseña" required>
-
-                    <input type="submit" value="Entrar">
-                </form>
-            </div>
-            <div class="widget">
-                <h3>Enlaces Útiles</h3>
-                <ul>
-                    <li><a href="index.html">Guía de Reclamos</a></li>
-                    <li><a href="index.html">Consejos de Seguridad</a></li>
-                    <li><a href="index.html">Calculadora de Seguros</a></li>
-                    <li><a href="index.html">Asesoría Personalizada</a></li>
-                </ul>
-            </div>
-        </aside>
-        <!-- Fin de barra lateral -->
-
-        <!-- Inicio de Secciones -->
-        <div id="sections">
-            <!-- Sección de Servicios Destacados -->
-            <section class="servicios">
-                <h2 class="titulo">Nuestros Servicios</h2>
-                <!-- Lista de Servicios -->
-                <article class="article">
-                    <h3>Seguro de Vida</h3>
-                    <p>Protege a tus seres queridos con un seguro de vida que se adapte a tus necesidades. Ofrecemos planes flexibles y asequibles.</p>
-                </article>
-                <article class="article">
-                    <h3>Seguro de Salud</h3>
-                    <p>Accede a una amplia red de médicos y hospitales con nuestros planes de seguro de salud. Cuida tu bienestar y el de tu familia.</p>
-                </article>
-                <article class="article">
+        <section class="seguros">
+            <h2>Nuestros seguros</h2>
+            <div class="seguros-grid">
+                <div class="seguro">
+                    <h3>Seguro de Coche</h3>
+                    <p>Cobertura total para tu vehículo, con asistencia en carretera, reparación rápida y opción a coche de sustitución.</p>
+                    <a href="calcula-seguro-coche.html" class="btn">Calcula tu seguro</a>
+                </div>
+                <div class="seguro">
+                    <h3>Seguro de Moto</h3>
+                    <p>Protege tu moto en todo momento con nuestra cobertura integral. Asistencia inmediata y talleres especializados.</p>
+                    <a href="calcula-seguro-moto.html" class="btn">Calcula tu seguro</a>
+                </div>
+                <div class="seguro">
                     <h3>Seguro de Hogar</h3>
-                    <p>Protege tu hogar y tus pertenencias contra robos, incendios y otros imprevistos. Consulta nuestros planes de seguro de hogar.</p>
-                </article>
-            </section>
+                    <p>Mantén tu hogar seguro con cobertura para incendios, robos y daños por agua. Protección completa para tu tranquilidad.</p>
+                    <a href="calcula-seguro-hogar.html" class="btn">Calcula tu seguro</a>
+                </div>
+                <div class="seguro">
+                    <h3>Seguro de Salud</h3>
+                    <p>Accede a los mejores centros médicos y profesionales de la salud sin esperas. Tu salud, nuestra prioridad.</p>
+                    <a href="calcula-seguro-salud.html" class="btn">Calcula tu seguro</a>
+                </div>
+            </div>
+        </section>
 
-            <!-- Sección de Noticias -->
-            <section class="noticias">
-                <h2 class="titulo">Últimas Noticias</h2>
-                <article class="article">
-                    <span class="icon">📰</span>
-                    <p><a href="#">Nueva cobertura para seguros de salud en el extranjero</a></p>
-                    <p>Descubre cómo puedes acceder a atención médica en otros países con nuestra nueva cobertura internacional.</p>
-                    <span class="date">[31-10-2024] Aseguradora XYZ</span>
-                </article>
-                <article class="article">
-                    <span class="icon">📰</span>
-                    <p><a href="#">Aumenta la protección de tu hogar en esta temporada de lluvias</a></p>
-                    <p>Te damos consejos para asegurar tu hogar durante las tormentas y evitar daños mayores.</p>
-                    <span class="date">[30-10-2024] Aseguradora XYZ</span>
-                </article>
-            </section>
-        </div>
+        <section class="ventajas">
+            <h2>¿Por qué elegir Asegurathor?</h2>
+            <ul>
+                <li>Más de 25 años de experiencia en el sector asegurador.</li>
+                <li>Cobertura total y personalizada para cada necesidad.</li>
+                <li>Asistencia 24/7 en carretera y en el hogar.</li>
+                <li>Tarifas competitivas y descuentos exclusivos.</li>
+                <li>Programa de recompensas para buenos conductores.</li>
+                <li>Atención al cliente disponible todos los días del año.</li>
+            </ul>
+        </section>
 
-        <aside id="frase">
-            "La mejor protección es la que se anticipa a los imprevistos." 
-            <a href="#">Leer más consejos de seguros</a>
-        </aside>
+        <section class="testimonios">
+            <h2>Lo que dicen nuestros clientes</h2>
+            <div class="testimonial">
+                <p>"Excelente servicio, tuve un accidente y me atendieron rápidamente, sin complicaciones. ¡Muy recomendado!"</p>
+                <span>– Juan Pérez</span>
+            </div>
+            <div class="testimonial">
+                <p>"Llevo años asegurando mi casa y mi coche con Asegurathor. Siempre han respondido y me ofrecen buenos descuentos."</p>
+                <span>– Laura García</span>
+            </div>
+            <div class="testimonial">
+                <p>"Muy satisfecho con el seguro de salud, puedo elegir médico y todo está cubierto sin copagos. Gran cobertura."</p>
+                <span>– Carlos Martínez</span>
+            </div>
+        </section>
 
-        <div class="clearfix"></div>
-        <div class="historial">
-            <a href="#">[Ver historial de noticias]</a>
-        </div>
-        <!-- Fin de Secciones -->
+        <section class="compromiso">
+            <h2>Comprometidos con el medio ambiente y la innovación</h2>
+            <p>En Asegurathor, no solo nos preocupamos por tu seguridad, sino también por el bienestar del planeta. Utilizamos energía 100% renovable en nuestras oficinas y colaboramos con proyectos de reforestación. Además, contamos con seguros especiales para vehículos eléctricos y ofrecemos asesoramiento sobre sostenibilidad.</p>
+        </section>
+
+        <section class="contacto">
+            <h2>Contáctanos</h2>
+            <p>¿Prefieres resolver tus dudas por teléfono? Llámanos al <strong>888 888 888</strong> y uno de nuestros asesores te ayudará a encontrar el seguro ideal para ti.</p>
+            <form id="contactForm">
+                <label for="telefono">Tu teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" required placeholder="Ingresa tu número">
+                <button type="submit">Llamadme gratis</button>
+            </form>
+        </section>
     </main>
 
-    <div class="clearfix"></div>
-    <footer>
-        <p>&copy; 2024 Aseguradora XYZ. Todos los derechos reservados.</p>
-        <p>Más información sobre nuestros servicios en <a href="https://www.aseguradoraxyz.com">nuestro sitio web</a>.</p>
+    <footer class="footer">
+        <p>&copy; 2024 Asegurathor. Todos los derechos reservados.</p>
     </footer>
-    <!-- Fin del contenido central -->
-
 </body>
-
 </html>
