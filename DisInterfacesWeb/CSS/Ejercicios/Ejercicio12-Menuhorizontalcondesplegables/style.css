@@ -1,0 +1,86 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/* Estilos menú desplegable */
+
+/* ESTILOS DEL MENÚ DESPLEGABLE */
+nav {
+    background-color: #cdc0c0;
+    height: 40px;
+    position: sticky;
+    top: 0%;
+    z-index: 6;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    padding: 10px 0;
+}
+
+nav li {
+    position: relative;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+}
+nav a:hover {
+    color: #006196;
+    text-decoration:underline;
+}
+nav ul li:nth-of-type(2):hover{
+    background-color: black;
+}
+/* Estilos para el submenú */
+nav ul li ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    background-color: black;
+    list-style: none;
+    width: 150px;
+    text-align: left;
+    z-index: 10;
+}
+
+nav ul li:hover ul {
+    display: block;
+}
+
+nav ul li ul li a {
+    color: white;
+    padding: 10px;
+    display: block;
+}
+
+nav ul li ul li a:hover {
+    background-color: orangered;
+}
+
+
+
+
+
+
+/* Estilos contenido main */
+
+main section{
+    height: 400px;
+    background-image: url("https://picsum.photos/1000/500");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+}
+
+h2,p{
+    color: #fff;
+    font-size: 3em;
+    text-shadow: 0 0 5px black;
+}

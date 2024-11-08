@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio4-objeto Casas</title>
+</head>
+
+<body>
+    <h2>Se meustra por consola</h2>
+
+    <script>
+        /* Creare una funcion constructora para crear las casas y dentro se definiran los metodos que pide el ejercicio */
+        function Casa(calle, numero, codigoPostal) {
+            this.calle = calle;
+            this.numero = numero;
+            this.codigoPostal = codigoPostal;
+            // estos tres primeros metodos permiten cambiar el numero la calle o el codigo postal
+            this.setNumero = function (nuevoNumero) {
+                this.numero = nuevoNumero;
+            };
+            this.setCalle = function (nuevaCalle) {
+                this.calle = nuevaCalle;
+            };
+            this.setCodigoPostal = function (nuevoCodigoPostal) {
+                this.codigoPostal = nuevoCodigoPostal;
+            };
+            // metodos que devuelve la calle, el numero, o el codgio postal 
+            this.imprimeCalle = function () {
+                return this.calle;
+            };
+
+            this.imprimeNumero = function () {
+                return this.numero;
+            };
+
+            this.imprimeCodigoPostal = function () {
+                return this.codigoPostal;
+            };
+
+            // Cuando se cree una casa nueva se mostrara un mensaje personalizado
+            console.log("Nueva casa en calle: " + this.calle + " nº: " + this.numero + ", CP: " + this.codigoPostal);
+        }
+
+        // Creo tres casas que mostraran tres mensajes de creación
+        const casa1 = new Casa("Av/Las Mimbres", "P1 BA", 18200);
+
+        // muestro el uso que se le puede dar a los metodos
+        console.log("El código postal es: " + casa1.imprimeCodigoPostal());
+        console.log("La calle es: " + casa1.imprimeCalle());
+        console.log("El número es: " + casa1.imprimeNumero());
+
+        casa1.setNumero(100);
+        console.log("Nuevo número es: " + casa1.imprimeNumero());
+
+        casa1.setCalle("Avenida del Sol");
+        console.log("Nueva calle es: " + casa1.imprimeCalle());
+
+        casa1.setCodigoPostal(12345);
+        console.log("Nuevo código postal es: " + casa1.imprimeCodigoPostal());
+    </script>
+</body>
+
+</html>

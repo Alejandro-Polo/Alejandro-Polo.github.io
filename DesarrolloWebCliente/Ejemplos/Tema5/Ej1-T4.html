@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="hobby-list">
+        <li class="hobby">Playing the banjo</li>
+        <li class="hobby">Paddleboarding</li>
+        <a href="google.es"></a>
+    </ul>
+    <script>
+
+        (() =>{
+
+        var hobbylist = document.getElementById("hobby-list")
+        var hobbies =document.getElementsByTagName("li")
+        /* for(i=0,i<hobbies.length,i++){
+
+        } */
+        var asloHobbies = document.getElementsByClassName("hobby")
+        var firstHobby = document.querySelector("ul li.hobby")
+        var againalsoHobies = document.querySelectorAll("ul li.hobby")
+
+        console.log(document.getElementsByTagName("a")[0].href)
+        console.log("1",hobbylist)
+        console.log("2",hobbies)
+        console.log("3",asloHobbies[1])
+        console.log("4",firstHobby)
+        console.log("5",againalsoHobies)
+
+        var nododiv = document.createElement("div")
+        var nodoTexto = document.createTextNode("Hola mundo")
+        nododiv.appendChild(nodoTexto)
+        nododiv.appendChild(document.createElement("p"))
+        document.body.appendChild(nododiv)
+
+        })();
+
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,291 @@
+/* Fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Esstilos generales */
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+:root{
+    --padding-container:80px 0;
+    --color-primario: #f77062;
+    --color-secundario: #1b998b;
+    --color-bg: #fafafa;
+    --aling-title: center;
+    --box-shadow: 0 0 12px rgba(0,0,0,0.2);
+}
+
+body{
+    font-family: "Lato","sans-serif";
+}
+
+.container{
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--padding-container);
+}
+
+/* Encabezado */
+
+header{
+    height: 100vh;
+    background-image: linear-gradient(to top, #f77062 0%, #fe5196 100%);
+}
+
+header section{
+height: 100%;
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+align-items: center;
+}
+
+header figure{
+    width: 45%;
+    margin: 0;
+}
+
+header img{
+    max-width: 80%;
+}
+
+header > section > article{
+    width: 45%;
+    color: #fff;
+}
+
+header h1{
+    font-size: 4rem;
+}
+
+header h2{
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+/* sECCIÓN About */
+
+.title{
+    font-size: 2.5rem;
+    margin: 0;
+    margin-bottom:40px;
+    color:var(--color-primario);
+    text-align: var(--aling-title);
+}
+
+.about{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.about figure{
+    width: 45%;
+    margin: 0;
+}
+
+.about img{
+    max-width: 80%;
+}
+
+.about article{
+    width: 50%;
+}
+
+.about p{
+    line-height: 1.5;
+}
+
+.about a{
+    display: inline-block;
+    margin-top: 20px;
+    background-color: var(--color-primario);
+    padding: 20px 40px;
+    color:  #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    border: 1px solid transparent;
+}
+
+.about a:hover{
+    background-color: #fff;
+    color: var(--color-primario);
+    border: 1px solid var(--color-primario);
+}
+
+
+/* Sección portfolio */
+
+.portfolio{
+    background-color: var(--color-bg);
+}
+
+.portfolio__card{
+    width: 27%;
+    background-color: #fff;
+    height: auto;
+    box-shadow: var(--box-shadow);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.portfolio img{
+    width: 100%;
+    display: block;
+    height: 200px;
+    border-radius: 10px 10px 0 0;
+    object-fit: cover;
+}
+
+.portfolio_texts{
+    padding: 30px 20px 40px;
+}
+
+.portfolio h3{
+    font-size: 1.5rem;
+    text-align: center;
+    color: var(--color-secundario);
+    margin: 10px;
+}
+
+.portfolio p{
+    font-weight: 300;
+    margin: 30px 0;
+}
+
+.portfolio a{
+    display: block;
+    background-color: var(--color-secundario);
+    padding: 15px 0;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    border: 1px solid transparent;
+}
+
+.portfolio a:hover{
+    background-color: #fff;
+    color: var(--color-secundario);
+    border: 1px solid var(--color-secundario);
+}
+
+.portfolio__cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+/* Sección Central */
+
+.central{
+    background-color: var(--color-primario);
+}
+
+.central article h2{
+    color: #fff;
+    margin: 0;
+}
+
+/* Sección galeria */
+
+.gallery article{
+    padding: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.gallery__picture{
+    width: 30%;
+    height: 250px;
+    object-fit: contain;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: var(--box-shadow);
+}
+
+/* Sección Languages */
+
+.languages{
+    background-color: var(--color-bg);
+}
+
+.languages article{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.languages img{
+    width: 20%;
+    height: 100px;
+}
+
+/* Footer */
+
+footer{
+    background-color: var(--color-primario);
+    color:#fff;
+    text-align: center;
+}
+
+footer .title{
+    color: #fff
+}
+
+footer section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer article{
+   width: 50%; 
+}
+
+.footer__icon{
+    display: inline-block;
+    font-size: 2rem;
+    margin: 0 30px;
+    text-decoration: none;
+    color: #fff;
+    margin-bottom: 30px;
+    border: 1px solid white;
+    border-radius: 50%;
+    padding: 0.5em;
+}
+
+.footer__icon:hover{
+    background-color: #fff;
+    color: var(--color-primario);
+    cursor: grab;
+}
+
+footer nav > a{
+    display: inline-block;
+    color: #fff;
+    margin: 0 20px;
+    margin-bottom: 20px;
+}
+
+footer nav > a:hover{
+    text-decoration: none;
+}
+
+footer figure{
+    width: 35%;
+    margin: 0;
+}
+
+footer img{
+    width: 90%;
+}
+
+
+

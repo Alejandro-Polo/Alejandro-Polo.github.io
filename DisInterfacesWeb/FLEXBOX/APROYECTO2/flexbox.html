@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto 2 con Flexbox</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <!-- Cabezera -->
+    <header>
+        <section class="container">
+            <article>
+                <h1>Maquetando en CSS con Flexbox</h1>
+                <h2>Selectores, Pseudoclase, Pseudoelementos, Flexbox y más...</h2>
+            </article>
+            <figure>
+                <img src="assets/dev.svg" alt="header">
+            </figure>
+        </section>
+    </header>
+
+    <!-- Cuerpo -->
+    <main>
+        <!-- Sección About -->
+        <section>
+            <section class="about container">
+                <article>
+                    <h2 class="title">¿Quienes somos?</h2>
+
+
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores dignissimos autem tenetur
+                        tempora perspiciatis nemo reprehenderit quisquam fugiat placeat similique soluta natus saepe
+                        esse porro, optio dolorum? Sit, porro nesciunt.
+                    </p>
+
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At quam dolorem illum perspiciatis est
+                        doloribus, architecto quasi sequi, officiis blanditiis dignissimos magnam aliquid quaerat eaque,
+                        facilis reprehenderit placeat earum repudiandae.
+                    </p>
+
+                    <a href="#">Únete al curso</a>
+                </article>
+
+                <figure>
+                    <img src="assets/people.svg" alt="Gente">
+                </figure>
+            </section>
+            <!-- Sección Portfolio -->
+            <section class="portfolio">
+                <div class="portfolio__container container">
+                    <h2 class="title">Nuestros planes de trabajo</h2>
+                    <div class="portfolio__cards">
+                        <article class="portfolio__card">
+                            <img src="assets/card1.jpg" alt="card1">
+                            <div class="portfolio__texts">
+                                <h3>Únete a nuestro plan</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In ad illum quos est nostrum
+                                    quis explicabo tempore! Consequatur optio, quibusdam fugiat laboriosam dolorum esse
+                                    inventore ipsam, temporibus aliquid accusamus rem.</p>
+                                <a href="#">Entra ahora</a>
+                            </div>
+
+                        </article>
+                        <article class="portfolio__card">
+                            <img src="assets/card2.jpg" alt="card1">
+                            <div class="portfolio__texts">
+                                <h3>Únete a nuestro plan</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In ad illum quos est nostrum
+                                    quis explicabo tempore! Consequatur optio, quibusdam fugiat laboriosam dolorum esse
+                                    inventore ipsam, temporibus aliquid accusamus rem.</p>
+                                <a href="#">Entra ahora</a>
+                            </div>
+
+                        </article>
+                        <article class="portfolio__card">
+                            <img src="assets/card3.jpg" alt="card1">
+                            <div class="portfolio__texts">
+                                <h3>Únete a nuestro plan</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In ad illum quos est nostrum
+                                    quis explicabo tempore! Consequatur optio, quibusdam fugiat laboriosam dolorum esse
+                                    inventore ipsam, temporibus aliquid accusamus rem.</p>
+                                <a href="#">Entra ahora</a>
+                            </div>
+
+                        </article>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- Sección central -->
+
+        <section class="central">
+            <article class="container">
+                <h2 class="title">Hacemos sueños en hechos...</h2>
+            </article>
+        </section>
+
+        <!-- Sección Galería de fotos -->
+
+        <section class="gallery container">
+            <h2 class="title">Nuestro trabajo</h2>
+            <article class="gallery__container">
+                <img src="assets/img1.jpg" alt="Imagen1" class="gallery__picture">
+                <img src="assets/img2.jpg" alt="Imagen2" class="gallery__picture">
+                <img src="assets/img3.jpg" alt="Imagen3" class="gallery__picture">
+                <img src="assets/img4.jpg" alt="Imagen4" class="gallery__picture">
+                <img src="assets/img5.jpg" alt="Imagen5" class="gallery__picture">
+                <img src="assets/img6.jpg" alt="Imagen6" class="gallery__picture">
+            </article>
+        </section>
+        <!-- Sección Languages -->
+         <section class="languages">
+            <div class="container">
+                <h2 class="title">Expertos en:</h2>
+
+                <article>
+                    <img src="assets/html-5.svg" alt="html">
+                    <img src="assets/css-3.svg" alt="css">
+                    <img src="assets/javascript.svg" alt="javascript">
+                    <img src="assets/react.svg" alt="React">
+                </article>
+            </div>
+         </section>
+
+    </main>
+    <!-- Footer -->
+    <footer>
+        <section class="container">
+            <article class="footer_texts">
+                <h2 class="title">Contáctanos</h2>
+
+                <div class="iconos">
+                    <a href="#" class="footer__icon fa-brands fa-facebook"></a>
+                    <a href="#" class="footer__icon fa-brands fa-x-twitter"></a>
+                    <a href="#" class="footer__icon fa-brands fa-instagram"></a>
+                </div>
+
+                <nav>
+                    <a href="#">Inicio</a>
+                    <a href="#">Sobre Nosotros</a>
+                    <a href="#">Trabajos</a>
+                </nav>
+
+                <p>Derechos reservador &copy; Alejandro Polo Barranco</p>
+
+            </article>
+            <figure>
+            <img src="assets/mail.svg" alt="Email">
+            </figure>
+        </section>
+    </footer>
+</body>
+
+</html>

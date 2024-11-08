@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio1-Objetos:Personas</title>
+</head>
+
+<body>
+
+    <h2>Ejemplos por consola</h2>
+
+    <script>
+        // Apartado 1
+        /* Un objeto literal persona con nombre y edad y un método para saber si es mayor de edad*/
+        const persona = {
+            nombre: 'Juan',
+            edad: 20,
+            esMayorDeEdad: function () {
+                return this.edad >= 18 // si es true es menor de edad
+            }
+        };
+        console.log("objeto literal persona", persona)
+        console.log(persona.esMayorDeEdad())
+
+        // Apartado 2
+        /* Como la de antes pero esta vez una función */
+        function Persona(nombre, edad) {
+            this.nombre = nombre;
+            this.edad = edad;
+            this.esMayorDeEdad = function () {
+                return this.edad >= 18
+            };
+        }
+
+        // Apartado 3
+        /* Array que contenga varios objetos persona */
+        const personas = [
+            new Persona("Pepe", 20),
+            new Persona("Maria", 18),
+            new Persona("Mario", 16),
+            new Persona("Pepa", 15)
+        ];
+
+        console.log("Array con varios objetos persona", personas)
+
+        // Apartado 4 
+        /* Función que devuelva la edad promedio del array de personas */
+        function calcularEdadPromedio(personas) {
+            let sumaEdades = 0;
+
+            // foreach para ir recorriendo el array y sumar sus elementos de edad
+            personas.forEach(persona => {
+                sumaEdades += persona.edad;
+            });
+
+            // se divide el total de la suma entre la longitud del array
+            const promedio = sumaEdades / personas.length;
+            return promedio;
+        }
+
+        console.log(calcularEdadPromedio(personas))
+    </script>
+</body>
+
+</html>

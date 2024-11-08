@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio2-Objetos:El telefonillo</title>
+</head>
+
+<body>
+<h2>Se muestran las llamadas por consola</h2>
+    <script>
+        //  Funcion constructora de telefono que solo necesita el numero , tenga un contador de las llamadas y una funcion que aumente ese contador
+        function Telefono(numero) {
+            this.numero = numero;
+            this.numeroLlamadas = 0;
+            this.llamar = function () {
+                this.numeroLlamadas += 1;
+            };
+        }
+
+        // Aquí creo un telefono de ejemplo y lo llamo varias veces para ver si aumenta
+        const telefono1 = new Telefono("657-345-875");
+        telefono1.llamar();
+        console.log("Se han llamado "+telefono1.numeroLlamadas+ " vez");
+        telefono1.llamar();
+        console.log("Se han llamado "+telefono1.numeroLlamadas+ " veces");
+
+    </script>
+</body>
+
+</html>

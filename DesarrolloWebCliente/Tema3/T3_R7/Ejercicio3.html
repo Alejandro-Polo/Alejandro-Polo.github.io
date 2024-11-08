@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio3-objeto Puntos/Rectas</title>
+</head>
+
+<body>
+    <script>
+        // Función constructora de coordenadas x e y
+        function Punto(x, y) {
+            this.x = x;
+            this.y = y;
+        }
+
+
+        // Función constructora de coordenadas
+        function Recta(puntoA, puntoB) {
+            this.puntoA = puntoA;
+            this.puntoB = puntoB;
+        }
+
+        // Se comprueba que funcione correctamente
+        const punto1 = new Punto(5, 1);
+        console.log(punto1); 
+        const punto2 = new Punto(8, 4);
+        const linea1 = new Recta(punto1, punto2);
+        console.log(linea1);
+
+    </script>
+</body>
+
+</html>
