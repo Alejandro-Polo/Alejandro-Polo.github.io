@@ -4,83 +4,111 @@
     box-sizing: border-box;
 }
 
-/* Estilos menú desplegable */
-
-/* ESTILOS DEL MENÚ DESPLEGABLE */
-nav {
-    background-color: #cdc0c0;
-    height: 40px;
-    position: sticky;
-    top: 0%;
-    z-index: 6;
+/* Estilos del menú principal */
+header{
+    position: relative;
+    width: 100%;
+    background-color: #eee;
+    position: fixed;
+    top: 0;
+}
+nav{
+    display: inline-block;
 }
 
 nav ul {
     list-style: none;
-    display: flex;
-    gap: 40px;
-    padding: 10px 0;
+    padding: 10px;
 }
 
-nav li {
+nav ul li {
     position: relative;
+    padding: 10px 20px;
+    cursor: pointer;
 }
-nav a {
+nav>ul>li{
+    display: inline-block;
+}
+
+nav>ul>li:first-of-type{
     color: white;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 10px 15px;
+    background-color: darkblue;
 }
-nav a:hover {
-    color: #006196;
-    text-decoration:underline;
+/* Cambiar el color de fondo completo en hover */
+nav ul li:hover {
+    background-color: purple;
+    color: black;
 }
-nav ul li:nth-of-type(2):hover{
-    background-color: black;
-}
+
 /* Estilos para el submenú */
 nav ul li ul {
     display: none;
     position: absolute;
-    top: 100%;
-    background-color: black;
     list-style: none;
-    width: 150px;
-    text-align: left;
-    z-index: 10;
-}
-
-nav ul li:hover ul {
-    display: block;
-}
-
-nav ul li ul li a {
-    color: white;
     padding: 10px;
+    background-color: lightgreen;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+    width: max-content;
+}
+
+/* Submenú anidado (segundo nivel) */
+nav ul li ul li ul {
+    top: 0;
+    left: 100%;
+}
+
+/* Mostrar submenú al hacer hover */
+nav ul li:hover > ul {
     display: block;
 }
 
-nav ul li ul li a:hover {
-    background-color: orangered;
+/* Estilo de los elementos del submenú */
+nav ul li ul li {
+    padding: 5px 10px;
+}
+
+/* Estilo imagen */
+img{
+    width: 40px;
+    height: 40px;
+    float: right;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+img:hover{
+    cursor: pointer;
 }
 
 
+/* ESTILOS DEL MAIN */
 
-
-
-
-/* Estilos contenido main */
-
+/* Se coloca como background la url que contiene las imgenes  */
 main section{
     height: 400px;
     background-image: url("https://picsum.photos/1000/500");
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     text-align: center;
+    margin-top: 10%;
 }
 
 h2,p{
     color: #fff;
     font-size: 3em;
     text-shadow: 0 0 5px black;
+}
+
+/* Se hace que el enlace tenga más forma de botón */
+main section a{
+    background-color: orange;
+    border-radius: 9%;
+    margin: 10px;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    box-shadow: 0 0 20px inset lightgreen;
+
 }
