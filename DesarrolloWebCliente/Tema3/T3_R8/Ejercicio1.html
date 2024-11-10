@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio1-Puzzle</title>
+</head>
+
+<body>
+    <h2>Se muestra en la consola</h2>
+    <script>
+        //clase que representa un puzle (funciona con números)
+        class Puzzle {
+            constructor(dimension) {
+                // la dimension sera necesaria introducirla a la hora de la creacion
+                this.dimension = dimension;
+                // El tablero se generara automaticamente
+                this.tablero = this.generarTablero();
+                // La posicion en blanco necesita estar definida
+                this.posicionBlanco = this.encontrarPosicionBlanco();
+                // Se tendra un control del tiempo de inicio y del final
+                this.tiempoInicio = null;
+                this.tiempoFin = null;
+                // Tambien se contaran los movimientos
+                this.contadorMovimientos = 0;
+            }
+
+            // Permite la generacion de un tablero según la dimension introducida
+            generarTablero() {
+                let numeros = Array.from({ length: this.dimension * this.dimension }, (_, i) => i + 1);
+                // El ultimo espacio siempre sera el vacio
+                numeros[numeros.length - 1] = 0;
+                numeros = this.mezclar(numeros);
+
+                // se genera y guarda el tablero
+                let tablero = [];
+                for (let i = 0; i < this.dimension; i++) {
+                    tablero.push(numeros.slice(i * this.dimension, (i + 1) * this.dimension));
+                }
+                return tablero;
+            }
+
+            // Encuentra la posición del espacio en blanco
+            encontrarPosicionBlanco() {
+                for (let i = 0; i < this.dimension; i++) {
+                    for (let j = 0; j < this.dimension; j++) {
+                        if (this.tablero[i][j] === 0) return { x: i, y: j };
+                    }
+                }
+            }
+
+            // Mezcla los elementos de un array
+            mezclar(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+                return array;
+            }
+
+            // Movimiento del espacio en blanco
+            mover(direccion) {
+                const { x, y } = this.posicionBlanco;
+                let nuevoX = x, nuevoY = y;
+
+                // Según que palabra introduzca hara un cambio de la posicion en blanco
+                switch (direccion) {
+                    case 'arriba': nuevoX = x - 1; break;
+                    case 'abajo': nuevoX = x + 1; break;
+                    case 'izquierda': nuevoY = y - 1; break;
+                    case 'derecha': nuevoY = y + 1; break;
+                }
+                // Se comprueba si el movimiento es valido o no
+                if (this.esMovimientoValido(nuevoX, nuevoY)) {
+                    this.tablero[x][y] = this.tablero[nuevoX][nuevoY];
+                    this.tablero[nuevoX][nuevoY] = 0;
+                    this.posicionBlanco = { x: nuevoX, y: nuevoY };
+                    this.contadorMovimientos++;
+                } else {
+                    console.log("Movimiento no válido");
+                }
+            }
+
+            // Verifica si un movimiento es válido
+            esMovimientoValido(x, y) {
+                return x >= 0 && x < this.dimension && y >= 0 && y < this.dimension;
+            }
+
+            // Inicia el temporizador
+            iniciarTemporizador() {
+                this.tiempoInicio = Date.now();
+            }
+
+            // Para el contador y calcula los segundos
+            detenerTemporizador() {
+                this.tiempoFin = Date.now();
+                return (this.tiempoFin - this.tiempoInicio) / 1000;
+            }
+
+            // Permite mostrar por consola el tablero
+            dibujar() {
+                // Útil para limpiar la consola y dar más limpieza en la consola
+                console.clear();
+
+                this.tablero.forEach(fila => {
+                    console.log(fila.map(celda => (celda === 0 ? " " : celda)).join(" | "));
+                });
+            }
+        }
+
+        // Creamos un puzle y probamos con él
+        let puzzle = new Puzzle(3);
+        puzzle.iniciarTemporizador();
+        puzzle.dibujar();
+        puzzle.mover("arriba");
+        puzzle.dibujar();
+        console.log("Movimientos:", puzzle.contadorMovimientos);
+        console.log("Tiempo:", puzzle.detenerTemporizador(), "segundos");
+
+    </script>
+</body>
+
+</html>

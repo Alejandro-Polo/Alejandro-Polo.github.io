@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercciio2- tres en raya</title>
+</head>
+
+<body>
+    <h2>Se muestra en la consola</h2>
+    <script>
+        // clase para el tres en raya
+        class TresEnRaya {
+            constructor() {
+                this.tablero = Array.from({ length: 3 }, () => Array(3).fill(null));
+                this.jugadorActual = 'X';
+                this.ganador = null;
+                this.movimientos = 0;
+            }
+
+            // Si la posición es valida coloca la marca
+            colocarMarca(fila, columna) {
+                if (this.tablero[fila][columna] || this.ganador) {
+                    console.log("Movimiento no válido");
+                    return;
+                }
+
+                this.tablero[fila][columna] = this.jugadorActual;
+                this.movimientos++;
+                this.dibujar();
+                // Se comprueba si alguien ha ganado
+                if (this.verificarGanador(fila, columna)) {
+                    this.ganador = this.jugadorActual;
+                    console.log(`¡Jugador ${this.jugadorActual} gana!`);
+                } else if (this.movimientos === 9) {
+                    console.log("Empate!");
+                } else {
+                    this.jugadorActual = this.jugadorActual === 'X' ? 'O' : 'X';
+                }
+            }
+
+            // Se verifica si alguien ha ganado
+            verificarGanador(fila, columna) {
+                const jugador = this.jugadorActual;
+
+                // Verificar la fila, columna y diagonales
+                return (
+                    this.tablero[fila].every(celda => celda === jugador) || // Son filas
+                    this.tablero.every(fila => fila[columna] === jugador) || // Son columna
+                    (fila === columna && this.tablero.every((_, idx) => this.tablero[idx][idx] === jugador)) || // Diagonal principal
+                    (fila + columna === 2 && this.tablero.every((_, idx) => this.tablero[idx][2 - idx] === jugador)) // Diagonal secundaria
+                );
+            }
+
+            // Muestra el tablero por consola
+            dibujar() {
+                console.clear();
+                this.tablero.forEach(fila => {
+                    console.log(fila.map(celda => (celda ? celda : " ")).join(" | "));
+                });
+                console.log(`Turno de: ${this.jugadorActual}`);
+            }
+        }
+
+        // Comprobamos que todo funcione
+        let juego = new TresEnRaya();
+        juego.colocarMarca(0, 0);
+        juego.colocarMarca(1, 1);
+        juego.colocarMarca(0, 1); 
+        juego.colocarMarca(1, 0);
+        juego.colocarMarca(0, 2);
+
+    </script>
+</body>
+
+</html>
