@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="form" onsubmit="return false" name="formulario">
+        <input type="text" name="codigo">
+        <input type="text" name="nombre">
+        <input type="text" name="telefono">
+        <input onclick="NuevoEmpleado()" type="submit" value="Añadir">
+    </form>
+    <div>
+        <p>Codigo /Nombre /Telefono</p>
+    </div>
+
+    <script>
+        class empleado {
+            constructor(codigo, nombre, telefono) {
+                this.codigo = codigo
+                this.nombre = nombre
+                this.telefono = telefono
+            }
+        }
+        const arrEmpleados = [];
+        const NuevoEmpleado = () => {
+            let form = document.forms.formulario
+            let cod = form.elements.codigo.value
+            let nomb = form.elements.nombre.value
+            let telef = form.elements.telefono.value
+            if (form.elements.codigo.value == "" || form.elements.nombre.value == "" || form.elements.telefono.value == "") {
+                return console.error("Alguno de los campos esta vacio");
+            } else {
+                let nuevoempl = new empleado(cod, nomb, telef)
+                arrEmpleados.push(nuevoempl)
+                console.log(arrEmpleados)
+                const div = document.createElement("div")
+                arrEmpleados.forEach(element => {
+                    const parrafo = document.createElement("p")
+                    const texto = document.createTextNode(element.codigo+" / "+element.nombre+" / "+element.telefono)
+                    parrafo.appendChild(texto)
+                    div.appendChild(parrafo)
+                });
+                document.body.appendChild(div)
+            }
+
+        }
+    </script>
+</body>
+
+</html>

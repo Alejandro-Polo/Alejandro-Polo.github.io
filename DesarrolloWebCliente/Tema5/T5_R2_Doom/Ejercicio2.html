@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar Artículo Completo</title>
+</head>
+<body>
+    <h1>Artículo</h1>
+    <p id="articulo">
+        Este es el inicio de un artículo muy interesante. <br>
+        <span id="resto-articulo" style="display: none;">
+            Aquí se muestra el resto del artículo cuando el usuario hace clic en "Ver Artículo Completo". Esta es la continuación del texto que inicialmente estaba oculto.
+        </span>
+    </p>
+    <a href="#" id="mostrar-articulo">Ver Artículo Completo</a>
+
+    <script>
+        const enlace = document.getElementById("mostrar-articulo");
+        const textoExtra = document.getElementById("resto-articulo");
+
+        enlace.addEventListener("click", function(e) {
+            e.preventDefault();
+            textoExtra.style.display = "inline";
+            enlace.style.display = "none";
+        });
+    </script>
+</body>
+</html>

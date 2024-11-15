@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="form" onsubmit="return false" name="form">
+        <input type="text" name="name">
+        <input type="password" name="pass">
+        <input onclick="comprobar()" type="submit" value="Enviar">
+    </form>
+    <script>
+
+
+        const comprobar = () =>{
+            let form = document.forms.form
+            let formname = form.elements.name
+            if(form.elements.pass == "" || form.elements.name == ""){
+                console.log("Introduzca un usuario o contraseña")
+            }else{
+                console.log("Comprobando")
+                console.log(formname)
+            }
+        }
+
+/* every y some */
+
+/* recorrer un array de obj literales para comprobar la validacion de los usuarios y contraseñas */
+    </script>
+</body>
+</html>

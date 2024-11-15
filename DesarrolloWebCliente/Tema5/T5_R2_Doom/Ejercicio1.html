@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio1-DOM</title>
+</head>
+<body>
+    
+
+    <script>
+         for (let i = 0; i < 3; i++) {
+
+                let parrafo = document.createElement("p")
+                for ( let n = 0; n < (i+3);n++){
+                let Texto = document.createTextNode("Adonde va este enlace?")
+                let enlace = document.createElement("a")
+                enlace.href="https://www.google.es/"
+                if (n!=3) {
+                enlace.href=""
+                }
+                enlace.appendChild(Texto)
+                parrafo.appendChild(enlace)
+                document.body.appendChild(parrafo)
+                }
+            }
+
+
+    </script>
+</body>
+</html>

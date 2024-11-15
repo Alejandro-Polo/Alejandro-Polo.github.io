@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta charset="author" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrando datos json</title>
+</head>
+
+<body>
+    <!-- Le meto estilos al th y a las imagenes para que no sean tan grandes -->
+    <!-- <script type="module" src="main.js">  </script> -->
+    <script type="module">
+        import { arrArticulos } from "./modulos/articulos.mjs";
+
+          // Se empiezan creando las tablas y la cabezera
+        const tabla = document.createElement('tabla');
+        const tr = document.createElement('tr');
+        const cabezera = ["ID", "Título", "Precio (€)", "Descripción", "Categoría", "Imagen", "Valoración"];
+        /* Con un foreach se crea un th para cada elemento del array cabezera */
+        cabezera.forEach(thTexto => {
+            const thcabezera = document.createElement('th');
+            thcabezera.textContent = thTexto;
+            tr.appendChild(thcabezera);
+            /* CSS con dom */
+            thcabezera.style = "background-color: #4CAF50; color: white;"
+        });
+
+        tabla.appendChild(tr);
+
+        // Despues vamos añadiendo cada elementos del array de articulos a la tabla
+        arrArticulos.forEach(articulo => {
+            const row = document.createElement('tr');
+            
+            // Se crea y se añade cada celda
+            const idArticulo = document.createElement('td');
+            idArticulo.textContent = articulo.id;
+            row.appendChild(idArticulo);
+            
+            const tituloArticulo = document.createElement('td');
+            tituloArticulo.textContent = articulo.title;
+            row.appendChild(tituloArticulo);
+
+            const precioArticulo = document.createElement('td');
+            precioArticulo.textContent = articulo.price.toFixed(2);
+            row.appendChild(precioArticulo);
+
+            const descuentoArticulo = document.createElement('td');
+            descuentoArticulo.textContent = articulo.description;
+            row.appendChild(descuentoArticulo);
+
+            const categoriaArticulo = document.createElement('td');
+            categoriaArticulo.textContent = articulo.category;
+            row.appendChild(categoriaArticulo);
+
+            const imgArticulo = document.createElement('td');
+            const img = document.createElement('img');
+            img.src = articulo.image;
+            img.alt = articulo.title;
+            /*css con dom*/
+            img.style = "max-width: 50px"
+            imgArticulo.appendChild(img);
+            row.appendChild(imgArticulo);
+
+            const ratingCell = document.createElement('td');
+            ratingCell.textContent = `${articulo.rating.rate} (${articulo.rating.count} reviews)`;
+            row.appendChild(ratingCell);
+
+            // Se añade al final la fila y se repite el bucle hasta recorrer todo el array
+            tabla.appendChild(row);
+            
+
+        });
+
+        // Se inserta en el body y ya tenemos tabla señores
+        document.body.appendChild(tabla);
+
+
+
+    </script>
+</body>
+
+</html>
