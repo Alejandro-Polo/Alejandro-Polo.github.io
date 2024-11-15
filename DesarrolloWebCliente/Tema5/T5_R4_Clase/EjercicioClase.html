@@ -18,14 +18,8 @@
         <p>Codigo /Nombre /Telefono</p>
     </div>
 
-    <script>
-        class empleado {
-            constructor(codigo, nombre, telefono) {
-                this.codigo = codigo
-                this.nombre = nombre
-                this.telefono = telefono
-            }
-        }
+    <script type="module">
+        import { empleado } from './empleado.mjs'
         const arrEmpleados = [];
         const NuevoEmpleado = () => {
             let form = document.forms.formulario
@@ -49,6 +43,7 @@
             }
 
         }
+        window.NuevoEmpleado=NuevoEmpleado
     </script>
 </body>
 
