@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mostrar Artículo Completo</title>
+    <title>Document</title>
 </head>
 
 <body>
-
     <script>
         // Se crea el articulo que aparecera
         const parrafo = document.createElement("p")
@@ -30,19 +29,25 @@
         // Se añade el párrafo
         document.body.appendChild(parrafo)
 
-        // Terminamos creando el enlace 
-        const enlace = document.createElement("a")
-        enlace.href = "#"
-        enlace.id = "mostrar-articulo"
-        enlace.textContent = "Mostrar todo"
+        // Se crea el enlace
+        const enlaceAlternable = document.createElement("a");
+        enlaceAlternable.href = "#";
+        enlaceAlternable.id = "mostrar-ocultar-articulo";
+        enlaceAlternable.textContent = "Ver Artículo Completo";
 
-        // Se define el evento al hacer clic en el enlace
-        enlace.onclick = function (e) {
-            textoOculto.style.display = "inline" // Muestra el texto oculto
+        // Define el comportamiento al hacer clic en el enlace
+        enlaceAlternable.onclick = function (e) {
+            if (textoOculto.style.display === "none") {
+                textoOculto.style.display = "inline"; // Muestra el texto oculto
+                enlaceAlternable.textContent = "Ocultar Artículo"; // Cambia el texto del enlace
+            } else {
+                textoOculto.style.display = "none"; // Oculta el texto
+                enlaceAlternable.textContent = "Ver Artículo Completo"; // Restaura el texto del enlace
+            }
         };
 
-        // Se añade el enlace al final del body
-        document.body.appendChild(enlace);
+        // Añade el enlace al body
+        document.body.appendChild(enlaceAlternable);
     </script>
 </body>
 

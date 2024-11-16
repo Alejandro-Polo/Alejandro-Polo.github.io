@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Lista desordenada que contendra los elementos
+        const lista = document.createElement("ul");
+        document.body.appendChild(lista);
+
+        // Boton que añadira elementos
+        const botonAgregar = document.createElement("button");
+        botonAgregar.textContent = "Agregar elemento";
+
+        // Define el comportamiento del botón al hacer clic
+        botonAgregar.onclick = function () {
+            const nuevoElemento = document.createElement("li");
+            nuevoElemento.textContent = "Elemento "+lista.childElementCount; // Mostramos que número es
+            lista.appendChild(nuevoElemento); // Añadimos el elementoa la lista
+        };
+
+        // Se añade al body
+        document.body.appendChild(botonAgregar);
+
+    </script>
+</body>
+
+</html>

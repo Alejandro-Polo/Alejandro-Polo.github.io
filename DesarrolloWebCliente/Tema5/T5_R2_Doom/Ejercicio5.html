@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // div que almacenara los botones y los input file
+        const contenedorArchivos = document.createElement("div")
+        const espaciado = document.createElement("br")
+        // Se crea un elemento input con el type de file
+        const inputInicial = document.createElement("input")
+        inputInicial.type = "file"
+        contenedorArchivos.appendChild(inputInicial)
+        contenedorArchivos.appendChild(espaciado)
+        contenedorArchivos.appendChild(espaciado)
+
+        // Se crea el botón para adjuntar
+        const botonAdjuntar = document.createElement("button")
+        botonAdjuntar.textContent = "Adjuntar otro fichero"
+        contenedorArchivos.appendChild(espaciado)
+        // Al hacer click preparamos para añadir otro input
+        botonAdjuntar.onclick = function () {
+            const nuevoInput = document.createElement("input")
+            nuevoInput.type = "file"
+            contenedorArchivos.appendChild(espaciado)
+            contenedorArchivos.appendChild(nuevoInput); // ASe añade un nuevo input
+            
+        };
+        
+        // Añade el botón al contenedor
+        contenedorArchivos.appendChild(botonAdjuntar)
+
+        // Botón para enviar
+        const botonEnviar = document.createElement("button")
+        botonEnviar.textContent = "Enviar"
+        contenedorArchivos.appendChild(botonEnviar)
+        // Se termina añadiendo todo al body
+        document.body.appendChild(contenedorArchivos)
+    </script>
+</body>
+
+</html>
