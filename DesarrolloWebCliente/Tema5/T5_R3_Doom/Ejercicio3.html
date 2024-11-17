@@ -87,10 +87,11 @@
             [celdas[indiceCelda].style.backgroundImage, celdas[indiceVacio].style.backgroundImage] =
                 [celdas[indiceVacio].style.backgroundImage, celdas[indiceCelda].style.backgroundImage];
             // Se cambia el estilo de fondo para que se vea cual es la vacia
-            celdas[indiceCelda].style.backgroundColor = celdas[indiceCelda].style.backgroundImage === "" ? "#bbb" : "#ddd";
-            celdas[indiceVacio].style.backgroundColor = celdas[indiceVacio].style.backgroundImage === "" ? "#bbb" : "#ddd";
+            [celdas[indiceCelda].style.backgroundPosition, celdas[indiceVacio].style.backgroundPosition] =
+                [celdas[indiceVacio].style.backgroundPosition, celdas[indiceCelda].style.backgroundPosition];
 
-
+                celdas[indiceCelda].style.backgroundColor = celdas[indiceCelda].style.backgroundImage === "" ? "#bbb" : "#ddd";
+                celdas[indiceVacio].style.backgroundColor = celdas[indiceVacio].style.backgroundImage === "" ? "#bbb" : "#ddd";
             comprobarVictoria();
         }
 
