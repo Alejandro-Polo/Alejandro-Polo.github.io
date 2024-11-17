@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rompecabezas imagen</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <script>
+
+        // Se crea el tablero
+        const contenedorTablero = document.createElement("div");
+        contenedorTablero.style.display = "grid";
+        contenedorTablero.style.gridTemplateColumns = "repeat(4, 80px)";
+        contenedorTablero.style.gridGap = "5px";
+        contenedorTablero.style.width = "340px";
+        document.body.appendChild(contenedorTablero);
+
+        // Se crea un array ordenada para comparar si se ha completado el rompecabezas
+        const estadoObjetivo = [...Array(15).keys()].map(n => n + 1).concat([""]);
+
+        // Se desordena el array anterior para que el tablero sea aleatorio
+        let numeros = [...estadoObjetivo];
+        numeros.sort(() => Math.random() - 0.5);
+
+        // celdas para el tablero
+        numeros.forEach((numero, index) => {
+            const celda = document.createElement("div");
+            celda.className = "celda";
+            celda.dataset.index = index;
+
+            // Estilo en línea para cada celda
+            celda.style.width = "80px";
+            celda.style.height = "80px";
+            celda.style.display = "flex";
+            celda.style.alignItems = "center";
+            celda.style.justifyContent = "center";
+            celda.style.border = "1px solid black";
+            celda.style.cursor = numero ? "pointer" : "default"; // El cursor cambia solo si no está vacío
+            celda.style.backgroundSize = "320px 320px"; // Tamaño total de la imagen
+
+
+            if (numero) {
+                // Se calcula la posicion de la imagen
+                // x=columna y=fila
+                const x = (numero - 1) % 4;
+                const y = Math.floor((numero - 1) / 4);
+                celda.style.backgroundImage = "url('safeimagekit-53f6967c934faa44cb24d3eceb86cae3.jpg')";
+                celda.style.backgroundPosition = `-${x * 80}px -${y * 80}px`;
+            } else {
+                celda.style.backgroundColor = "#bbb";
+                celda.style.cursor = "default";
+                celda.classList.add("vacio"); // Se define la celda vacia si no tiene número
+            }
+
+            contenedorTablero.appendChild(celda);
+
+            // Al hacer click llamaremos a la función para mover piezas
+            celda.onclick = function () {
+                moverPieza(celda);
+            };
+        });
+
+        // Función para mover piezas
+        function moverPieza(celda) {
+            const celdas = Array.from(document.querySelectorAll(".celda"));
+            const indiceCelda = celdas.indexOf(celda);
+            const indiceVacio = celdas.findIndex(c => c.classList.contains("vacio"));
+
+            // Defino los movimientos validos
+            const movimientosValidos = [
+                indiceVacio - 1, // Izquierda
+                indiceVacio + 1, // Derecha
+                indiceVacio - 4, // Arriba
+                indiceVacio + 4  // Abajo
+            ];
+
+            // Se verifica si la celda esta adyacente a la vacia
+            if (!movimientosValidos.includes(indiceCelda)) return;
+
+            // Se termina intercambiando las celdas
+            [celdas[indiceCelda].style.backgroundImage, celdas[indiceVacio].style.backgroundImage] =
+                [celdas[indiceVacio].style.backgroundImage, celdas[indiceCelda].style.backgroundImage];
+            // Se cambia el estilo de fondo para que se vea cual es la vacia
+            [celdas[indiceCelda].style.backgroundPosition, celdas[indiceVacio].style.backgroundPosition] =
+                [celdas[indiceVacio].style.backgroundPosition, celdas[indiceCelda].style.backgroundPosition];
+
+            celdas[indiceCelda].classList.toggle("vacio");
+            celdas[indiceVacio].classList.toggle("vacio");
+
+            comprobarVictoria();
+        }
+
+        // Función que comprueba si se gano el juego
+        function comprobarVictoria() {
+            /* Sacamos un array de las celdas del tablero */
+            const celdas = Array.from(document.querySelectorAll(".celda"));
+            // estadoActual es un array que almacena el estado actual del tablero
+            const estadoActual = celdas.map((celda, index) => {
+                if (celda.classList.contains("vacio")) return "";
+                // columna
+                const x = parseInt(celda.style.backgroundPosition.split(" ")[0]) / -80;
+                // fila
+                const y = parseInt(celda.style.backgroundPosition.split(" ")[1]) / -80;
+                // Se devuelve (fila * tamaño de fila + columna + 1) que da lugar a un numero del 1 al 15 según su posición
+                return y * 4 + x + 1;
+            });
+
+            // Se compara el estadoactual con el estadoObjetivo
+            if (estadoActual.every((valor, index) => valor == estadoObjetivo[index])) {
+                // Tras 100 ms se mostrara el mensaje de victoria
+                setTimeout(() => {
+                    alert("¡Has resuelto el rompecabezas!");
+                }, 100);
+            }
+        }
+    </script>
+</body>
+
+</html>

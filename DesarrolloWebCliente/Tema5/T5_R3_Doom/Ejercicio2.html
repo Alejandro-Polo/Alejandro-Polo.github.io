@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rompecabezas números</title>
+</head>
+<body>
+    <script>
+
+// Se crea el tablero
+const contenedorTablero = document.createElement("div");
+contenedorTablero.style.display = "grid";
+contenedorTablero.style.gridTemplateColumns = "repeat(4, 80px)";
+contenedorTablero.style.gridGap = "5px";
+contenedorTablero.style.width = "340px";
+document.body.appendChild(contenedorTablero);
+
+// Se crea un array ordenada para comparar si se ha completado el rompecabezas
+const estadoObjetivo = [...Array(15).keys()].map(n => n + 1).concat([""]);
+
+// Se desordena el array anterior para que el tablero sea aleatorio
+let numeros = [...estadoObjetivo];
+numeros.sort(() => Math.random() - 0.5);
+
+// celdas para el tablero
+numeros.forEach(numero => {
+    const celda = document.createElement("div");
+    celda.textContent = numero;
+    celda.className = "celda";
+    celda.style.width = "80px";
+    celda.style.height = "80px";
+    celda.style.display = "flex";
+    celda.style.alignItems = "center";
+    celda.style.justifyContent = "center";
+    celda.style.border = "1px solid black";
+    celda.style.backgroundColor = numero ? "#ddd" : "#bbb";
+    celda.style.cursor = numero ? "pointer" : "default"; // El cursor cambia solo si no esta vacio
+    contenedorTablero.appendChild(celda);
+
+    // Al hacer click llamaremos a la función para mover piezas
+    celda.onclick = function () {
+        moverNumero(celda);
+    };
+});
+
+// Función para mover números
+function moverNumero(celda) {
+    const celdas = Array.from(document.querySelectorAll(".celda"));
+    const indiceCelda = celdas.indexOf(celda);
+    const indiceVacio = celdas.findIndex(c => c.textContent === "");
+
+    // Defino los movimientos validos
+    const movimientosValidos = [
+        indiceVacio - 1, // Izquierda
+        indiceVacio + 1, // Derecha
+        indiceVacio - 4, // Arriba
+        indiceVacio + 4  // Abajo
+    ];
+
+     // Se verifica si la celda esta adyacente a la vacia
+    if (!movimientosValidos.includes(indiceCelda)) {
+        return;
+    }
+
+    // Se termina intercambiando las celdas
+    [celdas[indiceCelda].textContent, celdas[indiceVacio].textContent] = 
+        [celdas[indiceVacio].textContent, celdas[indiceCelda].textContent];
+
+    // Se cambia el estilo de fondo para que se vea cual es la vacia
+    celdas[indiceCelda].style.backgroundColor = celdas[indiceCelda].textContent ? "#ddd" : "#bbb";
+    celdas[indiceVacio].style.backgroundColor = celdas[indiceVacio].textContent ? "#ddd" : "#bbb";
+
+    comprobarVictoria();
+}
+
+// Función que comprueba si se gano el juego
+function comprobarVictoria() {
+    // Sacamos un array de las celdas del tablero
+    const estadoActual = Array.from(document.querySelectorAll(".celda"))
+        .map(celda => celda.textContent.trim());
+
+    // Se compara el estadoactual con el estadoObjetivo
+    if (estadoActual.every((valor, index) => valor == estadoObjetivo[index])) {
+        // Tras 100 ms se mostrara el mensaje de victoria
+        setTimeout(() => {
+            alert("¡Felicidades, has resuelto el juego!");
+        }, 100);
+    }
+}
+
+    </script>
+</body>
+</html>

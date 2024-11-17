@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador</title>
+</head>
+
+<body>
+    <script>
+        // Contenedor principal
+        const contenedor = document.createElement("div");
+
+        // Se muestra el contador
+        const contador = document.createElement("div");
+        contador.id = "contador";
+        contador.textContent = "0"; // Inicia en 0
+        contenedor.appendChild(contador);
+
+        // Botón que incrementara el contador
+        const botonIncrementar = document.createElement("button");
+        botonIncrementar.textContent = "Incrementar Contador"; 
+
+        // Al hacer click llamara a una función
+        botonIncrementar.onclick = function () {
+            // Se combierte el texto en un valor y se incrementa
+            const valorActual = parseInt(contador.textContent);
+            contador.textContent = valorActual + 1;
+        };
+
+        contenedor.appendChild(botonIncrementar);
+        document.body.appendChild(contenedor);
+
+    </script>
+</body>
+
+</html>
