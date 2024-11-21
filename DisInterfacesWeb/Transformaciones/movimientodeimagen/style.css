@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container__foto{
+    width: 300px;
+    margin: 40px auto;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.8);
+    position: relative;
+    overflow: hidden;
+}
+
+.container__foto>img{
+    width: 100%;
+    height: 100%;
+}
+
+.container{
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(31, 78, 165, 0.7);
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    transform: translate(100%,100%) rotate(180deg);
+    transition: transform 2s ease;
+}
+
+.spidy{
+    height: 100px;
+    transform: translateY(-100px);
+    transition: transform 2s ease;
+}
+
+.container:hover .spidy{
+        transform: translateY(-20px);
+}
+
+.container__foto:hover .container{
+    transform: translate(0) rotate(0);
+}

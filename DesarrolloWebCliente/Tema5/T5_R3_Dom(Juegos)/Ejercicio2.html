@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="autor" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+    <style>
+        .f {
+            background-color: greenyellow;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        // Se crean los elementos principales
+        const cuerpo = document.body;
+        cuerpo.style.fontFamily = "Arial, sans-serif";
+        cuerpo.style.textAlign = "center";
+        cuerpo.style.backgroundColor = "greenyellow";
+
+        // Se crea el título
+        const titulo = document.createElement("h1");
+        titulo.textContent = "Ahorcado";
+        titulo.style.fontSize = "3em";
+        titulo.style.marginTop = "20px";
+        cuerpo.appendChild(titulo);
+
+        // Mostrar categoría
+        const parrafoCategoria = document.createElement("p");
+        parrafoCategoria.textContent = "La categoría elegida es: ";
+        parrafoCategoria.style.fontSize = "1.5em";
+        parrafoCategoria.style.margin = "20px 0";
+        const spanCategoria = document.createElement("span");
+        spanCategoria.id = "nombre-categoria";
+        parrafoCategoria.appendChild(spanCategoria);
+        cuerpo.appendChild(parrafoCategoria);
+
+        // Contenedor de los guiones
+        const contenedorGuiones = document.createElement("div");
+        contenedorGuiones.id = "guiones";
+        contenedorGuiones.style.fontSize = "2em";
+        contenedorGuiones.style.margin = "20px 0";
+        contenedorGuiones.style.letterSpacing = "10px";
+        cuerpo.appendChild(contenedorGuiones);
+
+        // Contenedor de las letras
+        const contenedorLetras = document.createElement("div");
+        contenedorLetras.id = "letras";
+        cuerpo.appendChild(contenedorLetras);
+
+        // Mostrar vidas
+        const parrafoVidas = document.createElement("p");
+        parrafoVidas.id = "vidas";
+        parrafoVidas.style.fontSize = "1.2em";
+        parrafoVidas.style.margin = "20px 0";
+        cuerpo.appendChild(parrafoVidas);
+
+        // Diferentes categorias en un array
+        const categorias = [
+            { nombre: "Ciudades", palabras: ["paris", "tokio", "madrid", "londres", "roma"] },
+            { nombre: "Animales", palabras: ["elefante", "jirafa", "leon", "tigre", "gato"] },
+            { nombre: "Frutas", palabras: ["manzana", "pera", "fresa", "naranja", "mango"] }
+        ];
+
+        // Elegir aleatoriamente una categoría y palabra
+        const categoriaElegida = categorias[Math.floor(Math.random() * categorias.length)];
+        const palabraElegida = categoriaElegida.palabras[Math.floor(Math.random() * categoriaElegida.palabras.length)];
+
+        // Variables del juego
+        let vidas = 10;
+        let palabraActual = "_".repeat(palabraElegida.length).split(""); // Se crea un array de guiones
+        const letrasElegidas = [];
+
+        // Se muestran la categoría y el estado inicial
+        // Se trabaja con ids para no repetir siempre lo mismo
+        document.getElementById("nombre-categoria").textContent = categoriaElegida.nombre;
+        document.getElementById("guiones").textContent = palabraActual.join(" ");
+        document.getElementById("vidas").textContent = `Te quedan ${vidas} vidas`;
+
+        // Crear botones para el alfabeto
+        const abecedario = "abcdefghijklmnopqrstuvwxyz".split("");
+        abecedario.forEach(letra => {
+            const boton = document.createElement("button");
+            boton.className = "boton-letra";
+            boton.textContent = letra;
+
+            // Estilo
+            boton.style.display = "inline-block";
+            boton.style.margin = "5px";
+            boton.style.padding = "10px 15px";
+            boton.style.fontSize = "1.2em";
+            boton.style.backgroundColor = "white";
+            boton.style.border = "2px solid white";
+            boton.style.borderRadius = "5px";
+            boton.style.cursor = "pointer";
+            boton.style.textTransform = "uppercase";
+
+            // cuando se haga click se llama a la función que mirara si esta en la palabra
+            boton.onclick = () => manejarLetra(boton, letra);
+            contenedorLetras.appendChild(boton);
+        });
+
+        // Función que comprueba si la letra esta en la palabra
+        function manejarLetra(boton, letra) {
+            // Cuando se presiona una tecla pasa a estar deshabilitada y tambien le cambia el color
+            boton.disabled = true;
+            boton.style.backgroundColor = "lightgray";
+            boton.style.cursor = "not-allowed";
+
+            letrasElegidas.push(letra);
+
+            // Si comprueba si la letra esta en la palabra
+            if (palabraElegida.includes(letra)) {
+                palabraElegida.split("").forEach((letraPalabra, indice) => {
+                    if (letraPalabra === letra) {
+                        palabraActual[indice] = letra;
+                    }
+                });
+                document.getElementById("guiones").textContent = palabraActual.join(" ");
+            } else {
+                vidas--;
+                document.getElementById("vidas").textContent = `Te quedan ${vidas} vidas`;
+            }
+            // Se comprueba si se ganó el juego
+            verificarEstadoJuego();
+        }
+
+        // Función para verificar si se ha ganado el juego
+        function verificarEstadoJuego() {
+            // Si las vidas son 0 has perdido
+            if (vidas === 0) {
+                // Se muestra una alerta con un retardo de 500 ms para poder ver la palabra
+                setTimeout(function () {
+                    alert(`¡Has perdido! La palabra era: ${palabraElegida}`);
+                    reiniciarJuego();
+                }, 500);
+                // sino has ganado
+            } else if (!palabraActual.includes("_")) {
+                // Se muestra una alerta con un retardo de 300 ms para poder ver la última letra
+                setTimeout(function () {
+                    alert("¡Felicidades, has ganado!");
+                    reiniciarJuego();
+                }, 300);
+            }
+        }
+
+        // Función que reinicia el juego
+        function reiniciarJuego() {
+            location.reload();
+        }
+    </script>
+</body>
+
+</html>

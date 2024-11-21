@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <title>Galería</title>
+</head>
+
+<body>
+    <main>
+        <h1>Galería de imágenes</h1>
+        <section class="galeria">
+            <img src="./img/uno.jpg" alt="uno">
+            <img src="./img/dos.jpg" alt="dos">
+            <img src="./img/tres.jpg" alt="tres">
+            <img src="./img/cuatro.jpg" alt="cuatro">
+            <img src="./img/cinco.jpg" alt="cinco">
+            <img src="./img/seis.jpg" alt="seis">
+        </section>
+        <section>
+            <article>
+                <div>
+                    <h2>Galería 2</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus ipsum expedita magni quos est.
+                        Expedita aspernatur, facere ut id porro voluptatibus quos quisquam illum maxime repellendus.
+                        Laudantium ipsum culpa quam!
+                    </p>
+                </div>
+                <img src="https://picsum.photos/id/21/300/300" alt="Zapato Blanco">
+            </article>
+            <article>
+                <img src="https://picsum.photos/id/20/300/300" alt="Zapato Blanco">
+                <div>
+                    <h2>Galería 3</h2>
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic consequatur cupiditate sunt
+                        accusamus
+                        rem nobis necessitatibus ad. Non enim dolorum, perspiciatis sequi culpa dolore illo. Quibusdam
+                        vero
+                        facere atque quam.
+                    </p>
+                </div>
+            </article>
+            <article>
+                <div>
+                    <h2>Galería 4</h2>
+                    <p>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam quasi natus voluptate
+                        praesentium quae fugiat, asperiores soluta eius eum quod aut excepturi autem pariatur nesciunt
+                        laborum itaque? Beatae, ad enim.
+                    </p>
+                </div>
+                <img src="https://picsum.photos/id/24/300/300" alt="Zapato Blanco">
+            </article>
+        </section>
+    </main>
+    <script>
+
+        const parrafoquery = document.querySelectorAll("p");
+
+        const mostrarparrafo = () => {
+            for (let i = 0; i < parrafoquery.length; i++) {
+                console.log(parrafoquery[i])
+            }
+        }
+
+        mostrarparrafo()
+
+        function desplosaArticle(filtro) {
+            let article = document.querySelectorAll("article")[0];
+
+            if (filtro == 0) {
+                for (const element of article.childNodes) {
+                    if (element.nodeName != "#text")
+                        console.log(element)
+                }
+            } else {
+                for (const element of article.childNodes) {
+                    if (element.nodeName == "#text")
+                        console.log(element)
+                }
+            }
+            console.log(filtro)
+        }
+        desplosaArticle(0)
+
+        function recorresubarbol(nodo) {
+            /* muestra etiqueta img */
+            let nodoarbol = document.getElementsByTagName(nodo)[0];
+            console.log(nodoarbol.tagName)
+            for (const element of nodoarbol.childNodes) {
+                if (element.tagName != undefined) {
+                    console.log(element.tagName)
+                }
+            }
+        }
+        recorresubarbol("article")
+
+
+
+        console.log("--------------")
+        const article = document.querySelectorAll("article")[0]
+        function muestraElementosDelDOM(element) {
+            console.log(element.tagName);
+            for (const ele of element.childNodes) {
+                if (ele.tagName !== undefined) {
+                    console.log(ele.tagName);
+                }
+            }
+        }
+
+        muestraElementosDelDOM(article)
+
+        console.log("--------------")
+        /* titulo,contenido,url */
+        /* Crear a partir de un json la pagina de adolfo con dom solo */
+        let section = document.querySelector("section:nth-of-type(2)")
+        console.log(section)
+        function creararticle2(padre, url) {
+            let createarticle = document.createElement("article")
+            let div = document.createElement("div")
+            let h2 = document.createElement("h2")
+            let p = document.createElement("p")
+            h2.textContent = " Titulo de un nuevo article"
+            p.textContent = "lorem..."
+            let img = document.createElement("img")
+            img.src = url
+            padre.appendChild(createarticle)
+            article.appendChild(div)
+            div.appendChild(h2)
+            div.appendChild(p)
+            article.appendChild(img)
+        }
+
+        
+        (() => {
+    const padreSection = document.querySelector('section:last-of-type');
+
+    const articulos = [
+        {
+            titulo: 'Artículo 1',
+            contenido: 'Contenido del artículo 1',
+            url: 'https://picsum.photos/200/300'
+        },
+        {
+            titulo: 'Artículo 2',
+            contenido: 'Contenido del artículo 2',
+            url: 'https://picsum.photos/200/300'
+        },
+        {
+            titulo: 'Artículo 3',
+            contenido: 'Contenido del artículo 3',
+            url: 'https://picsum.photos/200/300'
+        }
+    ];
+
+    function subirListaDeArticulos(padre,lista) {
+        const fragment = document.createDocumentFragment();
+        
+        //recorro todos los elemetnos de nuestra "DB"
+        lista.forEach((article, articleIdx) => {
+            const articulo = createArticle(article, articleIdx);
+            fragment.appendChild(articulo);
+        });
+
+        padre.appendChild(fragment);
+    }
+
+    function createArticle(article, articleIdx) {
+        const { titulo, contenido, url } = article;
+
+        const articulo = document.createElement('ARTICLE');
+        const div = document.createElement('DIV');
+        const p = document.createElement('P');
+        const h2 = document.createElement('H2');
+        const img = document.createElement('IMG');
+
+        img.src = url;
+        h2.textContent = titulo;
+        p.textContent = contenido;
+
+        div.appendChild(h2);
+        div.appendChild(p);
+
+        //si es par o impar lo pongo a la izquierda o derecha la imagen
+        if (articleIdx % 2 === 0) {
+            articulo.appendChild(img);
+            articulo.appendChild(div);
+        } else {
+            articulo.appendChild(div);
+            articulo.appendChild(img);
+        }
+
+        return articulo;
+    }
+
+    subirListaDeArticulos(padreSection,articulos);
+})();
+           
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="autor" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+</head>
+
+<body>
+
+    <script>
+    // Array con las imágenes, en total 6 parejas
+    const images = [
+        'fresa.jpg', 'fresa.jpg',
+        'pinha.jpg', 'pinha.jpg',
+        'arandano.jpg', 'arandano.jpg',
+        'platano.jpg', 'platano.jpg',
+        'melocoton.jpg', 'melocoton.jpg',
+        'frutadragon.jpg', 'frutadragon.jpg',
+    ];
+
+    // Mezclar las imágenes de forma aleatoria
+    function shuffle(array) {
+        return array.sort(() => Math.random() - 0.5);
+    }
+
+    // Variables del juego
+    let firstCard = null;
+    let secondCard = null;
+    let lockBoard = false;
+    let matchedPairs = 0;
+    let startTime = Date.now();
+    let timerInterval;
+
+        const body = document.body;
+
+        // Crear contenedor para el temporizador
+        const timer = document.createElement('div');
+        timer.setAttribute('id', 'timer');
+        timer.textContent = 'Tiempo: 0 segundos';
+        body.appendChild(timer);
+
+        // Crear contenedor para el tablero del juego
+        const gameBoard = document.createElement('div');
+        gameBoard.setAttribute('id', 'game-board');
+        body.appendChild(gameBoard);
+
+        // Agregar estilos dinámicamente
+        const style = document.createElement('style');
+        style.textContent = `
+            body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+            }
+            #game-board {
+                display: grid;
+                grid-template-columns: repeat(3, 100px);
+                gap: 10px;
+                margin: 20px auto;
+                max-width: 320px;
+            }
+            .card {
+                width: 100px;
+                height: 100px;
+                background-color: #ccc;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                background-size: cover;
+            }
+            .hidden {
+                background-color: #ccc;
+                background-image: none !important;
+            }
+            #timer {
+                font-size: 1.5em;
+                margin-bottom: 20px;
+            }
+        `;
+        document.head.appendChild(style);
+
+    // Actualizar el contador de tiempo
+    function updateTimer() {
+        const timer = document.getElementById('timer');
+        const elapsedTime = Math.floor((Date.now() - startTime) / 1000);
+        timer.textContent = `Tiempo: ${elapsedTime} segundos`;
+    }
+
+    // Detener el contador de tiempo
+    function stopTimer() {
+        clearInterval(timerInterval);
+    }
+
+    // Crear el tablero del juego
+        const shuffledImages = shuffle(images);
+        const board = document.getElementById('game-board');
+
+        shuffledImages.forEach((image) => {
+            const card = document.createElement('div');
+            card.classList.add('card', 'hidden');
+            card.setAttribute('data-image', image);
+
+            board.appendChild(card);
+        });
+
+        darVueltaCartas();
+
+    // Función que dara la vuelta a las cartas y comprobara si son o no parejas
+    function darVueltaCartas() {
+        // Se seleccionan todas las cartas
+        const cards = document.querySelectorAll('.card');
+
+        cards.forEach((card) => {
+            card.addEventListener('click', () => {
+                if (lockBoard || !card.classList.contains('hidden')) return;
+                // Quita el hidden de la carta seleccionada
+                card.classList.remove('hidden');
+                // Muestra la imagen
+                card.style.backgroundImage = `url(${card.getAttribute('data-image')})`;
+                if (!firstCard) {
+                    // Se selecciona una primera carta
+                    firstCard = card;
+                } else {
+                    // Se selecciona la segunda carta
+                    secondCard = card;
+                    lockBoard = true;
+
+                    // Se comprueba si la primera carta y la segunda coinciden
+                    if (firstCard.getAttribute('data-image') === secondCard.getAttribute('data-image')) {
+                        matchedPairs++;
+                        resetSelection();
+                        // Si todas las parejas están emparejadas, el tiempo se detiene
+                        if (matchedPairs === images.length / 2) {
+                            stopTimer();
+                        }
+                    } else {
+                        // Si no coinciden, se ocultaran de nuevo
+                        setTimeout(() => {
+                            firstCard.classList.add('hidden');
+                            secondCard.classList.add('hidden');
+                            firstCard.style.backgroundImage = 'none';
+                            secondCard.style.backgroundImage = 'none';
+                            resetSelection();
+                        }, 1000);
+                    }
+                }
+            });
+        });
+    }
+
+    // Resetear selección de cartas
+    function resetSelection() {
+        firstCard = null;
+        secondCard = null;
+        lockBoard = false;
+    }
+
+    timerInterval = setInterval(updateTimer, 1000);
+    </script>
+</body>
+
+</html>

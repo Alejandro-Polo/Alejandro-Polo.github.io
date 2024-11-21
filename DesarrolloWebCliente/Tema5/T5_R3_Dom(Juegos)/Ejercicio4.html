@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="autor" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4</title>
+</head>
+<body>
+    <script>
+        // Se crea el contenedor principal
+        const contenedorPrincipal = document.createElement("div");
+        // Estilos
+        contenedorPrincipal.style = `
+            width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        `;
+
+        // Se crea el título
+        const titulo = document.createElement("h1");
+        titulo.textContent = "Lista de Compras";
+        // Estilos
+        titulo.style = `
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        `;
+        contenedorPrincipal.appendChild(titulo);
+
+        // Se crea el formulario
+        const formulario = document.createElement("form");
+        // Estilos
+        formulario.style = `
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        `;
+
+        // Crear el campo de entrada
+        const entrada = document.createElement("input");
+        entrada.type = "text";
+        entrada.placeholder = "añade algo a la lista";
+        // Estilos
+        entrada.style = `
+            flex: 1;
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid grey;
+            border-radius: 5px;
+        `;
+        formulario.appendChild(entrada);
+
+        // Se crea el botón de enviar
+        const botonaddlista = document.createElement("button");
+        botonaddlista.type = "button";  
+        botonaddlista.textContent = "Añadir";
+        // Estilos
+        botonaddlista.style = `
+            padding: 10px 15px;
+            font-size: 1em;
+            color: white;
+            background-color: blue;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        `;
+        formulario.appendChild(botonaddlista);
+
+        contenedorPrincipal.appendChild(formulario);
+
+        // Se crea la lista
+        const lista = document.createElement("ul");
+        // Estilos
+        lista.style = `
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        `;
+        contenedorPrincipal.appendChild(lista);
+
+        // Se crea el botón de limpiar lista
+        const botonLimpiar = document.createElement("button");
+        botonLimpiar.textContent = "Limpiar Lista";
+        // Estilos
+        botonLimpiar.style = `
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 1em;
+            color: red;
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-decoration: underline;
+        `;
+        contenedorPrincipal.appendChild(botonLimpiar);
+
+        // Hacemos que el boton enviar llave a una función para añadir
+        botonaddlista.onclick = function() {
+            const texto = entrada.value.trim();
+            // Si el texto esta vacio no añade nada
+            if (texto === "")
+            return;
+
+            // Se crea un nuevo elemento
+            const item = document.createElement("li");
+            item.textContent = texto;
+            // Estilo 
+            item.style = `
+                padding: 10px;
+                font-size: 1em;
+                border-bottom: 1px solid #ccc;
+                text-align: left;
+            `;
+            lista.appendChild(item);
+
+            // Se limpia el campo de entrada
+            entrada.value = "";
+        };
+
+        // Función que pone la lita en blanco
+        botonLimpiar.onclick = function() {
+            lista.innerHTML = "";
+        };
+
+        // Agregar todo al cuerpo del documento
+        document.body.appendChild(contenedorPrincipal);
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    background-color: crimson;
+    height: 600px;
+    width: 90%;
+    margin: 80px auto;
+    overflow: hidden;
+}
+.spidy{
+    height: 500px;
+    transform: translateY(-120px);
+    transition: transform 2s ease;
+}
+
+.container:hover .spidy{
+        transform: translateY(0);
+}

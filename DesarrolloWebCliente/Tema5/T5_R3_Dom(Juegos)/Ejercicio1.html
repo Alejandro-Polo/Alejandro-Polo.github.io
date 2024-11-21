@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="autor" content="Alejandro Polo Barranco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+</head>
+<body>
+    <script>
+        // Se crea el contenedor principal
+        const divPrincipal = document.createElement("div");
+        // Estilo
+        divPrincipal.style = `
+            background-color: orange; 
+            color: white; 
+            height: 600px; 
+            width: 800px; 
+            text-align: center; 
+            margin: 0 auto; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 20px;
+        `;
+
+        // Se crean los título
+        const titulo = document.createElement("p");
+        titulo.textContent = "STOPWATCH";
+        titulo.style = "font-size: 3em; margin: 0;";
+        divPrincipal.appendChild(titulo);
+        const subtitulo = document.createElement("p");
+        subtitulo.textContent = "VANILLA JAVASCRIPT STOPWATCH";
+        subtitulo.style = "font-size: 1.5em; margin: 0;";
+        divPrincipal.appendChild(subtitulo);
+
+        // Se crea el cronometro
+        const contador = document.createElement("p");
+        contador.textContent = "00:00";
+        contador.style = "font-size: 3em; margin: 20px 0;";
+        divPrincipal.appendChild(contador);
+
+        // Se crean los tres botones
+        const botonInicio = document.createElement("button");
+        const botonParar = document.createElement("button");
+        const botonReset = document.createElement("button");
+
+        botonInicio.textContent = "Start";
+        botonParar.textContent = "Stop";
+        botonReset.textContent = "Reset";
+
+        // con un foreach añado el estilo para los botones
+        [botonInicio, botonParar, botonReset].forEach(boton => {
+            boton.style = `
+                padding: 10px 20px; 
+                font-size: 1em; 
+                color: orange; 
+                background-color: white; 
+                border: 2px solid white; 
+                border-radius: 5px; 
+                cursor: pointer;
+            `;
+        });
+
+        // Se crea un div exclusivo para los botones y se añaden a él
+        const botonesContainer = document.createElement("div");
+        botonesContainer.style = "display: flex; gap: 20px;";
+        botonesContainer.appendChild(botonInicio);
+        botonesContainer.appendChild(botonParar);
+        botonesContainer.appendChild(botonReset);
+        divPrincipal.appendChild(botonesContainer);
+
+        // Agregar el contenedor principal al body
+        document.body.appendChild(divPrincipal);
+
+        // Lógica del cronómetro
+        let intervalo = null;
+        let segundos = 0;
+        // Función que se encarga de calcular el tiempo en minutos y segundos
+        function formatoTiempo(segundos) {
+            const minutos = Math.floor(segundos / 60);
+            const restoSegundos = segundos % 60;
+            return `${String(minutos).padStart(2, "0")}:${String(restoSegundos).padStart(2, "0")}`;
+        }
+        // Función que inicia el cronometro sumando en segundos
+        function inicioCronometro() {
+            if (intervalo === null) {
+                intervalo = setInterval(() => {
+                    segundos++;
+                    contador.textContent = formatoTiempo(segundos);
+                }, 1000);
+            }
+        }
+        // Función que detiene el cronometro
+        function pararCronometro() {
+            clearInterval(intervalo);
+            intervalo = null;
+        }
+        // Función que devuelve el contador a 00:00
+        function resetCronometro() {
+            pararCronometro();
+            segundos = 0;
+            contador.textContent = "00:00";
+        }
+
+        // Se asignan las funciones con onclick a los botones
+        botonInicio.onclick = inicioCronometro;
+        botonParar.onclick = pararCronometro;
+        botonReset.onclick = resetCronometro;
+    </script>
+</body>
+</html>

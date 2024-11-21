@@ -1,0 +1,115 @@
+section{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.caja{
+    width: 180px;
+    height: 180px;
+    background-color: #30b037;
+    color: white;
+    text-align: center;
+    line-height: 180px;
+    margin: 15px;
+    font-size: 18px;
+    font-family: Arial;
+}
+
+.caja1{
+    background-color: #c0392b;
+    transition: background-color 1s linear 0s;
+}
+
+.caja1:hover{
+    background-color: #3f51b5;
+    cursor: pointer;
+}
+
+.caja2{
+    background-color: #9b59b6;
+    transition: font-size 1s ease;
+}
+
+.caja2:hover{
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.caja3{
+    background-color: #2980b9;
+    transition: color 1s ease-in-out;
+}
+
+.caja3:hover{
+    color: black;
+    cursor: pointer;
+}
+
+.caja4{
+    background-color: #3498db;
+    transition: line-height 1s ease-in;
+}
+.caja4:hover{
+    line-height: 300px;
+    cursor: pointer;
+}
+
+.caja5{
+    background-color: #17a589;
+    transition: border-radius 1s ease-in-out;
+}
+
+.caja5:hover{
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.caja6{
+    background-color: #f1c40f;
+    transition: box-shadow 1s linear;
+}
+
+.caja6:hover{
+    box-shadow: 10px 10px 14px 2px rgb(0,0,0,0.47) ;
+    cursor: pointer;
+}
+
+.caja7{
+    background-color: #e67e22;
+    transition: opacity 1s ease;
+}
+
+.caja7:hover{
+    opacity: 0.3;
+    cursor: pointer;
+}
+
+.caja8{
+    background-color: #95a5a6;
+    transition: 0.3s linear;
+}
+
+.caja8:hover{
+    border-style: solid;
+    border-color: black;
+    cursor: pointer;
+}
+
+.caja9{
+    background-color: black;
+    transition: margin 1s ease;
+}
+
+.caja9:hover{
+    margin: 80px;
+    cursor: pointer;
+}
+
+.caja10{
+background-color: red;
+transition: padding 1s ease;
+}
+
+.caja10:hover{
+    padding: 30px;
+}
