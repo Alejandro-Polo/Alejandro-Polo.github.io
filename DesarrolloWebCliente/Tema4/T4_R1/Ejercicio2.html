@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+    <style>
+        div{
+            height: 200px;
+            width: 400px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div onmousemove="coordenadasConEvento(event)"></div>
+
+<p id="coords">Coordenadas: (x,y)</p>
+
+<script>
+function coordenadasConEvento(e) {
+  let x = e.clientX;
+  let y = e.clientY;
+  let coor = "Coordenadas: (" + x + "," + y + ")";
+  document.getElementById("coords").innerHTML = coor;
+}
+</script>
+</body>
+
+</html>

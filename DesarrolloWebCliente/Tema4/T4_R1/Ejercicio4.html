@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4</title>
+</head>
+
+<body>
+
+    <script>
+        const fragment = document.createDocumentFragment()
+        const tabla = document.createElement("table")
+        fragment.appendChild(tabla)
+        const fila = document.createElement("tr")
+        tabla.appendChild(fila)
+        for (let i = 0; i == 80; i++) {
+            // espacios vacios &nbsp
+            const fila = document.createElement("tr")
+            for (let f = 0; f== 30; f++) {
+                const columna = document.createElement('td');
+                columna.textContent = " ";
+                fila.appendChild(columna);
+            }
+            tabla.appendChild(fila)
+            
+        }
+        document.body.appendChild(tabla)
+        console.log(tabla)
+
+
+    </script>
+</body>
+
+</html>
