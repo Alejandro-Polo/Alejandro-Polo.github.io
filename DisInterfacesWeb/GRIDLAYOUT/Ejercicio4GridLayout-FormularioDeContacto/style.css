@@ -2,90 +2,83 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
 }
 
 body {
-    background-color: #564cf9;
+    font-family: Arial, Helvetica, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
 }
 
-#contenedor {
-    width: 80%;
-    max-width: 1200px;
-    height: 600px;
+.container {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(8, 1fr);
+    grid-template-columns: 1fr 1fr;
+    width: 80%;
+    max-width: 1600px;
     background-color: white;
     border-radius: 15px;
-    overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-#formulario {
-    grid-column: 1 / 5;
-    grid-row: 1 / -1;
+.formulario {
     padding: 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: white;
 }
 
-h1 {
-    font-size: 2.5em;
-    color: #4238db;
+.formulario h1 {
+    font-size: 2em;
+    color: black;
     margin-bottom: 20px;
 }
 
-form {
+.formulario form {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-input,
-textarea {
+.formulario input,.formulario textarea {
     padding: 15px;
-    border: 2px solid #ccc;
+    border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 1em;
 }
 
-textarea {
+.formulario textarea {
     resize: none;
-    height: 150px;
+    height: 100px;
+    font-size: 1em;
 }
 
-button {
-    background-color: #4238db;
+.formulario button {
+    background-color: #564cf9;
     color: white;
     border: none;
     padding: 15px;
     border-radius: 5px;
-    font-size: 1.2em;
+    font-size: 1em;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-button:hover {
-    background-color: #2f2ba4;
+.formulario button:hover {
+    background-color: #4238db;
 }
 
-#ilustracion {
-    grid-column: 4 / -1;
-    grid-row: 1 / -1;
+.ilustracion {
     background-color: #564cf9;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
+    position: relative;
 }
 
-#ilustracion img {
-    max-width: 80%;
+.ilustracion img {
+    max-width: 100%;
     height: auto;
 }

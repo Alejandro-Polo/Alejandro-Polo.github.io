@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 7</title>
+</head>
+<body>
+    <h1>Formulario de Contacto</h1>
+    <form>
+        <!-- Con onfocus mostramos cuando el elemento tenga el focus y con onblur nos aseguramos de que cuando pierda el foco se borre la ayuda -->
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" onfocus="mostrarAyuda('Puedes escribir nombre completo')" onblur="ocultarAyuda()">
+        <br><br>
+        
+        <label for="correo">Correo:</label>
+        <input type="email" id="correo" onfocus="mostrarAyuda('Puedes escribir una dirección de correo')" onblur="ocultarAyuda()">
+        <br><br>
+        
+        <label for="comentario">Comentario:</label><br>
+        <textarea id="comentario" rows="4" cols="50" onfocus="mostrarAyuda('Puedes escribir un comentario')" onblur="ocultarAyuda()"></textarea>
+        <br><br>
+        
+        <button type="submit" onfocus="mostrarAyuda('Envia el formulario al hacer click')" onblur="ocultarAyuda()">Enviar</button>
+        <button type="reset" onfocus="mostrarAyuda('Borra el formulario al hacer click')" onblur="ocultarAyuda()">Resetear</button>
+    </form>
+    <p id="ayuda" style="color: red; font-style: italic;"></p>
+
+    <script>
+        function mostrarAyuda(mensaje) {
+            document.getElementById("ayuda").textContent = mensaje;
+        }
+
+        function ocultarAyuda() {
+            document.getElementById("ayuda").textContent = "";
+        }
+    </script>
+</body>
+</html>

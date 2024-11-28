@@ -1,0 +1,64 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.top {
+    width: 100%;
+    height: 50px;
+    background-color: #7492B9;
+    color: white;
+}
+
+.top ul {
+    list-style: none;
+    max-width: 1090px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+    margin-right: 50px;
+    margin-top: 10px;
+    float: right;
+}
+
+.top>ul>li {
+    line-height: 40px;
+}
+
+.top>ul>li:hover{
+    cursor: pointer;
+}
+
+
+.menu-lateral{
+    width: 20%;
+    height: 90vh;
+    background-color: darkblue;
+    color: white;
+    font-size: 18px;
+    right: 0px; /* -305 para que este escondido */
+    position: fixed;
+    overflow-x: none;
+    transition: all 0.8s;
+}
+
+.menu-lateral ul{
+    list-style: none;
+    text-align: center;
+}
+
+.menu-lateral ul li{
+   margin-bottom: 115px;
+   margin-top: 115px;
+}
+
+.menu-lateral ul li:hover{
+    cursor: pointer;
+}
+
+
+

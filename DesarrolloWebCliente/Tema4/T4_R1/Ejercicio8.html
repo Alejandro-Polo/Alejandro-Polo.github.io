@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 8</title>
+</head>
+<body>
+    <form>
+        <label for="texto">Texto:</label>
+        <!-- el onblur cuando el input pierde el foco llama a la función -->
+        <input type="text" id="texto" onblur="convertirAmpersand()">
+        <br><br>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script>
+        /* Funcion que cambia el simbolo & por and del input de formulario */
+        function convertirAmpersand() {
+            const input = document.getElementById("texto");
+            input.value = input.value.replace(/&/g, "and");
+        }
+    </script>
+</body>
+</html>

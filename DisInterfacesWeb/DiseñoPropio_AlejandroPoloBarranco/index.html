@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Diseño Propio</title>
+</head>
+<body>
+    <input type="radio" name="perspective" id="threeD" checked>
+<input type="radio" name="perspective" id="isometric">
+<input type="radio" name="perspective" id="flat">
+
+<div class="wrapper">
+  <input type="checkbox" name="play" id="play">
+
+  <label for="play" class="playBtn"></label>
+  <div class="scene">
+    <div class="cube">
+      <div class="wall front"></div>
+      <div class="wall back"></div>
+      <div class="wall left"></div>
+      <div class="wall right"></div>
+      <div class="wall top"></div>
+      <div class="wall bottom"></div>
+    </div>
+  </div>
+</div>
+
+<nav class="perspectives">
+
+  <label class="threeBtn" for="threeD">
+    <svg class="threedee" viewBox="0 0 18 18" fill="none">
+      <path d="m1,1 v16 h16 V1 z m0,0 4,4 v8 h8 V5 H5 m8,0 4,-4 m0,16 -4,-4 m-8,0 -4,4"></path>
+    </svg>
+  </label>
+
+  <label class="isoBtn" for="isometric">
+    <svg class="iso" viewBox="0 0 20 20" fill="none">
+      <path d="m1.33,5.5 v9 l 8.66,5 8.66,-5 v-9 l -8.66,-5 -8.66,5 z m0,0 8.66,5 8.66,-5 m -8.66,5 v9"></path>
+    </svg>
+  </label>
+
+  <label class="flatBtn" for="flat">
+    <svg class="threedee" viewBox="0 0 18 18" fill="none">
+      <path d="m1,1 v16 h16 V1 z"></path>
+    </svg>
+  </label>
+</body>
+</html>
+
+<!-- Perspective si -->

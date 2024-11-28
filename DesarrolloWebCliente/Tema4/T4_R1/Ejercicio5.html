@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 4</title>
+    <title>Ejercicio 5</title>
 </head>
-<!-- Se carga la funcion -->
-<body onload="crearTabla()">
+<body onload="crearCanvas()">
+    <button onclick="borrarCanvas()">Borrar todo el canvas</button>
     <div id="divdibujar"></div>
 
     <script>
-        function crearTabla() {
+
+        function crearCanvas() {
             const contenedor = document.getElementById("divdibujar");
-            const tabladibujar = document.createElement("table");
+            tabladibujar = document.createElement("table");
             tabladibujar.style.borderCollapse = "collapse";
 
-            for (let i = 0; i < 40; i++) { // modificar para más alto
+            for (let i = 0; i < 45; i++) { // modificar para más alto
                 const fila = document.createElement("tr");
-                for (let j = 0; j < 80; j++) { // modificar para más ancho
+                for (let j = 0; j < 75; j++) { // modificar para más ancho
                     const celda = document.createElement("td");
                     // estilos
                     celda.style.width = "10px";
@@ -30,6 +31,8 @@
                             celda.style.backgroundColor = "red";
                         } else if (e.shiftKey) {
                             celda.style.backgroundColor = "blue";
+                        } else if (e.altKey) { // Con alt se puede borrar
+                            celda.style.backgroundColor = "";
                         }
                     });
 
@@ -38,6 +41,11 @@
                 tabladibujar.appendChild(fila);
             }
             contenedor.appendChild(tabladibujar);
+        }
+        // funcion para volver las celdas en blanco
+        function borrarCanvas() {
+            const celdas = tabladibujar.querySelectorAll("td");
+            celdas.forEach(celda => celda.style.backgroundColor = "");
         }
     </script>
 </body>
