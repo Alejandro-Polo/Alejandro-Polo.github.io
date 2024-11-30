@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+</head>
+
+<body>
+    <div>
+        <button onclick="increaseFontSize()">Aumentar Tamaño</button>
+        <button onclick="decreaseFontSize()">Disminuir Tamaño</button>
+        <button onclick="resetFontSize()">Tamaño por Defecto</button>
+        <button onclick="justifyText()">Justificar</button>
+        <button onclick="alignLeft()">Alinear a la Izquierda</button>
+    </div>
+
+    <!-- Parrafos -->
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti adipisci reprehenderit quasi voluptas. Quasi, ullam sequi quae quia ipsa pariatur labore, nostrum nihil fugiat magni sapiente! Omnis, vel rerum! Optio?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis reiciendis a praesentium ipsam at architecto eius totam aliquam. Neque voluptatem soluta expedita illo? Dolores aliquam nostrum maxime molestias consectetur praesentium.</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse maiores placeat at, et sunt quam a? Autem assumenda vel perferendis labore eaque, delectus ratione hic quae velit nihil possimus distinctio!</p>
+
+    <script>
+        // Tamaño por defecto
+        let defaultFontSize = 16;
+        let currentFontSize = defaultFontSize;
+
+        // Aumentar tamaño de fuente
+        function increaseFontSize() {
+            currentFontSize += 2;
+            updateFontSize();
+        }
+
+        // Disminuir tamaño de fuente
+        function decreaseFontSize() {
+            currentFontSize = Math.max(currentFontSize - 2);
+            updateFontSize();
+        }
+
+        // Devuelve el tamaño por defecto
+        function resetFontSize() {
+            currentFontSize = defaultFontSize;
+            updateFontSize();
+        }
+
+        // Justificación de texto
+        function justifyText() {
+            const paragraphs = document.querySelectorAll("p");
+            paragraphs.forEach(p => p.style.textAlign = "justify");
+        }
+
+        // Alineacion a la izquierda
+        function alignLeft() {
+            const paragraphs = document.querySelectorAll("p");
+            paragraphs.forEach(p => p.style.textAlign = "left");
+        }
+
+        // Cambia el tamaño de todos los parrafos
+        function updateFontSize() {
+            const paragraphs = document.querySelectorAll("p");
+            paragraphs.forEach(p => p.style.fontSize = currentFontSize + "px");
+        }
+    </script>
+</body>
+
+</html>

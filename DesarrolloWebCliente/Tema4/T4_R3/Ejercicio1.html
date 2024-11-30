@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Guessing Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <script>
+        //estilos del body
+        document.body.style.margin = "0";
+        document.body.style.fontFamily = "Arial, sans-serif";
+        document.body.style.textAlign = "center";
+
+        // dom y estilos del titulo del juego
+        const h1 = document.createElement("h1");
+        h1.textContent = "Juego de adivinar el color";
+        h1.style.backgroundColor = "skyblue";
+        h1.style.color = "white";
+        h1.style.margin = "0";
+        h1.style.padding = "20px";
+        h1.style.fontSize = "24px";
+        document.body.appendChild(h1);
+
+        // un span para poner el color en formato rgb
+        const rgbValueSpan = document.createElement("span");
+        rgbValueSpan.id = "valores-rgb";
+        h1.append(" ", rgbValueSpan);
+
+        const botonNuevosColores = document.createElement("button");
+        botonNuevosColores.textContent = "Nuevos colores";
+        botonNuevosColores.id = "nuevos-colores";
+        botonNuevosColores.style.margin = "10px";
+        botonNuevosColores.style.padding = "10px 15px";
+        botonNuevosColores.style.cursor = "pointer";
+        document.body.appendChild(botonNuevosColores);
+
+        const divParaDificultad = document.createElement("div");
+        divParaDificultad.id = "dificultad";
+        document.body.appendChild(divParaDificultad);
+
+        const botonFacil = document.createElement("button");
+        botonFacil.textContent = "Facil";
+        botonFacil.id = "facil";
+        botonFacil.style.margin = "5px";
+        botonFacil.style.padding = "10px 15px";
+        botonFacil.style.cursor = "pointer";
+        divParaDificultad.appendChild(botonFacil);
+
+        const botonDificil = document.createElement("button");
+        botonDificil.textContent = "Dificil";
+        botonDificil.id = "dificil";
+        botonDificil.style.margin = "5px";
+        botonDificil.style.padding = "10px 15px";
+        botonDificil.style.cursor = "pointer";
+        divParaDificultad.appendChild(botonDificil);
+
+        const contenedor = document.createElement("div");
+        contenedor.id = "contenedor";
+        contenedor.style.display = "flex";
+        contenedor.style.justifyContent = "center";
+        contenedor.style.flexWrap = "wrap";
+        contenedor.style.marginTop = "20px";
+        contenedor.style.gap = "20px";
+        document.body.appendChild(contenedor);
+
+        const mensajeDeAyuda = document.createElement("p");
+        mensajeDeAyuda.id = "mensaje";
+        mensajeDeAyuda.style.marginTop = "20px";
+        mensajeDeAyuda.style.fontSize = "18px";
+        document.body.appendChild(mensajeDeAyuda);
+
+        // Variables usadas para el juego
+        let cuadrados = 6;
+        let colores = [];
+        let colorSeleccionado;
+
+        // Funcion que inicia el juego
+        init();
+        function init() {
+            cambiarDificultad();
+            nuevosColores();
+            reiniciaJuego();
+        }
+
+        // Configura los botones de dificultad
+        function cambiarDificultad() {
+            botonFacil.addEventListener("click", () => {
+                cuadrados = 3;
+                reiniciaJuego();
+            });
+
+            botonDificil.addEventListener("click", () => {
+                cuadrados = 6;
+                reiniciaJuego();
+            });
+        }
+
+        // Funcion que cambia los colores
+        function nuevosColores() {
+            botonNuevosColores.addEventListener("click", reiniciaJuego);
+        }
+
+        // Genera colores y reinicia el juego
+        function reiniciaJuego() {
+            colores = generarColoresRandom(cuadrados);
+            colorSeleccionado = elegirColor();
+            rgbValueSpan.textContent = colorSeleccionado.toUpperCase();
+            mensajeDeAyuda.textContent = "";
+            recargarCuadrados();
+        }
+
+        // Crea y actualiza los cuadros
+        function recargarCuadrados() {
+            contenedor.innerHTML = ""; 
+            // se recorre el array y se crean los cubos con los colores de este
+            colores.forEach(color => {
+                const cuadrado = document.createElement("div");
+                cuadrado.style.width = "100px";
+                cuadrado.style.height = "100px";
+                cuadrado.style.backgroundColor = color;
+                cuadrado.style.borderRadius = "10px";
+                cuadrado.style.cursor = "pointer";
+
+                cuadrado.addEventListener("click", function () {
+                    if (this.style.backgroundColor === colorSeleccionado) {
+                        mensajeDeAyuda.textContent = "Acertaste, Felicidades!";
+                        document.body.style.color = "Green";
+                    } else {
+                        mensajeDeAyuda.textContent = "Intentalo de nuevo!";
+                        document.body.style.color = "Red";
+                    }
+                });
+
+                contenedor.appendChild(cuadrado);
+            });
+        }
+
+
+        // Selecciona un color al azar
+        function elegirColor() {
+            const random = Math.floor(Math.random() * colores.length);
+            return colores[random];
+        }
+
+        // Genera un array de colores aleatorios
+        function generarColoresRandom(num) {
+            const arrColores = [];
+            // llamamos a otra funcion para generar colores dependiendo del numero de cuadrados
+            for (let i = 0; i < num; i++) {
+                arrColores.push(randomColor());
+            }
+            return arrColores;
+        }
+
+        // Generamos un solo color random 
+        function randomColor() {
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+            return `rgb(${r}, ${g}, ${b})`;
+        }
+
+    </script>
+</body>
+
+</html>

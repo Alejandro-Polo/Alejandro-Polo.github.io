@@ -24,7 +24,7 @@
     </div>
     <p id="encuadrado">Esto esta dentro de un marco</p>
     <script>
-        document.getElementById("escondido").style.fontSize = 0
+        document.getElementById("escondido").style.display = "none"
         const temaNormal = () =>{
             document.body.style.background="linear-gradient(to right,skyblue 0 10%,lightyellow 10% 100%)"
             document.body.style.fontFamily="Verdana, Tahoma, sans-serif"
@@ -38,7 +38,7 @@
             divenlaces.style.color="darkblue"
             document.getElementById("enlace1").style.textDecoration="none"
             document.getElementById("enlace2").style.textDecoration="none"
-            document.getElementById("escondido").style.fontSize = "15px"
+            document.getElementById("escondido").style.display = "block"
             const divencuadrado = document.getElementById("encuadrado")
             divencuadrado.style.border=" 2px solid black"
             divencuadrado.style.backgroundColor="yellow"

@@ -1,0 +1,28 @@
+body {
+    background: linear-gradient(to right, skyblue 0 10%, lightyellow 10% 100%);
+    font-family: Verdana, Tahoma, sans-serif;
+    margin-left: 170px;
+}
+
+#enlaces {
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    background-color: lightblue;
+    padding: 4px;
+    font-weight: bold;
+    color: darkblue;
+}
+
+#enlace1, #enlace2 {
+    text-decoration: none;
+}
+
+#escondido {
+    font-size: 15px;
+}
+
+#encuadrado {
+    border: 2px solid black;
+    background-color: yellow;
+    padding: 3px;
+}

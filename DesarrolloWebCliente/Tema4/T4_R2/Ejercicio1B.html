@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio1</title>
+    <link id="idEstilos" rel="stylesheet" href="">
+</head>
+
+<body>
+    <div id="enlaces">
+        <a href="#" onclick="DarEstiloPagina('normal.css')" id="enlace1">Tema Normal</a>
+        <a href="#" onclick="DarEstiloPagina('minimalista.css')" id="enlace2">Tema Minimalista</a>
+    </div>
+    <h1>Pagina de ejemplo</h1>
+    <p>En esta pagina vamos a comprobar lo fácil que es aplicar estilos mediante CSS a un documento seleccionado</p>
+    <p>Lo ideal es que al seleccionar un estilo éste permanezca siempre igual para el usuario.Hasta ahora no hemos visto
+        como hacerlo, Haber si se te ocurre como podremos hacerlo?</p>
+
+    <div id="escondido">
+        <p>Utilizando CSS podemos incluso ocultar partes del sitio</p>
+        <b>Este parrafo debe ser solo visible en el tema Normal</b>
+    </div>
+    <p id="encuadrado">Esto esta dentro de un marco</p>
+
+    <script>
+        // Dependiendo del boton que se pulse se cambia el estilo de la pagina
+        function DarEstiloPagina(estiloPagina) {
+            const link = document.getElementById('idEstilos');
+            link.href = estiloPagina;
+
+            // Si se recarga la pagina que el 
+            if (estiloPagina === "normal.css") {
+                document.getElementById("escondido").style.display = "block";
+            } else {
+                document.getElementById("escondido").style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>

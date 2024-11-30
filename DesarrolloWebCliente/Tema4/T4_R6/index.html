@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 6</title>
+</head>
+
+<body>
+
+    <script>
+
+        class bookList {
+            constructor(librosLeidos, librosNoLeidos, newxtbookread,) {
+                this.codigo = codigo
+                this.nombre = nombre
+                this.telefono = telefono
+
+            }
+        }
+        class Book {
+            constructor(titulo, genero, author, read) {
+                this.titulo = titulo
+                this.genero = genero
+                this.author = author
+                this.read = read
+                this.readDate = Date.now()
+            }
+        }
+        const fechaActual = () =>{
+            let fechaini = new Date("January 1, 1970 00:00:00")
+            let fechafin = Date.now()
+            return fechafin+fechaini
+
+        }
+        const arrBook = [
+            new Book("titulonueavo", "terror", "alguien", "true"),
+            new Book("titulomasnuevo", "noterror", "aguien2", "false")
+        ]
+        console.log(fechaActual())
+        console.log(arrBook)
+    </script>
+</body>
+<!-- Trabajar sobre arrays parseados -->
+ <!-- Categorias Productos Usuarios -->
+  <!-- Que tenga un login , se puedan añadir productos y crear categorias -->
+
+</html>
