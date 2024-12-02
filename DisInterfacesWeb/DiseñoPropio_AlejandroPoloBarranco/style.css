@@ -1,213 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
 body {
-    margin: 0; /* this overrides the default margin - which is crucial if your background isn't white/blank/undefined */
-    box-sizing: border-box; /* ensures that the border is within the container's limits rather than outside */
-    display: flex; /* you could alternately use grid */
-    flex-direction: row; /* items are arranged horizontally - i.e. sitting next to each other */
-    justify-content: center; /* groups the objects together at the center horizontally */
-    align-items: center; /* centers every object vertically */
-    min-height: 100vh; /* we need the viewport (the browser window) to be 100vh (100 viewport height units) so that there is enough space to suspend the object in */
-    filter: drop-shadow(0 0 10px lime); /* adds a green glow to the white lines */
-    font-size: .5vh; /* sets a fontsize dependent on the height of the viewport */
-  }
-  
-  .wrapper {
-    display: grid; /* to center the PLAY button */
-  }
-  
-  .scene {
-    height: 100em; /* sets the width to be 100 units of the font size, thus ensuring responsive scaling that mimics percentages */
-    aspect-ratio: 1; /* makes sure the height matches the width of the container, making it a square*/
-    perspective: 250em; /* sets the distance of the perspective */
-    position: relative; /* makes the position of the container independent of any other neighboring container - placed wherever you want rather than relative to its neighbors, and free to overlap */
-    /* scale: 1.2; */
-  }
-  
-  .scene * {
-    transform-style: preserve-3d; /* makes sure that each container nested inside the .scene tag treats its nested content as a 3D object rather than a 2D projection */
-    position: absolute; /*see absove*/
-    inset: 0; /* gives the containers nested in the .scene tag a margin of 0, thus making them fill it 100% in width and height; this is shorthand for top, right, bottom, left */
-  }
-  
-  .cube {
-    animation: spin 6s linear infinite; /* applies an infinite animation loop of the cube slowly spinning around */
-  }
-  
-  .wall {
-    border: 3em solid white; /* each wall has a white border - which is contained within the wall's width (this is what box-sizing: border-box does) */
-  }
-  
-  .front {
-    transform: translateZ(50em); /* pushes the wall out forward from the center, as if closer to the viewer*/
-  }
-  
-  .back {
-    transform: translateZ(-50em); /* pushes the wall back, farther from the viewer*/
-  }
-  
-  .left {
-    transform: rotateY(90deg) translateZ(50em); /* turns the wall clockwise, to its left (your right), then pushes it forward (again: its forward, not yours) */
-  }
-  
-  .right {
-    transform: rotateY(-90deg) translateZ(50em); /* turns the wall counterclockwise, to its right (your left), then pushes it forward (again: its forward, not yours) */
-  }
-  
-  .top {
-    transform: rotateX(90deg) translateZ(50em); /* turns the wall clockwise, towards the ceiling, then pushes it forward (again: its forward, not yours) */
-  }
-  
-  .bottom {
-    transform: rotateX(-90deg) translateZ(50em); /* turns the wall counterclockwise, towards the floor, then pushes it forward (again: its forward, not yours) */
-  }
-  
-  @keyframes spin { /* the cube makes a full 360 degree turn */
-    0% {
-      transform: rotateX(var(--xCline)) rotateY(60deg); /* though it starts from 60deg rather than a 0... */
-    }
-    100% {
-      transform: rotateX(var(--xCline)) rotateY(calc(60deg + 1turn)); /* ...it still makes a full turn, so it ends at 420deg */
-    }
-  }
-  
-  
-  /* OPTIONAL READING
-  
-  This section details the appearance and the functioning of the play/pause toggler. It is not a part of the cube - but still a fun thing to learn if you're up for it.
-  
-  */
-  
-  input {
-    display: none; /* hides the input, we'll have a label for it instead that is nicer than a tick-box */
-  }
-  
-  .playBtn { /* that's the label */
-    position: absolute;
-    width: 40em;
-    aspect-ratio: 1;
-    z-index: 1; /* places the label on a layer above the cube - as otherwise it'd be inside the 3D solid, and you wouldn't be able to interact with it */
-    display: grid; /* this label will have nested content, and we want it centered */
-    place-self: center; /* since its parent's display: grid, this object can center itself; very useful! - and flex can't do that */
-    place-items: center; /* the object's own display is grid - because it doesn't automatically inherit display from its parent, and we want to center its children, too. */
-    transition: all .5s ease-in-out; /* when you interact with the button - hover, check/uncheck the input - it will change appearance. This makes it switch between each look smoothly rather than instantly */
-  }
-  
-  .playBtn::before, .playBtn::after { /* these are a kind of containers within a container; they aren't declared in the HTML by you - but will show up in the page inspector */
-    content: ''; /* text or special characters go here - but we don't need any, we just want containers */
-    position: absolute;
-    inset: 0 0 50% 0; /* this creates a container that covers the upper half of the space available*/
-    border-style: solid;
-    border-color: #fff #fff0 #fff0 #fff; /* the top and the left border are white, the right and the bottom are transparent (white but with opacity of 0) */
-    border-width: 3em 0 0 3em; /* the top and the left border are 3em wide, the right and the bottom are 0px */
-    transform-origin: 0% 100%; /* this places the pivot of the container in its bottom left corner */
-    transform: skewY(25deg); /* creates a downward rhomboid */
-    transition: inherit; /* borrows transition properties from its parent container */
-  }
-  
-  .playBtn::before {
-    --dir: 1; /* a custom variable for the direction of transforms; translations applied to the container will be multiplied by this variable; here it changes nothing... */
-  }
-  
-  .playBtn::after {
-    --dir: -1; /* ...but here it makes the translation take on a negative value, and thus go in the other direction */
-    scale: 1 -1; /* the scale on the horizontal axis (the first number) stays the same, but on the vertical (the latter) it is negative, so the object is flipped upside down*/
-  }
-  
-  .playBtn:hover { /* when you mouse over the label... */
-    scale: 1.25; /* ...it gets a little bit larger */
-  }
-  
-  .playBtn:hover::before,
-  .playBtn:hover::after  {
-    filter: drop-shadow(0 0 3em lime); /* ...and it starts glowing brighter */
-  }
-  
-  #play:not(:checked) ~ .scene .cube { /* if the PLAY button hasn't been pressed */
-    animation-play-state: paused; /* ...the animation is paued */
-  }
-  
-  #play:checked ~ .playBtn { /* when you hit the PLAY button */
-    rotate: -90deg; /* ...it turns to its side */
-  }
-  
-  #play:checked ~ .playBtn::before,
-  #play:checked ~ .playBtn::after  {
-    transform: none;
-    inset: 35% 0;
-    border-color: #fff;
-    border-width: 3em;
-    translate: 0 calc(-80%*var(--dir)); /* ...and turns into a pause button */
-    transform-origin: 50% 50%;
-  }
-  
-  .perspectives { /* the navbar for perspective mode GUI */
-    margin-top: 0;
-    margin-left: 40em;
-    aspect-ratio: .33;
-    display: grid;
-    grid-template-rows: repeat(3, 1fr); /* this produces a vertical stack/column of 3 elements */
-  }
-  
-  .perspectives label {
-    width: 30em;
-    aspect-ratio: 1;
-    margin: 3em;
-    padding: 3em;
-    border: 7px solid #fff;
-    box-shadow: inset 0 0 0 0 #fff; /* similar to border, and since it's inset, it expands inwards rather than outwards; though right now it's invisible */
-    transition: box-shadow .6s, scale .3s ease-in-out;
-  }
-  
-  .perspectives label:hover {
-    scale: 1.25; /* buttons swell up on hover */
-  }
-  
-  .perspectives path { /* an element of Scalable Vector Graphics syntax, creating lines of various types */
-    stroke: #fff; /* this is SVG's term for outline*/
-  }
-  
-  #threeD:checked ~ .perspectives .threeBtn,
-  #isometric:checked ~ .perspectives .isoBtn,
-  #flat:checked ~ .perspectives .flatBtn {
-    box-shadow: inset 0 0 0 18em #fff; /* on input:checked the inward shadow expands to turn the whole label white */
-  }
-  
-  :is(.threeBtn, .isoBtn, .flatBtn) svg { 
-    mix-blend-mode: difference; /* makes the icon turn to the a color that is the opposite of its background: white when the background is black, and black when the background is white */
-  }
-  
-  #threeD:checked ~ .perspectives .threeBtn path,
-  #isometric:checked ~ .perspectives .isoBtn path,
-  #flat:checked ~ .perspectives .flatBtn path {
-    stroke-width: 1.25; /* thickens the stroke of the icons when their respective input is checked; the implicit default is 1 */
-  }
-  
-  #threeD:checked ~ .wrapper .scene {
-    perspective: 250em; /* sets the distance of the perspective */
-  }
-  
-  :is(#flat,#isometric):checked ~ .wrapper .scene {
-    perspective: none; /* removes the single-point perspective when isometric or flat are chosen */
-  }
-  
-  :is(#threeD,#flat):checked ~ .wrapper .cube {
-    --xCline: 0; /* rotation in the X axis */
-  }
-  
-  #isometric:checked ~ .wrapper .cube {
-    --xCline: -30deg; /* turning the object slightly to give it an isometric perspective, and also scaling it down a little because it's too large in that view */
-  }
-  
-  @media (orientation: portrait) { /* for mobile screens displaying in portait mode (a tall, narrow rectangle) */
-    body {
-      font-size: .5vw; /* the font size is now depended on the viewport width - rather than height - since now it's the narrower of the two dimensions */
-      flex-direction: column; /* in mobile/portrait mode the scene and the navigation need to be stacked vertically rather than horizontally */
-    }
-  
-    .perspectives {
-      margin-left: 0;
-      margin-top: 50em; /* a little margin separating the navbar from the cube - since it's a little too large in the single-point perspective mode*/
-      aspect-ratio: 3;
-      grid-template-columns: repeat(3,1fr); /* in the navbar, the buttons are now aligned next to rather on top of each other */
-      grid-template-rows: none;
-    }
-  }
+  font-family: Arial, sans-serif;
+  background: no-repeat linear-gradient(darkblue, skyblue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: white;
+}
+/* Título */
+h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+main {
+  width: 90%;
+  max-width: 1200px;
+  text-align: center;
+}
+
+/* Estilos de la galería */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  perspective: 800px;
+}
+
+.imagen {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  transform: rotateX(0deg);
+  transition: transform 0.5s ease, box-shadow 0.8s ease;
+}
+
+.imagen:hover {
+  transform: rotateX(15deg) rotateY(15deg) scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+}
+
+.imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  clip-path: polygon(10% 0, 90% 0, 100% 90%, 0 90%);
+  transition: clip-path 0.5s ease, transform 0.5s ease;
+}
+
+.imagen:hover img {
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+  transform: scale(1.1);
+}
+
+.imagen .oculto {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  color: white;
+  font-size: 20px;
+  transition: opacity 0.5s ease;
+}
+
+.imagen:hover .oculto {
+  opacity: 0.8;
+}
