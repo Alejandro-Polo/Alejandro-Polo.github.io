@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Prueba</title>
+</head>
+<body>
+    <script>
+        function RealizarSolicitud(){
+        const xhr =new XMLHttpRequest()
+        xhr.open("GET","https://fakestoreapi.com/products",true)
+        
+        xhr.onload = function () {
+            let objResultado=JSON.parse(xhr.responseText)
+            objResultado.forEach(productos => {
+/*                 console.log(productos.title)
+ */            });
+        }
+        xhr.send()
+    }
+    const crearCard = (nombre,img) => {
+            const div = document.createElement("div")
+            const p = document.createElement("p")
+            p.textContent = nombre
+            const imgprod = document.createElement("img")
+            imgprod.src = img
+            //console.log(rating.rate)
+            div.appendChild(p)
+            div.appendChild(imgprod)
+            return div
+        }
+
+        const crearCards = (arrayProductos) => {
+            const mainpagina = document.createElement("main")
+            arrayProductos.forEach(producto => {
+                const contenido = crearCard(producto.name,producto.img)
+                mainpagina.appendChild(contenido)
+            }
+            )
+            document.body.appendChild(mainpagina)
+        }
+
+    
+
+    RealizarSolicitud()
+    function getFetchV3(){
+        fetch('https://digimon-api.vercel.app/api/digimon')
+            .then(res=>res.json())  
+            .then(json=>{console.log(json)
+                crearCards(json)
+            }
+        )
+
+    }
+    getFetchV3()
+    </script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f2ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .contenedor {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: 350px;
+            text-align: center;
+        }
+
+        .tarjeta {
+            background: url('https://via.placeholder.com/300x180') no-repeat center center/cover;
+            border-radius: 10px;
+            height: 180px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .tarjeta .numero-tarjeta,
+        .tarjeta .nombre-tarjeta,
+        .tarjeta .fecha-expiracion {
+            position: absolute;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .tarjeta .numero-tarjeta {
+            bottom: 50px;
+            left: 20px;
+        }
+
+        .tarjeta .nombre-tarjeta {
+            bottom: 30px;
+            left: 20px;
+        }
+
+        .tarjeta .fecha-expiracion {
+            bottom: 30px;
+            right: 20px;
+        }
+
+        input, select, button {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            background-color: #ddd;
+            cursor: not-allowed;
+        }
+
+        .campo-error {
+            color: red;
+            font-size: 12px;
+            margin: -8px 0 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="tarjeta" id="vistaTarjeta">
+            <div class="numero-tarjeta" id="numeroTarjetaVista">**** **** **** ****</div>
+            <div class="nombre-tarjeta" id="nombreTarjetaVista">Nombre del Titular</div>
+            <div class="fecha-expiracion" id="fechaExpiracionVista">MM/AA</div>
+        </div>
+        <form id="formTarjeta">
+            <input type="text" id="numeroTarjeta" placeholder="Número de Tarjeta" maxlength="19">
+            <div class="campo-error" id="errorNumero">Número de tarjeta no válido</div>
+
+            <input type="text" id="nombreTitular" placeholder="Nombre del Titular">
+            <div class="campo-error" id="errorNombre">El nombre no puede estar vacío</div>
+
+            <div style="display: flex; gap: 10px;">
+                <select id="mesExpiracion">
+                    <option value="" disabled selected>Mes</option>
+                    <option value="01">01</option>
+                    <option value="02">02</option>
+                    <option value="03">03</option>
+                    <option value="04">04</option>
+                    <option value="05">05</option>
+                    <option value="06">06</option>
+                    <option value="07">07</option>
+                    <option value="08">08</option>
+                    <option value="09">09</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                </select>
+                <select id="anioExpiracion">
+                    <option value="" disabled selected>Año</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
+                    <option value="2026">2026</option>
+                </select>
+            </div>
+            <input type="text" id="codigoCVV" placeholder="CVV" maxlength="3">
+            <div class="campo-error" id="errorCVV">CVV inválido</div>
+
+            <button type="submit" id="botonEnviar" disabled>Enviar</button>
+        </form>
+    </div>
+
+    <script>
+        const numeroTarjeta = document.getElementById('numeroTarjeta');
+        const nombreTitular = document.getElementById('nombreTitular');
+        const mesExpiracion = document.getElementById('mesExpiracion');
+        const anioExpiracion = document.getElementById('anioExpiracion');
+        const codigoCVV = document.getElementById('codigoCVV');
+        const botonEnviar = document.getElementById('botonEnviar');
+
+        const numeroTarjetaVista = document.getElementById('numeroTarjetaVista');
+        const nombreTarjetaVista = document.getElementById('nombreTarjetaVista');
+        const fechaExpiracionVista = document.getElementById('fechaExpiracionVista');
+
+        numeroTarjeta.addEventListener('input', () => {
+            const valor = numeroTarjeta.value.replace(/\D/g, '').substring(0, 16);
+            numeroTarjeta.value = valor.replace(/(.{4})/g, '$1 ').trim();
+            numeroTarjetaVista.textContent = numeroTarjeta.value || '**** **** **** ****';
+
+            document.getElementById('errorNumero').style.display = 
+                /^[0-9]{16}$/.test(valor) ? 'none' : 'block';
+
+            validarFormulario();
+        });
+
+        nombreTitular.addEventListener('input', () => {
+            nombreTarjetaVista.textContent = nombreTitular.value || 'Nombre del Titular';
+            document.getElementById('errorNombre').style.display = 
+                nombreTitular.value.trim() ? 'none' : 'block';
+
+            validarFormulario();
+        });
+
+        mesExpiracion.addEventListener('change', actualizarFechaExpiracion);
+        anioExpiracion.addEventListener('change', actualizarFechaExpiracion);
+
+        function actualizarFechaExpiracion() {
+            const mes = mesExpiracion.value || 'MM';
+            const anio = anioExpiracion.value ? anioExpiracion.value.substring(2) : 'AA';
+            fechaExpiracionVista.textContent = `${mes}/${anio}`;
+
+            validarFormulario();
+        }
+
+        codigoCVV.addEventListener('input', () => {
+            const valor = codigoCVV.value.replace(/\D/g, '').substring(0, 3);
+            codigoCVV.value = valor;
+            document.getElementById('errorCVV').style.display = 
+                /^[0-9]{3}$/.test(valor) ? 'none' : 'block';
+
+            validarFormulario();
+        });
+
+        function validarFormulario() {
+            const numeroValido = /^[0-9]{16}$/.test(numeroTarjeta.value.replace(/\s/g, ''));
+            const nombreValido = nombreTitular.value.trim() !== '';
+            const cvvValido = /^[0-9]{3}$/.test(codigoCVV.value);
+            const fechaValida = mesExpiracion.value && anioExpiracion.value;
+
+            botonEnviar.disabled = !(numeroValido && nombreValido && cvvValido && fechaValida);
+        }
+    </script>
+</body>
+</html>

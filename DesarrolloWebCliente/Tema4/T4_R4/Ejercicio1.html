@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validación de Formularios</title>
+</head>
+<body>
+    <div id="form-container"></div>
+
+    <script>
+        function validarMayuscula(cadena) {
+            return /[A-Z]/.test(cadena);
+        }
+
+        function validarCaracteresEspeciales(cadena) {
+            return /[!@#$%^&]/.test(cadena);
+        }
+
+        function validarCorreo(cadena) {
+            const patron = /^[\w.-]+@[\w.-]+\.\w+$/;
+            return patron.test(cadena);
+        }
+
+        function validarTarjetaCredito(cadena) {
+            const patron = /^\d{4}-\d{4}-\d{4}-\d{4}$/;
+            return patron.test(cadena);
+        }
+
+        function validarLongitud(cadena) {
+            return cadena.length >= 8;
+        }
+
+        function validarNumero(cadena) {
+            return /\d/.test(cadena);
+        }
+
+        const formContainer = document.getElementById('form-container');
+        const form = document.createElement('form');
+
+        const fields = [
+            { label: "Texto con mayúscula", id: "campoMayuscula", validator: validarMayuscula },
+            { label: "Texto con carácter especial (!@#$%^&)", id: "campoEspecial", validator: validarCaracteresEspeciales },
+            { label: "Correo electrónico", id: "campoCorreo", validator: validarCorreo },
+            { label: "Tarjeta de crédito (formato: 1234-5678-9101-1121)", id: "campoTarjeta", validator: validarTarjetaCredito },
+            { label: "Texto de al menos 8 caracteres", id: "campoLongitud", validator: validarLongitud },
+            { label: "Texto con al menos un dígito", id: "campoNumero", validator: validarNumero }
+        ];
+
+        fields.forEach(field => {
+            const div = document.createElement('div');
+            const label = document.createElement('label');
+            label.textContent = field.label;
+            label.setAttribute('for', field.id);
+
+            const input = document.createElement('input');
+            input.setAttribute('type', 'text');
+            input.setAttribute('id', field.id);
+
+            div.appendChild(label);
+            div.appendChild(input);
+            form.appendChild(div);
+        });
+
+        const submitButton = document.createElement('button');
+        submitButton.textContent = "Enviar";
+        submitButton.setAttribute('type', 'submit');
+        form.appendChild(submitButton);
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            let allValid = true;
+            fields.forEach(field => {
+                const input = document.getElementById(field.id);
+                if (!field.validator(input.value)) {
+                    allValid = false;
+                }
+            });
+
+            alert(allValid ? "Formulario válido" : "Formulario inválido");
+        });
+
+        formContainer.appendChild(form);
+    </script>
+</body>
+</html>
