@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.contenedor {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.formulario-contenedor {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.formulario-contenedor input {
+    width: calc(33.33% - 10px);
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.formulario-contenedor input:last-child {
+    margin-right: 0;
+}
+
+.formulario-contenedor button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.formulario-contenedor button:hover {
+    background-color: #0056b3;
+}
+
+.lista-libros {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.libro-item {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.libro-item:last-child {
+    border-bottom: none;
+}
+
+.libro-item strong {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.resumen {
+    margin-top: 10px;
+    text-align: center;
+}

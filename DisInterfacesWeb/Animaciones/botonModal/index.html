@@ -3,20 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio Botón modal</title>
+    <title>Modal Animado</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <section class="galeria">
-        <a href="#modal">
-        </div>Abre Modal</a>
+        <a href="#modal" class="btn-open">Abre Modal</a>
     </section>
+
     <section class="show" id="modal">
-        <div class="show__modal">
-            <div class="mostrando"><h2>Ten presencia en internet con Hostinger</h2>
-                <p>Utiliza el codigo "Alejandro Polo"para obtener una clsae gratis</p>
+        <!-- Fondo que se expande -->
+        <div class="show__background"></div>
+
+        <!-- Contenedor del modal -->
+        <div class="show__modal-container">
+            <div class="show__modal">
+                <a href="#" class="show__close">X</a>
+                <img src="HostingerIllustration.svg" alt="Hostinger">
+                <h2>Ten presencia en internet con Hostinger</h2>
+                <p>Utiliza el código "Ana Fuentes" para obtener un súper descuento!</p>
                 <a href="#">Entra Aquí</a>
-            <a href="#" class="show__close">X</a>
+            </div>
         </div>
     </section>
 </body>

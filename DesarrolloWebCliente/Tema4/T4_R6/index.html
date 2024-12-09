@@ -1,49 +1,141 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 6</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Lista de Lectura</title>
 </head>
 
 <body>
+    <div class="contenedor">
+        <h1>Lista de Lectura</h1>
+        <div id="aplicacion"></div>
+    </div>
 
     <script>
+        const aplicacion = document.getElementById('aplicacion');
 
-        class bookList {
-            constructor(librosLeidos, librosNoLeidos, newxtbookread,) {
-                this.codigo = codigo
-                this.nombre = nombre
-                this.telefono = telefono
+        const formularioContenedor = document.createElement('div');
+        formularioContenedor.className = 'formulario-contenedor';
 
+        formularioContenedor.innerHTML = `
+            <input type="text" id="titulo" placeholder="Título" />
+            <input type="text" id="autor" placeholder="Autor" />
+            <input type="text" id="genero" placeholder="Género" />
+            <button onclick="agregarLibro()">Agregar Libro</button>
+        `;
+
+        const listaLibrosDiv = document.createElement('div');
+        listaLibrosDiv.className = 'lista-libros';
+        listaLibrosDiv.id = 'listaLibros';
+
+        const resumenDiv = document.createElement('div');
+        resumenDiv.className = 'resumen';
+        resumenDiv.id = 'resumen';
+
+        aplicacion.appendChild(formularioContenedor);
+        aplicacion.appendChild(listaLibrosDiv);
+        aplicacion.appendChild(resumenDiv);
+
+        class Libro {
+            constructor(titulo, autor, genero, leido = false) {
+                this.titulo = titulo;
+                this.autor = autor;
+                this.genero = genero;
+                this.leido = leido;
+                this.fechaLectura = leido ? new Date() : null;
             }
         }
-        class Book {
-            constructor(titulo, genero, author, read) {
-                this.titulo = titulo
-                this.genero = genero
-                this.author = author
-                this.read = read
-                this.readDate = Date.now()
+
+        class ListaLibros {
+            constructor() {
+                this.libros = [
+                    new Libro("El Quijote", "Miguel de Cervantes", "Novela", true),
+                    new Libro("Sherlock Holmes", "Arthur Conan Doyle", "Misterio", false)
+                ];
+                this.libroActual = this.libros.find(libro => !libro.leido) || null;
+                this.ultimoLibroLeido = this.libros.find(libro => libro.leido) || null;
+                this.siguienteLibro = this.libros.find(libro => !libro.leido && libro !== this.libroActual) || null;
+            }
+
+            agregar(libro) {
+                this.libros.push(libro);
+                if (!this.libroActual) this.libroActual = libro;
+                if (!this.siguienteLibro && !libro.leido) this.siguienteLibro = libro;
+            }
+
+            finalizarLibro() {
+                if (this.libroActual) {
+                    this.libroActual.leido = true;
+                    this.libroActual.fechaLectura = new Date();
+                    this.ultimoLibroLeido = this.libroActual;
+
+                    this.libroActual = this.siguienteLibro;
+                    this.siguienteLibro = this.libros.find(libro => !libro.leido && libro !== this.libroActual);
+                }
+            }
+
+            librosLeidos() {
+                return this.libros.filter(libro => libro.leido).length;
+            }
+
+            librosNoLeidos() {
+                return this.libros.filter(libro => !libro.leido).length;
             }
         }
-        const fechaActual = () =>{
-            let fechaini = new Date("January 1, 1970 00:00:00")
-            let fechafin = Date.now()
-            return fechafin+fechaini
 
+        const miListaLibros = new ListaLibros();
+
+        function agregarLibro() {
+            const titulo = document.getElementById('titulo').value;
+            const autor = document.getElementById('autor').value;
+            const genero = document.getElementById('genero').value;
+
+            if (titulo && autor && genero) {
+                const libro = new Libro(titulo, autor, genero);
+                miListaLibros.agregar(libro);
+                document.getElementById('titulo').value = '';
+                document.getElementById('autor').value = '';
+                document.getElementById('genero').value = '';
+                renderizarLibros();
+            } else {
+                alert('Por favor, completa todos los campos.');
+            }
         }
-        const arrBook = [
-            new Book("titulonueavo", "terror", "alguien", "true"),
-            new Book("titulomasnuevo", "noterror", "aguien2", "false")
-        ]
-        console.log(fechaActual())
-        console.log(arrBook)
+
+        function finalizarLibro() {
+            miListaLibros.finalizarLibro();
+            renderizarLibros();
+        }
+
+        function renderizarLibros() {
+            listaLibrosDiv.innerHTML = '';
+
+            miListaLibros.libros.forEach((libro, index) => {
+                const libroDiv = document.createElement('div');
+                libroDiv.className = 'libro-item';
+                libroDiv.innerHTML = `
+                    <strong>${libro.titulo}</strong>
+                    Autor: ${libro.autor} <br>
+                    Género: ${libro.genero} <br>
+                    ${libro.leido ? `Leído el: ${libro.fechaLectura.toLocaleDateString()}` : "No leído"}
+                `;
+                if (!libro.leido && libro === miListaLibros.libroActual) {
+                    libroDiv.innerHTML += `<br><button onclick="finalizarLibro()">Finalizar Lectura</button>`;
+                }
+                listaLibrosDiv.appendChild(libroDiv);
+            });
+
+            resumenDiv.innerHTML = `
+                Libros Leídos: ${miListaLibros.librosLeidos()} <br>
+                Libros No Leídos: ${miListaLibros.librosNoLeidos()}
+            `;
+        }
+
+        renderizarLibros();
     </script>
 </body>
-<!-- Trabajar sobre arrays parseados -->
- <!-- Categorias Productos Usuarios -->
-  <!-- Que tenga un login , se puedan añadir productos y crear categorias -->
 
 </html>

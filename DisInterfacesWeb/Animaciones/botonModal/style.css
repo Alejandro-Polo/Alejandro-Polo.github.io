@@ -4,72 +4,119 @@
     box-sizing: border-box;
 }
 
-body{
-    background-color: grey;
+body {
+    background-color: white;
+    font-family: Arial, sans-serif;
 }
 
 .galeria {
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(3, 2fr);
-    gap: 10px;
+    margin: 50px auto;
+    text-align: center;
 }
 
-.imagen{
-    position: relative;
-    overflow: hidden;
+.btn-open {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.2rem;
+    cursor: pointer;
 }
 
-h2{
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-.fotos{
-    display: block;
+.show {
     width: 100%;
     height: 100%;
-    transition: transform 1s ease;
-}
-
-.mostrando{
-    z-index: 10;
-    background-color: white;
-    transform: translate(0%,0%);
-    transition: transform 2s ease;
-    width: 100%;
-    height: 100%;
-}
-
-.imagen:hover .mostrando{
-    transform: translate(0%,-100%);
-}
-
-.show{
-    width: 100%;
-    height: 100%;
-    position:fixed;
+    position: fixed;
     top: 0;
     left: 0;
     display: flex;
-    transform: scale(0);
-    transition: transform 0.6s;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.6s ease;
 }
 
-.show:target{
+.show:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.show__background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
     transform: scale(1);
+    transition: transform 1.5s ease-in-out;
+    z-index: 1;
 }
 
-.show__modal{
-    width: 90%;
-    height: 70%;
-    background-image: url(HostingerIllustration.svg);
-    background-size: cover;
-    background-position: center;
-    margin: auto;
+.show:target .show__background {
+    transform: scale(100); /* Aumenta el círculo para cubrir toda la pantalla */
+}
+
+.show__modal-container {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease 1.5s, transform 0.6s ease 1.5s; /* Se sincroniza con la expansión del fondo */
+    z-index: 2;
     position: relative;
 }
-.show__close{
+
+.show:target .show__modal-container {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.show__modal {
+    width: 90%;
+    max-width: 500px;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.show__modal img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.show__modal h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.show__modal p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.show__modal a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.show__close {
     background-color: crimson;
     color: white;
     display: block;
@@ -79,9 +126,10 @@ h2{
     text-align: center;
     line-height: 30px;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 10px;
+    right: 10px;
     border-radius: 50%;
+    font-size: 1.2rem;
+    z-index: 3;
+    cursor: pointer;
 }
-
-
