@@ -1,0 +1,49 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "a title",
+      "views": 100
+    },
+    {
+      "id": "2",
+      "title": "Nuevo titulo",
+      "views": 100
+    },
+    {
+      "id": "1",
+      "title": "a title",
+      "views": 100
+    },
+    {
+      "id": "3",
+      "title": "a title3",
+      "views": 1300
+    },
+    {
+      "id": "4",
+      "title": "a title nuevo",
+      "views": 1400
+    },
+    {
+      "id": "5",
+      "title": "Nuevo titulo en segundos",
+      "views": 100
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
