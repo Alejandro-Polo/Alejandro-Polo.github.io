@@ -1,0 +1,12 @@
+
+//Definir una lista=array
+$colors:(#3498db,#2ecc71,#1abc9c);
+
+//Defino una variable para el texto
+$text-color: #fff;
+
+//Defino una funcion
+
+@function get-color($index){
+    @return nth($colors, $index);
+}

@@ -14,6 +14,7 @@ body {
   min-height: 100vh;
   color: white;
 }
+
 /* Título */
 h2 {
   margin-bottom: 20px;
@@ -78,4 +79,35 @@ main {
 
 .imagen:hover .oculto {
   opacity: 0.8;
+}
+
+/* Media Queries */
+@media (max-width: 1300px) {
+  .galeria {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  .imagen {
+    border-radius: 8px;
+  }
+  .imagen .oculto {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 900px) {
+  .galeria {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .imagen {
+    border-radius: 6px;
+  }
+  .imagen .oculto {
+    font-size: 16px;
+  }
+  main {
+    width: 100%;
+    padding: 0 10px;
+  }
 }

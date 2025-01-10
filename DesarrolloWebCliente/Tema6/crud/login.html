@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Crud</title>
+</head>
+
+<body>
+    <h1>Iniciar Sesión</h1>
+    <label>Usuario:</label><br>
+    <input type="text" id="loginUsuario" required><br><br>
+    <label>Contraseña:</label><br>
+    <input type="password" id="loginPassword" required><br><br>
+    <button type="submit" id="botonLogin">Iniciar Sesión</button>
+    <hr>
+    <h2>Registrar Nuevo Usuario</h2>
+    <label>Nuevo Usuario:</label><br>
+    <input type="text" id="nuevoUsuario" required><br><br>
+    <label>Nueva Contraseña:</label><br>
+    <input type="password" id="nuevaPassword" required><br><br>
+    <button type="submit" id="botonRegistro">Registrar Cuenta</button>
+    <br><br>
+    <hr>
+    <h2>Actualizar Usuario</h2>
+    <label>ID del Usuario(ya existente):</label><br>
+    <input type="text" id="actualizarId" required><br><br>
+    <label>Nuevo Usuario:</label><br>
+    <input type="text" id="actualizarUsuario" required><br><br>
+    <label>Nueva Contraseña:</label><br>
+    <input type="password" id="actualizarPassword" required><br><br>
+    <button type="submit" id="botonActualizar">Actualizar Usuario</button>
+    <br><br>
+    <hr>
+    <h2>Eliminar Usuario</h2>
+    <label>ID del Usuario:</label><br>
+    <input type="text" id="eliminarId" required><br><br>
+    <button type="submit" id="botonEliminar">Eliminar Usuario</button>
+
+    <script type="module" src="eventos.js"></script>
+</body>
+
+</html>

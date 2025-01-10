@@ -1,0 +1,662 @@
+/* Fuentes */
+@font-face {
+    font-family: "BebasNeue";
+    src: url("assets/fonts/BebasNeue.otf") format("embedded-opentype");
+}
+
+@font-face {
+    font-family: "TrebuschetMS";
+    src: url("assets/fonts/TrebuchetMS.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "icons";
+    src: url("assets/fonts/websymbols-regular-webfont.woff") format("woff");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("assets/img/pattern.png");
+    font-family: "TrebuschetMS";
+}
+
+h2 {
+    font-family: "BebasNeue";
+}
+/* Estilos menu */
+.menu {
+    height: 80px;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    margin-bottom: 40px;
+}
+
+.contenedor__menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.menu__menu a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: white;
+    font-size: 1.1em;
+}
+
+.menu__menu a:hover{
+    color: rgb(115, 205, 247);
+}
+
+/* Estilos  del logotipo con animaciones*/
+.menu__logotipo {
+    height: 50px;
+    width: 140px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: rgb(115, 205, 247);
+    position: relative;
+    overflow: hidden;
+}
+
+.orbita {
+    animation: orbitar 3s linear infinite;
+}
+
+@keyframes orbitar {
+    0% {
+        transform: rotate(0deg) translateX(10px) rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg) translateX(10px) rotate(-360deg);
+    }
+}
+
+.menu__logotipo img {
+    height: 30px;
+    width: 30px;
+    animation: girar 2s linear infinite;
+}
+
+@keyframes girar {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.menu__logotipo:hover {
+    background-color: grey;
+    color: black;
+}
+
+.menu__logotipo:hover img,
+.menu__logotipo:hover .orbita {
+    animation: none;
+}
+.menu__logotipo:hover .orbita{
+    animation: none;
+    animation: aparecerabajo 2s forwards;
+}
+
+@keyframes aparecerabajo {
+    0%{
+        transform: translateY(150%)
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+.menu__logotipo p{
+    font-size: 2em;
+    font-family: "TrebuschetMS";
+}
+
+.menu__logotipo:hover p{
+    animation: aparecerderecha 2s;
+}
+
+@keyframes aparecerderecha {
+    0%{
+        transform: translateX(200%);
+    }
+    100%{
+        transform: translateX(0%);
+    }
+}
+/* Fin de estilos de logotipo y tambien del menu */
+
+/* Inicio del contenedor principal de la página*/
+.contenedor{
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Inicio del contenedor de inicio que tiene un titulo y una imagen con animaciones */
+.contenedor__inicio {
+    margin: 0 auto;
+    position: relative;
+    height: 200px; 
+    width: 100%;
+    overflow: hidden;
+    background-color: white; 
+    box-shadow: 0px 0px 6px black;
+}
+
+
+.contenedor__inicio .divbanner {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.contenedor__inicio .divbanner h2{
+    animation: moversemucho 8s linear forwards;
+}
+
+@keyframes moversemucho {
+    0%{
+        scale: 1000%;
+        transform: translateX(400%);
+        opacity: 1;
+    }
+    30%{
+        scale: 1000%;
+        transform: translateX(-400%);
+        opacity: 0.2;
+    }
+    60%{
+        scale: 1000%;
+        transform: translateX(400%);
+    }
+    80%{
+        scale: 1000%;
+        transform: translateX(-400);
+    }
+    100%{
+        scale: 200%;
+        transform: translateX(-25%);
+    }
+}
+
+.contenedor__inicio img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150%;
+    height: 100%;
+    object-fit: cover; 
+    animation: moverImagen 8s linear forwards;
+}
+.contenedor__inicio h2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    text-shadow: 0 0 5px black;
+    z-index: 1;
+    transform: scale(200%);
+}
+
+@keyframes moverImagen {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-10%);
+    }
+}
+
+/* Fin del contenedor de inicio */
+/* Inicio del contenedor de cursos con animaciones para los titulos y el texto*/
+.contenedor__cursos {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    padding: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.contenedor__cursos div {
+    background-color: #fff;
+    text-align: center;
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.contenedor__cursos div:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.contenedor__cursos div:hover h2{
+    animation: aparecerarriba 2s forwards;
+}
+
+@keyframes aparecerarriba {
+    0%{
+        transform: translateY(-300%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+
+.contenedor__cursos div:hover P{
+    transform: translateX(-150%);
+    animation: aparecerizquierda 2s forwards;
+}
+
+@keyframes aparecerizquierda {
+    0%{
+        transform: translateX(-150%);
+    }
+    100%{
+        transform: translate(0);
+    }
+}
+
+.contenedor__cursos div:hover .icon{
+    color: blue;
+}
+
+.icon {
+    font-family: "icons";
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+/* Fin del contenedor de cursos */
+
+/* Articulos */
+.contenedor__titulos{
+    background-color: white;
+    background-image: url(./assets/img/pxgray.png);
+    text-align: center;
+    box-shadow: 3px 5px 0px grey;
+    margin-bottom: 40px;
+    padding: 20px;
+}
+
+.contenedor__articulos__articulo{
+    position: relative;
+    padding: 15px;
+    background-color: white;
+    border: 1px solid grey;
+    margin-bottom: 40px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.contenedor__articulos__articulo h2{
+    color: darkblue;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.fechaYcategoria {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    gap: 15px;
+    color: white; 
+    background-color: #333;
+    padding: 5px 15px;
+    border-radius: 0 0 0 10px;
+}
+
+
+.fechaYcategoria p {
+    margin: 10px 0 0 0;
+    font-size: 12px;
+}
+/* Fin de articulos */
+
+/* Sidebar */
+.contenedor__sidebar {
+    width: 300px;
+    padding: 20px;
+}
+
+.contenedor__sidebar h3 {
+    background-color: white;
+    background-image: url(./assets/img/pxgray.png);
+    background-size: cover;
+    box-shadow: 3px 5px 0px grey;
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+}
+
+/* Apartados */
+.contenedor__sidebar section {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+/* Buscar */
+.contenedor__sidebar .buscar input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Login */
+.contenedor__sidebar .login form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contenedor__sidebar .login input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contenedor__sidebar .login button {
+    padding: 10px;
+    background-color: #004080;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contenedor__sidebar .login p {
+    font-size: 12px;
+}
+
+/* Redes Sociales */
+.contenedor__sidebar .redes-sociales ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contenedor__sidebar .redes-sociales li {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    color: #333;
+}
+
+.contenedor__sidebar .redes-sociales li i {
+    font-family: "icons";
+    font-size: 24px;
+    color: #333;
+    position: relative;
+    z-index: 2;
+    transition: color 0.3s ease-in-out;
+}
+
+.contenedor__sidebar .redes-sociales li span {
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    position: absolute;
+    left: 50px;
+    opacity: 0;
+    white-space: nowrap;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    transform: translateX(-20px);
+}
+
+.contenedor__sidebar .redes-sociales li:hover span {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Patrocinadores */
+.contenedor__sidebar .patrocinadores ul {
+    list-style: none;
+    padding: 0;
+}
+
+.contenedor__sidebar .patrocinadores li {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.contenedor__articulos__sidebar {
+    display: flex; /* Alínea los hijos en una fila */
+    gap: 20px; /* Espaciado entre columnas */
+    margin: 0 auto; /* Centra el contenido horizontalmente */
+    max-width: 1200px; /* Ancho máximo del contenedor */
+    padding: 20px; /* Espaciado interno */
+    box-sizing: border-box; /* Incluir padding en el cálculo del ancho */
+}
+
+  /*  Boton con animacion de cambio de color */
+  .boton_final_con_colores {
+    margin: 50px auto;
+    display: block;
+    padding: 30px 400px;
+    font-size: 20px;
+    color: darkblue;
+    background: #fff;
+    border: 2px solid #000;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .boton_final_con_colores:hover {
+    border-radius: 15px;
+    border-width: 5px;
+    background-color: darkgray;
+    color: white;
+    text-shadow: 0px 2px black;
+    animation: cambiarcolorbore 3s infinite;
+  }
+
+  @keyframes cambiarcolorbore {
+    0% { border-color: yellow; }
+    25% { border-color: white; }
+    50% { border-color: blue; }
+    75% { border-color: green; }
+    100% { border-color: yellow; }
+  }
+/* Inicio del footer */
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: #000;
+    color: white;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.footer__menu,
+.footer__ubicacion,
+.footer__info {
+    flex: 1;
+    text-align: center;
+    padding: 0 15px;
+}
+
+.footer__menu h3, .footer__ubicacion h3, .footer__info h3 {
+    background-color: #ccc; 
+    color: black; 
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.footer__menu ul {
+    list-style: disc; 
+    padding-left: 20px; 
+    margin: 0;
+}
+
+.footer__menu ul li {
+    margin: 8px 0;
+}
+
+.footer__menu ul li a {
+    color: #00bfff; 
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer__menu ul li a:hover {
+    color: white;
+    margin-left: 10px; 
+}
+
+.footer__ubicacion iframe {
+    border: 0;
+    width: 90%;
+    height: 200px;
+    margin: 10px auto;
+    border-radius: 5px;
+}
+
+.footer__info img {
+    display: block;
+    margin: 10px auto;
+    max-width: 200px;
+}
+
+.footer__navegadores{
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    flex-wrap: nowrap; 
+}
+
+.footer__navegadores img {
+    width: 40px; 
+    height: auto; 
+}
+
+
+.footer__info p {
+    font-size: 12px;
+    color: #ccc; 
+    margin-top: 10px;
+}
+
+/* media querys */
+
+@media (max-width: 576px) {
+    .contenedor__menu {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .menu__menu a {
+        font-size: 1em;
+        margin-left: 10px;
+    }
+
+    .menu__logotipo {
+        width: 100px;
+        height: 40px;
+        padding: 5px;
+    }
+
+    .contenedor {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    .contenedor__cursos {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer__menu,
+    .footer__ubicacion,
+    .footer__info {
+        padding: 10px;
+    }
+
+    .boton_final_con_colores {
+        padding: 15px 50px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .contenedor__menu {
+        width: 90%;
+    }
+
+    .menu__menu a {
+        font-size: 1.1em;
+        margin-left: 15px;
+    }
+
+    .menu__logotipo {
+        width: 120px;
+        height: 45px;
+    }
+
+    .contenedor__inicio {
+        height: 150px;
+    }
+
+    .contenedor__cursos {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+
+    .footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer__menu,
+    .footer__ubicacion,
+    .footer__info {
+        padding: 15px;
+    }
+
+    .boton_final_con_colores {
+        padding: 20px 100px;
+        font-size: 18px;
+    }
+}
